@@ -375,20 +375,31 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         var marker = GMSMarker()
         var page_token:String = ""
         
+        NSLog("searchAroundMe--------------------------------1")
+        
         repeat {
+            
+            NSLog("searchAroundMe--------------------------------2-1")
+            
             let semaphore = DispatchSemaphore(value: 0)
+            NSLog("searchAroundMe--------------------------------2-2")
             
             //検索URLの作成
             let encodedStr = "cafes".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
             let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(lon)&radius=\(radius)&sensor=true&key=\(appDelegate.googleMapsApiKey)&name=\(encodedStr!)&pagetoken=\(page_token)"
             let searchNSURL = URL(string: url)
             
+            NSLog("searchAroundMe--------------------------------2-3")
+            
             let session = URLSession(configuration: URLSessionConfiguration.default)
-            session.dataTask(with: searchNSURL!, completionHandler: { (data : Data?, response : URLResponse?, error : NSError?) in
+            //session.dataTask(with: searchNSURL!, completionHandler: { (data : Data?, response : URLResponse?, error : NSError?) in
+            session.dataTask(with: searchNSURL!) {(data, response, error) -> Void in
                 
                 if error != nil {
                     NSLog("エラーが発生しました。\(error)")
                 } else {
+                    NSLog("searchAroundMe--------------------------------3")
+                    
                     if let statusCode = response as? HTTPURLResponse {
                         if statusCode.statusCode != 200 {
                             NSLog("サーバから期待するレスポンスが来ませんでした。\(response)")
@@ -396,6 +407,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                     }
                 
                     do {
+                        NSLog("searchAroundMe--------------------------------4")
+                        
                         let json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
                         let results = json["results"] as? Array<NSDictionary>
                     
@@ -407,11 +420,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                         }
                         
                         for result in results! {
+                            NSLog("searchAroundMe--------------------------------5")
+                            
                             if let geometry = result["geometry"] as? NSDictionary {
+                                NSLog("searchAroundMe--------------------------------6")
+                                
                                 if let location = geometry["location"] as? NSDictionary {
+                                    NSLog("searchAroundMe--------------------------------7")
                                     
                                     //ビンの座標を設定する
                                     DispatchQueue.main.async(execute: {
+                                        NSLog("searchAroundMe--------------------------------8")
+                                        
                                         //NSLog("result:\(result)")
                                         let mposition = CLLocationCoordinate2DMake(location["lat"] as! CLLocationDegrees, location["lng"] as! CLLocationDegrees)
                                         
@@ -437,10 +457,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                 }
                 sleep(1)
                 semaphore.signal()
-            } as! (Data?, URLResponse?, Error?) -> Void).resume()
+            //} as! (Data?, URLResponse?, Error?) -> Void).resume()
+            }.resume()
+            
+            
             
             semaphore.wait(timeout: DispatchTime.distantFuture)
         } while (page_token != "")
+        
+        
         
     }
     

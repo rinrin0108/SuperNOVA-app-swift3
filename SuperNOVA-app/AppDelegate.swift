@@ -59,6 +59,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //
         GMSServices.provideAPIKey(googleMapsApiKey)
         
+        _application = application
+        
         //ローカルプッシュ許可
         if #available(iOS 8.0, *) {
             // iOS8以上

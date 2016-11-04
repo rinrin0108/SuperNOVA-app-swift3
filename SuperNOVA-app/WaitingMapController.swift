@@ -256,7 +256,10 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
         
     }
     func callWebService(){
-        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(latitude),\(longitude)&destination=\(appDelegate._shoplat),\(appDelegate._shoplng)&mode=walking&key=\(appDelegate.googleMapsApiKey)")
+        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(latitude!),\(longitude!)&destination=\(appDelegate._shoplat!),\(appDelegate._shoplng!)&mode=walking&key=\(appDelegate.googleMapsApiKey)")
+        print("uryyyyyyyyyyyyyyyyyyyyyy")
+        print(url)
+        
         let request = URLRequest(url: url!)
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
@@ -265,23 +268,22 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
             
             // notice that I can omit the types of data, response and error
             do{
-                
                 if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
                     
-                    //print(jsonResult)
+                    print(jsonResult)
                     
-                    let routes = jsonResult.value(forKey: "routes")
-                    //print(routes)
+//                    let routes = jsonResult.value(forKey: "routes")
+//                    print(routes)
+                    let routes = jsonResult.mutableArrayValue(forKeyPath: "routes")
+                    let overview_polyline = routes.mutableArrayValue(forKeyPath: "overview_polyline")
+                    let points = overview_polyline.mutableArrayValue(forKeyPath: "points")
+                    let pointString = points.description
                     
-                    //let overViewPolyLine = routes![0]["overview_polyline"]!!["points"] as! String
-                    let overViewPolyLine = (((routes as! NSDictionary)[0] as! NSDictionary)["overview_polyline"] as! NSDictionary)["points"] as! String
-                    //print(overViewPolyLine)
-                    
-                    if overViewPolyLine != ""{
+                    if pointString != ""{
                         
                         //Call on Main Thread
                         DispatchQueue.main.async {
-                            self.addPolyLineWithEncodedStringInMap(overViewPolyLine)
+                            self.addPolyLineWithEncodedStringInMap(pointString)
                         }
                     }
                 }
