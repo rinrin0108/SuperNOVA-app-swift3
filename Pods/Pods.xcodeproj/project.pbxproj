@@ -1,0 +1,1198 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0245660B44C2FD32378ED4A347CFFFAE /* DataTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314295E7D45B2EB815DDEB268F703D98 /* DataTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0DC88EF3F01E17BF6AA48C28E377424A /* Pods-SuperNOVA-appUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACD257CFC7C1203E3C9A5DF16296361 /* Pods-SuperNOVA-appUITests-dummy.m */; };
+		10EB23E9ECC4B33E16933BB1EA560B6A /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF82BEF3F6523BE72E4974A0A857A3B /* Timeline.swift */; };
+		1329947BB72A9D9CA18F1C44AFBFD7F2 /* ISO8601DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC446585E55E77CE4555ED6FB7EF6643 /* ISO8601DateTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1457023A8917C66AEAE2EAF3802026D7 /* CustomDateFormatTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4520B16889CB5984E0490C8185268CE /* CustomDateFormatTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1775935BD9699735D90B0C0381C3CA6E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		1B9EDEDC964E6B08F78920B4F4B9DB84 /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C32482366A4B2060EAE14B6167A807D4 /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DD10CE01DCAE8694C6067A7A9768A59 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		23FCD10E8F198AF79649E004AB2C5BDD /* DateFormatterTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = D848F15296567757E3C3208BFF12FD22 /* DateFormatterTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		25E8218D7A1D56D4D65223CD8FC3CBC6 /* EnumTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D1491881F409EC501FE50708026E9 /* EnumTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		284417FEC7CC2218501B487D1616EA8F /* Pods-SuperNOVA-appUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 69761ED4D1AC38DDE9F570E4F1DE0500 /* Pods-SuperNOVA-appUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3626B94094672CB1C9DEA32B9F9502E1 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E8A663B3208757BD37C3019653B6FA /* TaskDelegate.swift */; };
+		4B06236EB97AB40B24BEE4483A5CF35B /* URLTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F39EB70E5266E22717141AC291040 /* URLTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71578B01AA5A31AB6B6622413656E50E /* Request.swift */; };
+		586C4AF6175CE3204416E6798FD7F73D /* Pods-SuperNOVA-app-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 83442D3C94FE746656C58B940FDCBA54 /* Pods-SuperNOVA-app-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		61200D01A1855D7920CEF835C8BE00B0 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C2B9C8D60EA31C013446F4421A9D8F /* DispatchQueue+Alamofire.swift */; };
+		62F65AD8DC4F0F9610F4B8B4738EC094 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4748CAC792FFEC06C47BD49956240300 /* ServerTrustPolicy.swift */; };
+		6C540D9D9A25F356C221598572F3F2EF /* ObjectMapper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A21D3485FE637AFF8A41FDBDE6733AB6 /* ObjectMapper-dummy.m */; };
+		7B5FE28C7EA4122B0598738E54DBEBD8 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BD05C9895ABB015FA5778B5421CA1C /* SessionDelegate.swift */; };
+		7D8CC01E8C9EFFF9F4D65406CDE0AB66 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397E90A25B032032DF70A74169EF014 /* Result.swift */; };
+		7E7EE8D5A6CDC6EFAC20A6382BCDE8B7 /* ToJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220AF4C32EAEF8C037691EFA21B00BF5 /* ToJSON.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		86D3021C3B6F4A9FC445B7CA3510EDB1 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382F2567AF296A8971488B5087A7D83B /* Map.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		89A04B513BDDAD3529E2DFD4E7CD8404 /* TransformType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD5709495DCC5096C79AD440E12238F /* TransformType.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		920A35072049537208E887B13F42787E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		958FA78B2D85662193B9DB75491DD7C6 /* NSDecimalNumberTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE613444396C05790129B19C1115100 /* NSDecimalNumberTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		95E9FB277407228BB774E96E509E0F83 /* TransformOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = D123978967D3B82F662405D9FBEC8489 /* TransformOf.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9ED2BB2981896E0A39EFA365503F58CE /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3DF89CF1BAD8766E11C1F715ADD23D /* AFError.swift */; };
+		A04BFC558D69E7DBB68023C80A9CFE4E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		A06E98F5B2C7CDF10F448870C0B56E52 /* DictionaryTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EBA2CD1ED00A5C6DD1E2DBFDCFBC0E /* DictionaryTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A0B9324FA8620E06C587E411D167810A /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB2812462818DAA23EACEF2036FECD0 /* Operators.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A2A6F71B727312BD45CC7A4AAD7B0AB7 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D76505247DCD96DB943EB6D2CDA242F /* NetworkReachabilityManager.swift */; };
+		A9EEEA7477981DEEBC72432DE9990A4B /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F578533E6A486334FAAB4811546A0C7C /* Alamofire-dummy.m */; };
+		AE1EF48399533730D0066E04B22CA2D6 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6982E3E7F04EA0C0DDEAE51E4FAE5E /* SessionManager.swift */; };
+		B07233F783C6F0AC8CF6E4CFA8CE0DBF /* Pods-SuperNOVA-appTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B8798D1DB8B58DB8C7D11FC8DD9B97E7 /* Pods-SuperNOVA-appTests-dummy.m */; };
+		B4842F0C032B3C12F1204869BF4A0516 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		B48DA003C6C8F0D24C992D9C665BD816 /* FromJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95361AA552F4565F1FB78375BEF2088 /* FromJSON.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		B65FCF589DA398C3EFE0128064E510EC /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E00AF94E2AD83B0346C9353E40075BB /* MultipartFormData.swift */; };
+		B8644E6F485BABEBCE0A118666AD553B /* Pods-SuperNOVA-app-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 862E8BC0632DFB5829DB0FFBDBCEAB39 /* Pods-SuperNOVA-app-dummy.m */; };
+		BBEFE2F9CEB73DC7BD97FFA66A0D9D4F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BA9651E1A5CCF41244C90C191627A /* Validation.swift */; };
+		BE5C67A07E289FE1F9BE27335B159997 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7082A7E8F744E8B799284DA9D4BFEE6C /* ParameterEncoding.swift */; };
+		CB6D60925223897FFA2662667DF83E8A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A72573143EBB1F8E021B8904B290C7 /* Response.swift */; };
+		D17A76477E3FDFE3016E8979A2993B7C /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F657E9E23669C8D47A1D18E8A49D85B /* Mapper.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E55375B167BAE7DCCE7F917D8CA9EAD2 /* ObjectMapper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5ADE821B86138180417EF505FC193AAA /* ObjectMapper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EA30E95CBF6CC9F3D2435C303B637F94 /* DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F05BA8896BEE48DCA45FDABB39313 /* DateTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EFD264FC408EBF3BA2528E70B08DDD94 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AB4301B6907394A1772B23F7D69CB5 /* Notifications.swift */; };
+		F44C407B909BC7EE9B61CCE3E0FF3407 /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A224603C1708E52EF814D99FAF6E5DC5 /* Mappable.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F55D41270C7825376FC91B3F28C891C5 /* Pods-SuperNOVA-appTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E404BB2830F972240FAAFB9D92F5CEF /* Pods-SuperNOVA-appTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6BECD98B97CBFEBE2C96F0E9E72A6C0 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022504733B6D032BEE1B459789B95F53 /* ResponseSerialization.swift */; };
+		F8B3D3092ED0417E8CDF32033F6122F5 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB8877338FBE06BB23E5C43EF72D631 /* Alamofire.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E13FE994B1FF1ABC616FF38F52937906 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40A16CB0CB5FD49FD533BBC4F0A0C888;
+			remoteInfo = ObjectMapper;
+		};
+		EBE5EDF4A21D75D6E8C9421D263E0A59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88E9EC28B8B46C3631E6B242B50F4442;
+			remoteInfo = Alamofire;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		022504733B6D032BEE1B459789B95F53 /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
+		032EEA9E7C5799E751F4905F470271F6 /* Pods-SuperNOVA-appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SuperNOVA-appTests.debug.xcconfig"; sourceTree = "<group>"; };
+		06E86F458CB8FDBD72F711B31B827F93 /* Pods-SuperNOVA-app-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SuperNOVA-app-acknowledgements.plist"; sourceTree = "<group>"; };
+		07A00A991145402A39607393C96F9518 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Subspecs/Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
+		07B8669149F7BDCCC49AD2A2173FAAB0 /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
+		07DBB877AA7CE8DA41658FD07089508F /* ObjectMapper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ObjectMapper-prefix.pch"; sourceTree = "<group>"; };
+		14ED1561D3B58BAE1409FCC3BCA6FE0D /* Pods-SuperNOVA-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SuperNOVA-app.debug.xcconfig"; sourceTree = "<group>"; };
+		15C2B9C8D60EA31C013446F4421A9D8F /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
+		1AF82BEF3F6523BE72E4974A0A857A3B /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
+		220AF4C32EAEF8C037691EFA21B00BF5 /* ToJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToJSON.swift; path = ObjectMapper/Core/ToJSON.swift; sourceTree = "<group>"; };
+		272763C0D73570108F62ABC7132ABFB5 /* Pods-SuperNOVA-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SuperNOVA-app.release.xcconfig"; sourceTree = "<group>"; };
+		2B1A1222CBA015D8A5E3600DD9CB7FE8 /* Pods-SuperNOVA-appUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SuperNOVA-appUITests-frameworks.sh"; sourceTree = "<group>"; };
+		303E7458745EAA22DC6A654238A9B9B2 /* Pods_SuperNOVA_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SuperNOVA_app.framework; path = "Pods-SuperNOVA-app.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		314295E7D45B2EB815DDEB268F703D98 /* DataTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataTransform.swift; path = ObjectMapper/Transforms/DataTransform.swift; sourceTree = "<group>"; };
+		3416FB29F0F10303239A99D2B60608ED /* ObjectMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ObjectMapper.framework; path = ObjectMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		382F2567AF296A8971488B5087A7D83B /* Map.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Map.swift; path = ObjectMapper/Core/Map.swift; sourceTree = "<group>"; };
+		3EB8877338FBE06BB23E5C43EF72D631 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
+		4748CAC792FFEC06C47BD49956240300 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
+		48BD05C9895ABB015FA5778B5421CA1C /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
+		4FB2812462818DAA23EACEF2036FECD0 /* Operators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = ObjectMapper/Core/Operators.swift; sourceTree = "<group>"; };
+		57A72573143EBB1F8E021B8904B290C7 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
+		5813525AA1984FC14A6780DED0238A3D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5ADE821B86138180417EF505FC193AAA /* ObjectMapper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ObjectMapper-umbrella.h"; sourceTree = "<group>"; };
+		5DE613444396C05790129B19C1115100 /* NSDecimalNumberTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NSDecimalNumberTransform.swift; path = ObjectMapper/Transforms/NSDecimalNumberTransform.swift; sourceTree = "<group>"; };
+		60AB4301B6907394A1772B23F7D69CB5 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
+		62646BF83B959F8CE0F43451F6A8DB6C /* Pods-SuperNOVA-appUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SuperNOVA-appUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		69761ED4D1AC38DDE9F570E4F1DE0500 /* Pods-SuperNOVA-appUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SuperNOVA-appUITests-umbrella.h"; sourceTree = "<group>"; };
+		6BF6ADC9F6DB636A124EB482D52BBDA4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E6982E3E7F04EA0C0DDEAE51E4FAE5E /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
+		6F5B15EA1AC9E12A1F5E80802E3073B1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F657E9E23669C8D47A1D18E8A49D85B /* Mapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Mapper.swift; path = ObjectMapper/Core/Mapper.swift; sourceTree = "<group>"; };
+		7082A7E8F744E8B799284DA9D4BFEE6C /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
+		71578B01AA5A31AB6B6622413656E50E /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
+		7397E90A25B032032DF70A74169EF014 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
+		76613223A845422FC9AFBFD55729A752 /* Pods_SuperNOVA_appUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SuperNOVA_appUITests.framework; path = "Pods-SuperNOVA-appUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7816E1102944F0F086249E76F2630B66 /* ObjectMapper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ObjectMapper.xcconfig; sourceTree = "<group>"; };
+		7D71BC6F65F08AE1C650B01C39C64AB8 /* Pods-SuperNOVA-appTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-SuperNOVA-appTests.modulemap"; sourceTree = "<group>"; };
+		83442D3C94FE746656C58B940FDCBA54 /* Pods-SuperNOVA-app-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SuperNOVA-app-umbrella.h"; sourceTree = "<group>"; };
+		862E8BC0632DFB5829DB0FFBDBCEAB39 /* Pods-SuperNOVA-app-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SuperNOVA-app-dummy.m"; sourceTree = "<group>"; };
+		876C7F1A833E219074023C6C4ABD0A81 /* Pods-SuperNOVA-appUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SuperNOVA-appUITests-resources.sh"; sourceTree = "<group>"; };
+		883BA9651E1A5CCF41244C90C191627A /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
+		8DF12F0992A919FC4096F084715D941F /* Pods-SuperNOVA-app-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SuperNOVA-app-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8E00AF94E2AD83B0346C9353E40075BB /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
+		8E404BB2830F972240FAAFB9D92F5CEF /* Pods-SuperNOVA-appTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SuperNOVA-appTests-umbrella.h"; sourceTree = "<group>"; };
+		9246EE21FE52FA6F5965EAB571DD0693 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Subspecs/Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		96143AC285EEFDCAC01DAC95A5736A90 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9ACD257CFC7C1203E3C9A5DF16296361 /* Pods-SuperNOVA-appUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SuperNOVA-appUITests-dummy.m"; sourceTree = "<group>"; };
+		9D76505247DCD96DB943EB6D2CDA242F /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		9DE53F76223865E72766C3B97F68A164 /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Subspecs/Maps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		9E211AA0E4FBAA899A8E29B85A178A5D /* Pods-SuperNOVA-appUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SuperNOVA-appUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A1D76B956D78194CC7D80464F2DBBC73 /* Pods_SuperNOVA_appTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SuperNOVA_appTests.framework; path = "Pods-SuperNOVA-appTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1FC6195FF48E01F74F1668B24D9E8C0 /* Pods-SuperNOVA-appTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SuperNOVA-appTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A21D3485FE637AFF8A41FDBDE6733AB6 /* ObjectMapper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ObjectMapper-dummy.m"; sourceTree = "<group>"; };
+		A224603C1708E52EF814D99FAF6E5DC5 /* Mappable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Mappable.swift; path = ObjectMapper/Core/Mappable.swift; sourceTree = "<group>"; };
+		A43F39EB70E5266E22717141AC291040 /* URLTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = URLTransform.swift; path = ObjectMapper/Transforms/URLTransform.swift; sourceTree = "<group>"; };
+		A4520B16889CB5984E0490C8185268CE /* CustomDateFormatTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomDateFormatTransform.swift; path = ObjectMapper/Transforms/CustomDateFormatTransform.swift; sourceTree = "<group>"; };
+		A8E8A663B3208757BD37C3019653B6FA /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
+		AAEA96DCA2DD16409D89768EDDCCC0B6 /* Pods-SuperNOVA-app-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SuperNOVA-app-frameworks.sh"; sourceTree = "<group>"; };
+		AC446585E55E77CE4555ED6FB7EF6643 /* ISO8601DateTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ISO8601DateTransform.swift; path = ObjectMapper/Transforms/ISO8601DateTransform.swift; sourceTree = "<group>"; };
+		AD12DE88C39A2420BA912E4D631F253D /* Pods-SuperNOVA-appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SuperNOVA-appTests.release.xcconfig"; sourceTree = "<group>"; };
+		AE57B63AE5D8E3D35AA404C124AFE973 /* Pods-SuperNOVA-appTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SuperNOVA-appTests-resources.sh"; sourceTree = "<group>"; };
+		B643DB507C01B67FAC7061662BE48A70 /* Pods-SuperNOVA-appUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SuperNOVA-appUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		B8636D8333F3DFD87467A368B18A9ED1 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Subspecs/Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
+		B8798D1DB8B58DB8C7D11FC8DD9B97E7 /* Pods-SuperNOVA-appTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SuperNOVA-appTests-dummy.m"; sourceTree = "<group>"; };
+		C32482366A4B2060EAE14B6167A807D4 /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
+		C41FFB5D0650FEEA1850BDFABADAC227 /* Pods-SuperNOVA-app.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-SuperNOVA-app.modulemap"; sourceTree = "<group>"; };
+		C5EBA2CD1ED00A5C6DD1E2DBFDCFBC0E /* DictionaryTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DictionaryTransform.swift; path = ObjectMapper/Transforms/DictionaryTransform.swift; sourceTree = "<group>"; };
+		CB4E1E4965E7E5F5B7A9CC5F956B373A /* Pods-SuperNOVA-appTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SuperNOVA-appTests-frameworks.sh"; sourceTree = "<group>"; };
+		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		CC418B6E0D9C1E67E9AC030C168592FA /* Pods-SuperNOVA-app-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SuperNOVA-app-resources.sh"; sourceTree = "<group>"; };
+		D123978967D3B82F662405D9FBEC8489 /* TransformOf.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransformOf.swift; path = ObjectMapper/Transforms/TransformOf.swift; sourceTree = "<group>"; };
+		D44E150BC7D480373C1CE192B4FA8868 /* ObjectMapper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ObjectMapper.modulemap; sourceTree = "<group>"; };
+		D632C3B0A4A8C262F390EE007088F309 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D76517C13C814858228D4367EEE402EE /* Pods-SuperNOVA-appTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SuperNOVA-appTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		D848F15296567757E3C3208BFF12FD22 /* DateFormatterTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateFormatterTransform.swift; path = ObjectMapper/Transforms/DateFormatterTransform.swift; sourceTree = "<group>"; };
+		D96F4732A987378F9CCEB61DD0DF12DC /* Pods-SuperNOVA-appUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SuperNOVA-appUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		EBD5709495DCC5096C79AD440E12238F /* TransformType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransformType.swift; path = ObjectMapper/Transforms/TransformType.swift; sourceTree = "<group>"; };
+		EC0F05BA8896BEE48DCA45FDABB39313 /* DateTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateTransform.swift; path = ObjectMapper/Transforms/DateTransform.swift; sourceTree = "<group>"; };
+		ED3DF89CF1BAD8766E11C1F715ADD23D /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
+		EF2445666CD93F8E594D1AE08BE52557 /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
+		EF78776DC655FBDD24F4199BCD5A198D /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Alamofire.modulemap; sourceTree = "<group>"; };
+		F2665D15CA113501F351447CA0533B1A /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F578533E6A486334FAAB4811546A0C7C /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
+		F89D1491881F409EC501FE50708026E9 /* EnumTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EnumTransform.swift; path = ObjectMapper/Transforms/EnumTransform.swift; sourceTree = "<group>"; };
+		F95361AA552F4565F1FB78375BEF2088 /* FromJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FromJSON.swift; path = ObjectMapper/Core/FromJSON.swift; sourceTree = "<group>"; };
+		FBCEB026ADA633C83C47481E170B1935 /* Pods-SuperNOVA-appUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-SuperNOVA-appUITests.modulemap"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		08FD2D8051E34B25D950E9C210A93B2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4842F0C032B3C12F1204869BF4A0516 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F9CDDF334CC45A0CD4B6C066C462286 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DD10CE01DCAE8694C6067A7A9768A59 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A3661177BC5FA5824EF02BA032CA29C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1775935BD9699735D90B0C0381C3CA6E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99195E4207764744AEC07ECCBCD550EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A04BFC558D69E7DBB68023C80A9CFE4E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB4B6777C8A8B38AAE290F4BA89DCDAB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				920A35072049537208E887B13F42787E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0E1B885CEFAEF2A6045A6A403F868852 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BD8BEE85878E6C6711917316EA9517D3 /* Pods-SuperNOVA-app */,
+				3A45FB5F9E31CD6A6CFBEC0D3EEFAC41 /* Pods-SuperNOVA-appTests */,
+				96CAE35B8580250C74F5FE464C610539 /* Pods-SuperNOVA-appUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		13B76FF213E7A11512F82BDA0CF093C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07A00A991145402A39607393C96F9518 /* GoogleMaps.framework */,
+				B8636D8333F3DFD87467A368B18A9ED1 /* GoogleMapsCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		32E40F0F1F4EDC9D8885DB5DBDAC2F38 /* ObjectMapper */ = {
+			isa = PBXGroup;
+			children = (
+				A4520B16889CB5984E0490C8185268CE /* CustomDateFormatTransform.swift */,
+				314295E7D45B2EB815DDEB268F703D98 /* DataTransform.swift */,
+				D848F15296567757E3C3208BFF12FD22 /* DateFormatterTransform.swift */,
+				EC0F05BA8896BEE48DCA45FDABB39313 /* DateTransform.swift */,
+				C5EBA2CD1ED00A5C6DD1E2DBFDCFBC0E /* DictionaryTransform.swift */,
+				F89D1491881F409EC501FE50708026E9 /* EnumTransform.swift */,
+				F95361AA552F4565F1FB78375BEF2088 /* FromJSON.swift */,
+				AC446585E55E77CE4555ED6FB7EF6643 /* ISO8601DateTransform.swift */,
+				382F2567AF296A8971488B5087A7D83B /* Map.swift */,
+				A224603C1708E52EF814D99FAF6E5DC5 /* Mappable.swift */,
+				6F657E9E23669C8D47A1D18E8A49D85B /* Mapper.swift */,
+				5DE613444396C05790129B19C1115100 /* NSDecimalNumberTransform.swift */,
+				4FB2812462818DAA23EACEF2036FECD0 /* Operators.swift */,
+				220AF4C32EAEF8C037691EFA21B00BF5 /* ToJSON.swift */,
+				D123978967D3B82F662405D9FBEC8489 /* TransformOf.swift */,
+				EBD5709495DCC5096C79AD440E12238F /* TransformType.swift */,
+				A43F39EB70E5266E22717141AC291040 /* URLTransform.swift */,
+				9CB905F780B4D75C9DBF70CB598F5DB3 /* Support Files */,
+			);
+			name = ObjectMapper;
+			path = ObjectMapper;
+			sourceTree = "<group>";
+		};
+		3A45FB5F9E31CD6A6CFBEC0D3EEFAC41 /* Pods-SuperNOVA-appTests */ = {
+			isa = PBXGroup;
+			children = (
+				D632C3B0A4A8C262F390EE007088F309 /* Info.plist */,
+				7D71BC6F65F08AE1C650B01C39C64AB8 /* Pods-SuperNOVA-appTests.modulemap */,
+				A1FC6195FF48E01F74F1668B24D9E8C0 /* Pods-SuperNOVA-appTests-acknowledgements.markdown */,
+				D76517C13C814858228D4367EEE402EE /* Pods-SuperNOVA-appTests-acknowledgements.plist */,
+				B8798D1DB8B58DB8C7D11FC8DD9B97E7 /* Pods-SuperNOVA-appTests-dummy.m */,
+				CB4E1E4965E7E5F5B7A9CC5F956B373A /* Pods-SuperNOVA-appTests-frameworks.sh */,
+				AE57B63AE5D8E3D35AA404C124AFE973 /* Pods-SuperNOVA-appTests-resources.sh */,
+				8E404BB2830F972240FAAFB9D92F5CEF /* Pods-SuperNOVA-appTests-umbrella.h */,
+				032EEA9E7C5799E751F4905F470271F6 /* Pods-SuperNOVA-appTests.debug.xcconfig */,
+				AD12DE88C39A2420BA912E4D631F253D /* Pods-SuperNOVA-appTests.release.xcconfig */,
+			);
+			name = "Pods-SuperNOVA-appTests";
+			path = "Target Support Files/Pods-SuperNOVA-appTests";
+			sourceTree = "<group>";
+		};
+		3E984C02D2EFB241F498CDA19E682032 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				EBAD281DCEF36D32665B520E03372F00 /* Frameworks */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7BC87DA150F4EC3394C6321CBD08A455 /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				ED3DF89CF1BAD8766E11C1F715ADD23D /* AFError.swift */,
+				3EB8877338FBE06BB23E5C43EF72D631 /* Alamofire.swift */,
+				15C2B9C8D60EA31C013446F4421A9D8F /* DispatchQueue+Alamofire.swift */,
+				8E00AF94E2AD83B0346C9353E40075BB /* MultipartFormData.swift */,
+				9D76505247DCD96DB943EB6D2CDA242F /* NetworkReachabilityManager.swift */,
+				60AB4301B6907394A1772B23F7D69CB5 /* Notifications.swift */,
+				7082A7E8F744E8B799284DA9D4BFEE6C /* ParameterEncoding.swift */,
+				71578B01AA5A31AB6B6622413656E50E /* Request.swift */,
+				57A72573143EBB1F8E021B8904B290C7 /* Response.swift */,
+				022504733B6D032BEE1B459789B95F53 /* ResponseSerialization.swift */,
+				7397E90A25B032032DF70A74169EF014 /* Result.swift */,
+				4748CAC792FFEC06C47BD49956240300 /* ServerTrustPolicy.swift */,
+				48BD05C9895ABB015FA5778B5421CA1C /* SessionDelegate.swift */,
+				6E6982E3E7F04EA0C0DDEAE51E4FAE5E /* SessionManager.swift */,
+				A8E8A663B3208757BD37C3019653B6FA /* TaskDelegate.swift */,
+				1AF82BEF3F6523BE72E4974A0A857A3B /* Timeline.swift */,
+				883BA9651E1A5CCF41244C90C191627A /* Validation.swift */,
+				D156AFB84481389339EFE430B2974D9D /* Support Files */,
+			);
+			name = Alamofire;
+			path = Alamofire;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				A0AD847CC61C693E251AB81ED20B72F9 /* Pods */,
+				840738364A02DA2C15A3A9D3C3D5543B /* Products */,
+				0E1B885CEFAEF2A6045A6A403F868852 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		840738364A02DA2C15A3A9D3C3D5543B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F2665D15CA113501F351447CA0533B1A /* Alamofire.framework */,
+				3416FB29F0F10303239A99D2B60608ED /* ObjectMapper.framework */,
+				303E7458745EAA22DC6A654238A9B9B2 /* Pods_SuperNOVA_app.framework */,
+				A1D76B956D78194CC7D80464F2DBBC73 /* Pods_SuperNOVA_appTests.framework */,
+				76613223A845422FC9AFBFD55729A752 /* Pods_SuperNOVA_appUITests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		96CAE35B8580250C74F5FE464C610539 /* Pods-SuperNOVA-appUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6F5B15EA1AC9E12A1F5E80802E3073B1 /* Info.plist */,
+				FBCEB026ADA633C83C47481E170B1935 /* Pods-SuperNOVA-appUITests.modulemap */,
+				B643DB507C01B67FAC7061662BE48A70 /* Pods-SuperNOVA-appUITests-acknowledgements.markdown */,
+				D96F4732A987378F9CCEB61DD0DF12DC /* Pods-SuperNOVA-appUITests-acknowledgements.plist */,
+				9ACD257CFC7C1203E3C9A5DF16296361 /* Pods-SuperNOVA-appUITests-dummy.m */,
+				2B1A1222CBA015D8A5E3600DD9CB7FE8 /* Pods-SuperNOVA-appUITests-frameworks.sh */,
+				876C7F1A833E219074023C6C4ABD0A81 /* Pods-SuperNOVA-appUITests-resources.sh */,
+				69761ED4D1AC38DDE9F570E4F1DE0500 /* Pods-SuperNOVA-appUITests-umbrella.h */,
+				62646BF83B959F8CE0F43451F6A8DB6C /* Pods-SuperNOVA-appUITests.debug.xcconfig */,
+				9E211AA0E4FBAA899A8E29B85A178A5D /* Pods-SuperNOVA-appUITests.release.xcconfig */,
+			);
+			name = "Pods-SuperNOVA-appUITests";
+			path = "Target Support Files/Pods-SuperNOVA-appUITests";
+			sourceTree = "<group>";
+		};
+		9CB905F780B4D75C9DBF70CB598F5DB3 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5813525AA1984FC14A6780DED0238A3D /* Info.plist */,
+				D44E150BC7D480373C1CE192B4FA8868 /* ObjectMapper.modulemap */,
+				7816E1102944F0F086249E76F2630B66 /* ObjectMapper.xcconfig */,
+				A21D3485FE637AFF8A41FDBDE6733AB6 /* ObjectMapper-dummy.m */,
+				07DBB877AA7CE8DA41658FD07089508F /* ObjectMapper-prefix.pch */,
+				5ADE821B86138180417EF505FC193AAA /* ObjectMapper-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/ObjectMapper";
+			sourceTree = "<group>";
+		};
+		A0AD847CC61C693E251AB81ED20B72F9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7BC87DA150F4EC3394C6321CBD08A455 /* Alamofire */,
+				CE7ED7441801B355D903DE6A633D3133 /* GoogleMaps */,
+				32E40F0F1F4EDC9D8885DB5DBDAC2F38 /* ObjectMapper */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BD8BEE85878E6C6711917316EA9517D3 /* Pods-SuperNOVA-app */ = {
+			isa = PBXGroup;
+			children = (
+				6BF6ADC9F6DB636A124EB482D52BBDA4 /* Info.plist */,
+				C41FFB5D0650FEEA1850BDFABADAC227 /* Pods-SuperNOVA-app.modulemap */,
+				8DF12F0992A919FC4096F084715D941F /* Pods-SuperNOVA-app-acknowledgements.markdown */,
+				06E86F458CB8FDBD72F711B31B827F93 /* Pods-SuperNOVA-app-acknowledgements.plist */,
+				862E8BC0632DFB5829DB0FFBDBCEAB39 /* Pods-SuperNOVA-app-dummy.m */,
+				AAEA96DCA2DD16409D89768EDDCCC0B6 /* Pods-SuperNOVA-app-frameworks.sh */,
+				CC418B6E0D9C1E67E9AC030C168592FA /* Pods-SuperNOVA-app-resources.sh */,
+				83442D3C94FE746656C58B940FDCBA54 /* Pods-SuperNOVA-app-umbrella.h */,
+				14ED1561D3B58BAE1409FCC3BCA6FE0D /* Pods-SuperNOVA-app.debug.xcconfig */,
+				272763C0D73570108F62ABC7132ABFB5 /* Pods-SuperNOVA-app.release.xcconfig */,
+			);
+			name = "Pods-SuperNOVA-app";
+			path = "Target Support Files/Pods-SuperNOVA-app";
+			sourceTree = "<group>";
+		};
+		CE7ED7441801B355D903DE6A633D3133 /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				3E984C02D2EFB241F498CDA19E682032 /* Base */,
+				E3A875EA95FA6E4D4C2C76C711CA817A /* Maps */,
+			);
+			name = GoogleMaps;
+			path = GoogleMaps;
+			sourceTree = "<group>";
+		};
+		D156AFB84481389339EFE430B2974D9D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EF78776DC655FBDD24F4199BCD5A198D /* Alamofire.modulemap */,
+				07B8669149F7BDCCC49AD2A2173FAAB0 /* Alamofire.xcconfig */,
+				F578533E6A486334FAAB4811546A0C7C /* Alamofire-dummy.m */,
+				EF2445666CD93F8E594D1AE08BE52557 /* Alamofire-prefix.pch */,
+				C32482366A4B2060EAE14B6167A807D4 /* Alamofire-umbrella.h */,
+				96143AC285EEFDCAC01DAC95A5736A90 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Alamofire";
+			sourceTree = "<group>";
+		};
+		E3A875EA95FA6E4D4C2C76C711CA817A /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				13B76FF213E7A11512F82BDA0CF093C4 /* Frameworks */,
+				FAAECFE336505E6B031C6AFAB213E35B /* Resources */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
+		EBAD281DCEF36D32665B520E03372F00 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9246EE21FE52FA6F5965EAB571DD0693 /* GoogleMapsBase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FAAECFE336505E6B031C6AFAB213E35B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9DE53F76223865E72766C3B97F68A164 /* GoogleMaps.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0679255BE2126EFE25D16677307721F1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F55D41270C7825376FC91B3F28C891C5 /* Pods-SuperNOVA-appTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52E109093FC193DE1AB17835F9554888 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				284417FEC7CC2218501B487D1616EA8F /* Pods-SuperNOVA-appUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56C9DF92D2FE54E4C09A9D6837FEEB09 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E55375B167BAE7DCCE7F917D8CA9EAD2 /* ObjectMapper-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92300926AD6857F66DFA4AA6C1AB141A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				586C4AF6175CE3204416E6798FD7F73D /* Pods-SuperNOVA-app-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4002B6E97835FDCCAA5963EFE09A3E0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B9EDEDC964E6B08F78920B4F4B9DB84 /* Alamofire-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		40A16CB0CB5FD49FD533BBC4F0A0C888 /* ObjectMapper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5602ECDE986016DB7B01B78E48B50E9 /* Build configuration list for PBXNativeTarget "ObjectMapper" */;
+			buildPhases = (
+				2368172672E1B3A1C2C7643F2F7B3E75 /* Sources */,
+				08FD2D8051E34B25D950E9C210A93B2C /* Frameworks */,
+				56C9DF92D2FE54E4C09A9D6837FEEB09 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ObjectMapper;
+			productName = ObjectMapper;
+			productReference = 3416FB29F0F10303239A99D2B60608ED /* ObjectMapper.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5DB6CE16619DCA80C06BE728E0AF37E5 /* Pods-SuperNOVA-appUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5326EB5782E653F973B4EA970F68F804 /* Build configuration list for PBXNativeTarget "Pods-SuperNOVA-appUITests" */;
+			buildPhases = (
+				B3B1FC10796FEFC75E5356BD2D2B24EE /* Sources */,
+				4A3661177BC5FA5824EF02BA032CA29C /* Frameworks */,
+				52E109093FC193DE1AB17835F9554888 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-SuperNOVA-appUITests";
+			productName = "Pods-SuperNOVA-appUITests";
+			productReference = 76613223A845422FC9AFBFD55729A752 /* Pods_SuperNOVA_appUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 419E5D95491847CD79841B971A8A3277 /* Build configuration list for PBXNativeTarget "Alamofire" */;
+			buildPhases = (
+				32B9974868188C4803318E36329C87FE /* Sources */,
+				99195E4207764744AEC07ECCBCD550EB /* Frameworks */,
+				B4002B6E97835FDCCAA5963EFE09A3E0 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Alamofire;
+			productName = Alamofire;
+			productReference = F2665D15CA113501F351447CA0533B1A /* Alamofire.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C07123592205A4AF3B08E0810E23C2D3 /* Pods-SuperNOVA-appTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E2D80EEB493737547D21ADC7FA9C091 /* Build configuration list for PBXNativeTarget "Pods-SuperNOVA-appTests" */;
+			buildPhases = (
+				00FE4AFC55D85C999D1BEAE90C5ED00F /* Sources */,
+				EB4B6777C8A8B38AAE290F4BA89DCDAB /* Frameworks */,
+				0679255BE2126EFE25D16677307721F1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-SuperNOVA-appTests";
+			productName = "Pods-SuperNOVA-appTests";
+			productReference = A1D76B956D78194CC7D80464F2DBBC73 /* Pods_SuperNOVA_appTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E8E376EBFE0EB2C519CDE8C6039083FE /* Pods-SuperNOVA-app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 760F109943D91E97178246F4FDF5D1F5 /* Build configuration list for PBXNativeTarget "Pods-SuperNOVA-app" */;
+			buildPhases = (
+				7F31E2582940E08FE73C49FAB6322A6C /* Sources */,
+				3F9CDDF334CC45A0CD4B6C066C462286 /* Frameworks */,
+				92300926AD6857F66DFA4AA6C1AB141A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				976D0432AA8ECD9BE9D503CF2E6A662F /* PBXTargetDependency */,
+				1379D2A5D442BAED17C54B88533183AB /* PBXTargetDependency */,
+			);
+			name = "Pods-SuperNOVA-app";
+			productName = "Pods-SuperNOVA-app";
+			productReference = 303E7458745EAA22DC6A654238A9B9B2 /* Pods_SuperNOVA_app.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 840738364A02DA2C15A3A9D3C3D5543B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */,
+				40A16CB0CB5FD49FD533BBC4F0A0C888 /* ObjectMapper */,
+				E8E376EBFE0EB2C519CDE8C6039083FE /* Pods-SuperNOVA-app */,
+				C07123592205A4AF3B08E0810E23C2D3 /* Pods-SuperNOVA-appTests */,
+				5DB6CE16619DCA80C06BE728E0AF37E5 /* Pods-SuperNOVA-appUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		00FE4AFC55D85C999D1BEAE90C5ED00F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B07233F783C6F0AC8CF6E4CFA8CE0DBF /* Pods-SuperNOVA-appTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2368172672E1B3A1C2C7643F2F7B3E75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1457023A8917C66AEAE2EAF3802026D7 /* CustomDateFormatTransform.swift in Sources */,
+				0245660B44C2FD32378ED4A347CFFFAE /* DataTransform.swift in Sources */,
+				23FCD10E8F198AF79649E004AB2C5BDD /* DateFormatterTransform.swift in Sources */,
+				EA30E95CBF6CC9F3D2435C303B637F94 /* DateTransform.swift in Sources */,
+				A06E98F5B2C7CDF10F448870C0B56E52 /* DictionaryTransform.swift in Sources */,
+				25E8218D7A1D56D4D65223CD8FC3CBC6 /* EnumTransform.swift in Sources */,
+				B48DA003C6C8F0D24C992D9C665BD816 /* FromJSON.swift in Sources */,
+				1329947BB72A9D9CA18F1C44AFBFD7F2 /* ISO8601DateTransform.swift in Sources */,
+				86D3021C3B6F4A9FC445B7CA3510EDB1 /* Map.swift in Sources */,
+				F44C407B909BC7EE9B61CCE3E0FF3407 /* Mappable.swift in Sources */,
+				D17A76477E3FDFE3016E8979A2993B7C /* Mapper.swift in Sources */,
+				958FA78B2D85662193B9DB75491DD7C6 /* NSDecimalNumberTransform.swift in Sources */,
+				6C540D9D9A25F356C221598572F3F2EF /* ObjectMapper-dummy.m in Sources */,
+				A0B9324FA8620E06C587E411D167810A /* Operators.swift in Sources */,
+				7E7EE8D5A6CDC6EFAC20A6382BCDE8B7 /* ToJSON.swift in Sources */,
+				95E9FB277407228BB774E96E509E0F83 /* TransformOf.swift in Sources */,
+				89A04B513BDDAD3529E2DFD4E7CD8404 /* TransformType.swift in Sources */,
+				4B06236EB97AB40B24BEE4483A5CF35B /* URLTransform.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32B9974868188C4803318E36329C87FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9ED2BB2981896E0A39EFA365503F58CE /* AFError.swift in Sources */,
+				A9EEEA7477981DEEBC72432DE9990A4B /* Alamofire-dummy.m in Sources */,
+				F8B3D3092ED0417E8CDF32033F6122F5 /* Alamofire.swift in Sources */,
+				61200D01A1855D7920CEF835C8BE00B0 /* DispatchQueue+Alamofire.swift in Sources */,
+				B65FCF589DA398C3EFE0128064E510EC /* MultipartFormData.swift in Sources */,
+				A2A6F71B727312BD45CC7A4AAD7B0AB7 /* NetworkReachabilityManager.swift in Sources */,
+				EFD264FC408EBF3BA2528E70B08DDD94 /* Notifications.swift in Sources */,
+				BE5C67A07E289FE1F9BE27335B159997 /* ParameterEncoding.swift in Sources */,
+				5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */,
+				CB6D60925223897FFA2662667DF83E8A /* Response.swift in Sources */,
+				F6BECD98B97CBFEBE2C96F0E9E72A6C0 /* ResponseSerialization.swift in Sources */,
+				7D8CC01E8C9EFFF9F4D65406CDE0AB66 /* Result.swift in Sources */,
+				62F65AD8DC4F0F9610F4B8B4738EC094 /* ServerTrustPolicy.swift in Sources */,
+				7B5FE28C7EA4122B0598738E54DBEBD8 /* SessionDelegate.swift in Sources */,
+				AE1EF48399533730D0066E04B22CA2D6 /* SessionManager.swift in Sources */,
+				3626B94094672CB1C9DEA32B9F9502E1 /* TaskDelegate.swift in Sources */,
+				10EB23E9ECC4B33E16933BB1EA560B6A /* Timeline.swift in Sources */,
+				BBEFE2F9CEB73DC7BD97FFA66A0D9D4F /* Validation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F31E2582940E08FE73C49FAB6322A6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8644E6F485BABEBCE0A118666AD553B /* Pods-SuperNOVA-app-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3B1FC10796FEFC75E5356BD2D2B24EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DC88EF3F01E17BF6AA48C28E377424A /* Pods-SuperNOVA-appUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1379D2A5D442BAED17C54B88533183AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ObjectMapper;
+			target = 40A16CB0CB5FD49FD533BBC4F0A0C888 /* ObjectMapper */;
+			targetProxy = E13FE994B1FF1ABC616FF38F52937906 /* PBXContainerItemProxy */;
+		};
+		976D0432AA8ECD9BE9D503CF2E6A662F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			target = 88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */;
+			targetProxy = EBE5EDF4A21D75D6E8C9421D263E0A59 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		13A99B738872833C55B3BE39D496B0FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 272763C0D73570108F62ABC7132ABFB5 /* Pods-SuperNOVA-app.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SuperNOVA-app/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SuperNOVA-app/Pods-SuperNOVA-app.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SuperNOVA_app;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		13E96A645A77DAD1FD4F541F18F5DDBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		31125EFAF241C3D22CBEB0DBD96F49FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E211AA0E4FBAA899A8E29B85A178A5D /* Pods-SuperNOVA-appUITests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SuperNOVA-appUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SuperNOVA-appUITests/Pods-SuperNOVA-appUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SuperNOVA_appUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		40543D289007D80A921C26E46C07E8C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62646BF83B959F8CE0F43451F6A8DB6C /* Pods-SuperNOVA-appUITests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SuperNOVA-appUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SuperNOVA-appUITests/Pods-SuperNOVA-appUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SuperNOVA_appUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		621A10F5C0A994B466277661C1B2C19F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07B8669149F7BDCCC49AD2A2173FAAB0 /* Alamofire.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Alamofire/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Alamofire;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		72BFA747282BF13B0F7DCFD20F36F523 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7816E1102944F0F086249E76F2630B66 /* ObjectMapper.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ObjectMapper/ObjectMapper-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ObjectMapper/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ObjectMapper/ObjectMapper.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = ObjectMapper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		862AF3139CD84E18D34FAF2F43CD0DA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8C48CCCB862EC56A4174F6E1715688C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07B8669149F7BDCCC49AD2A2173FAAB0 /* Alamofire.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Alamofire/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Alamofire;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8FAB9230526E83760E72B4BA480C1137 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14ED1561D3B58BAE1409FCC3BCA6FE0D /* Pods-SuperNOVA-app.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SuperNOVA-app/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SuperNOVA-app/Pods-SuperNOVA-app.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SuperNOVA_app;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		92938DA708DDF799F511F91B3E9D4C5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7816E1102944F0F086249E76F2630B66 /* ObjectMapper.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ObjectMapper/ObjectMapper-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ObjectMapper/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ObjectMapper/ObjectMapper.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = ObjectMapper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CA04902A6F4746EF03A522CB992C070C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 032EEA9E7C5799E751F4905F470271F6 /* Pods-SuperNOVA-appTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SuperNOVA-appTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SuperNOVA-appTests/Pods-SuperNOVA-appTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SuperNOVA_appTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DC5641E089C907FC7EF257A8000DBD62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD12DE88C39A2420BA912E4D631F253D /* Pods-SuperNOVA-appTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SuperNOVA-appTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SuperNOVA-appTests/Pods-SuperNOVA-appTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SuperNOVA_appTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0E2D80EEB493737547D21ADC7FA9C091 /* Build configuration list for PBXNativeTarget "Pods-SuperNOVA-appTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA04902A6F4746EF03A522CB992C070C /* Debug */,
+				DC5641E089C907FC7EF257A8000DBD62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13E96A645A77DAD1FD4F541F18F5DDBF /* Debug */,
+				862AF3139CD84E18D34FAF2F43CD0DA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		419E5D95491847CD79841B971A8A3277 /* Build configuration list for PBXNativeTarget "Alamofire" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C48CCCB862EC56A4174F6E1715688C9 /* Debug */,
+				621A10F5C0A994B466277661C1B2C19F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5326EB5782E653F973B4EA970F68F804 /* Build configuration list for PBXNativeTarget "Pods-SuperNOVA-appUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40543D289007D80A921C26E46C07E8C9 /* Debug */,
+				31125EFAF241C3D22CBEB0DBD96F49FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		760F109943D91E97178246F4FDF5D1F5 /* Build configuration list for PBXNativeTarget "Pods-SuperNOVA-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FAB9230526E83760E72B4BA480C1137 /* Debug */,
+				13A99B738872833C55B3BE39D496B0FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5602ECDE986016DB7B01B78E48B50E9 /* Build configuration list for PBXNativeTarget "ObjectMapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92938DA708DDF799F511F91B3E9D4C5D /* Debug */,
+				72BFA747282BF13B0F7DCFD20F36F523 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
