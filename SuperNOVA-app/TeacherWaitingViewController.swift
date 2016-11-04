@@ -124,19 +124,24 @@ class TeacherWaitingMapViewController: UIViewController, CLLocationManagerDelega
                     
                     //print(jsonResult)
                     
-                    let routes = jsonResult.value(forKey: "routes")
                     //print(routes)
                     
+                    let routes = jsonResult.mutableArrayValue(forKeyPath: "routes")
+                    let overview_polyline = routes.mutableArrayValue(forKeyPath: "overview_polyline")
+                    let points = overview_polyline.mutableArrayValue(forKeyPath: "points")
+                    let pointString = points.firstObject as! String
+                    
+                    
                     //let overViewPolyLine = routes![0]["overview_polyline"]!!["points"] as! String
-                    let overViewPolyLine = (((routes as! NSDictionary)[0] as! NSDictionary)["overview_polyline"] as! NSDictionary)["points"] as! String
+//                    let overViewPolyLine = (((routes as! NSDictionary)[0] as! NSDictionary)["overview_polyline"] as! NSDictionary)["points"] as! String
                     //print(overViewPolyLine)
                     
-                    if overViewPolyLine != ""{
+                    if pointString != ""{
                         
                         //Call on Main Thread
                         DispatchQueue.main.async {
                             
-                            self.addPolyLineWithEncodedStringInMap(overViewPolyLine)
+                            self.addPolyLineWithEncodedStringInMap(pointString)
                         }
                         
                         

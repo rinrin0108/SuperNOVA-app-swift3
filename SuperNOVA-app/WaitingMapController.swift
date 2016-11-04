@@ -277,12 +277,14 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
                     let routes = jsonResult.mutableArrayValue(forKeyPath: "routes")
                     let overview_polyline = routes.mutableArrayValue(forKeyPath: "overview_polyline")
                     let points = overview_polyline.mutableArrayValue(forKeyPath: "points")
-                    let pointString = points.description
+                    let pointString = points.firstObject as! String
                     
                     if pointString != ""{
                         
                         //Call on Main Thread
                         DispatchQueue.main.async {
+                            print("heyheyhey")
+                            print(pointString )
                             self.addPolyLineWithEncodedStringInMap(pointString)
                         }
                     }
