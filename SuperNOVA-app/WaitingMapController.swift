@@ -125,9 +125,9 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
         //ポーリング
         for i in 0 ..< 90 {
             NSLog(dateFormatter.string(from: now))
-            Thread.sleep(forTimeInterval: 1)
             
             if(flg4api){
+                Thread.sleep(forTimeInterval: 1)
                 
             //リクエスト状況を取得
             MergerAPI.getRequestStatus(appDelegate._id ,sync: true,
@@ -268,8 +268,6 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
     }
     func callWebService(){
         let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(latitude!),\(longitude!)&destination=\(appDelegate._shoplat!),\(appDelegate._shoplng!)&mode=walking&key=\(appDelegate.googleMapsApiKey)")
-        print("uryyyyyyyyyyyyyyyyyyyyyy")
-        print(url)
         
         let request = URLRequest(url: url!)
         let config = URLSessionConfiguration.default
