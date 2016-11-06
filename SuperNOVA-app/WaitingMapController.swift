@@ -21,6 +21,7 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
     // GoogleMap
     var lm = CLLocationManager()
     @IBOutlet weak var shopName: UILabel!
+    @IBOutlet weak var shopImage: UIImageView!
     //
     var currentDisplayedPosition: GMSCameraPosition?
     //
@@ -36,8 +37,15 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
     @IBAction func waiting(_ sender: UIButton) {
         NSLog("---waiting");
         
+        //let shopimage_encoded = appDelegate._shopimage?.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)
+        
+        let shopimage_encoded = appDelegate._shopimage.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.alphanumerics)
+        
+        NSLog(appDelegate._shopimage.description)
+        print(shopimage_encoded)
+        
         // 教師リクエストAPI
-        MergerAPI.requestTeacher(appDelegate._userid, lat: appDelegate._lat, lng: appDelegate._lng, lang: appDelegate._lang, place: appDelegate._place ,time:appDelegate._time,sync: true,
+        MergerAPI.requestTeacher(appDelegate._userid, lat: appDelegate._lat, lng: appDelegate._lng, lang: appDelegate._lang, place: appDelegate._place ,time:appDelegate._time, img:shopimage_encoded, sync: true,
                                  success:{
                                     values in let closure = {
                                         NSLog("---CallViewController MergerAPI.requestTeacher success");
@@ -318,6 +326,10 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
         dmarker.map = self.googleMap
         
         shopName.text = appDelegate._shoptitle
+        
+        let imageData :Data = try! Data(contentsOf: URL(string: appDelegate._shopimage as! String)! );
+        shopImage.image = UIImage(data:imageData)
+        
     }
     
 }

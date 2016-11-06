@@ -39,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var _status: CLAuthorizationStatus!
     var _application: UIApplication!
     var _pushId :String!
+    var _shopimage :String!
     
     // 
     //var initializedLocation: Bool = false;
@@ -83,6 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _lang = ""
         _time = ""
         _place = ""
+        _shopimage = ""
 
         //Facebook
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

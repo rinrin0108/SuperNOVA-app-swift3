@@ -15,6 +15,9 @@ class CallViewController: UIViewController {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         shopName.text = appDelegate._shoptitle
         
+        let imageData :Data = try! Data(contentsOf: URL(string: appDelegate._shopimage as! String)! );
+        shopImage.image = UIImage(data:imageData)
+        
         //selectTimeBtn.isUserInteractionEnabled = false
         change30mBtn.setBackgroundImage(UIImage(named: "btn_orange"), for: UIControlState.normal)
         change60mBtn.setBackgroundImage(UIImage(named: "btn_gray"), for: UIControlState.normal)
@@ -26,6 +29,8 @@ class CallViewController: UIViewController {
     @IBOutlet weak var change60mBtn: UIButton!
     
     @IBOutlet weak var shopName: UILabel!
+    @IBOutlet weak var shopImage: UIImageView!
+    
     @IBAction func change30m(_ sender: UIButton) {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
         appDelegate._time = "30"

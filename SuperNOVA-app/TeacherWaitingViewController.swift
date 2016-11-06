@@ -21,6 +21,8 @@ class TeacherWaitingMapViewController: UIViewController, CLLocationManagerDelega
     var lm = CLLocationManager()
     //
     @IBOutlet weak var shopName: UILabel!
+    @IBOutlet weak var shopImage: UIImageView!
+    
     var currentDisplayedPosition: GMSCameraPosition?
     //
     var latitude:   CLLocationDegrees!
@@ -176,6 +178,9 @@ class TeacherWaitingMapViewController: UIViewController, CLLocationManagerDelega
         dmarker.map = self.googleMap
         
         shopName.text = appDelegate._shoptitle
+        
+        let imageData :Data = try! Data(contentsOf: URL(string: appDelegate._shopimage as! String)! );
+        shopImage.image = UIImage(data:imageData)
         
     }
 

@@ -295,6 +295,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                             appDelegate._shoplat = tmpshoplat
                                             appDelegate._shoplng = tmpshoplng
                                             appDelegate._shoptitle = values["place"] as! String!
+                                            appDelegate._shopimage = values["placeimg"] as! String!
+                                            
+                                            print("shopimage URL is:")
+                                            print(appDelegate._shopimage)
                                             
                                             //初回
                                             if(appDelegate._pushId != nil){
@@ -558,10 +562,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         //NSLog(markerimgurl.description)
         
         let idx = markerindex.index(of: (marker.title)!)! as Int
-        let imgurl = markerimgurl[idx] as String
+        appDelegate._shopimage = markerimgurl[idx] as String
         //NSLog("\(markerindex.index(of: (marker.title)!))")
         
-        let imageData :Data = try! Data(contentsOf: URL(string: imgurl as! String)! );
+        let imageData :Data = try! Data(contentsOf: URL(string: appDelegate._shopimage as! String)! );
         MarkerImage.image = UIImage(data:imageData)
         
         appDelegate._shoplat = marker.position.latitude

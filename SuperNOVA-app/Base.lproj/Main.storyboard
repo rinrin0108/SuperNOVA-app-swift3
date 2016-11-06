@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11535.1" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Pux-Hs-JEb">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Pux-Hs-JEb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11523"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -315,6 +315,7 @@
                     </view>
                     <connections>
                         <outlet property="googleMap" destination="j6S-JI-ax6" id="0Yp-8i-OTl"/>
+                        <outlet property="shopImage" destination="4Ne-vt-Vac" id="Cso-EE-gQC"/>
                         <outlet property="shopName" destination="h7a-eh-6S4" id="d7s-fy-s7r"/>
                         <segue destination="fK8-Bo-zSv" kind="show" identifier="toEncounterView" id="PBm-En-xVe"/>
                     </connections>
@@ -375,6 +376,7 @@
                     </view>
                     <connections>
                         <outlet property="googleMap" destination="x9Q-1M-1rY" id="MF0-JA-dxA"/>
+                        <outlet property="shopImage" destination="BHc-dD-Jdc" id="8aW-9O-pJ8"/>
                         <outlet property="shopName" destination="t8X-Mk-2Wl" id="tdq-UT-y2x"/>
                         <segue destination="fK8-Bo-zSv" kind="show" identifier="toEncounterView" id="pdV-4q-DF1"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="toMapView" id="IwH-KW-BsE"/>
@@ -635,7 +637,8 @@
                         <outlet property="change30mBtn" destination="6EN-SQ-rwq" id="Pwz-Z5-WX1"/>
                         <outlet property="change60mBtn" destination="z7h-13-Lqh" id="bLf-Ld-6A3"/>
                         <outlet property="selectTimeBtn" destination="t3E-Nv-Dwl" id="lXu-6j-TLm"/>
-                        <outlet property="shopName" destination="rOW-cb-han" id="wvh-Z3-BrS"/>
+                        <outlet property="shopImage" destination="NHt-uc-J9a" id="BZ1-2t-tVZ"/>
+                        <outlet property="shopName" destination="rOW-cb-han" id="WH9-5r-phb"/>
                         <segue destination="3RO-Vd-9TR" kind="show" identifier="toWaitingMapView" id="Ec6-Os-8th"/>
                     </connections>
                 </viewController>
@@ -763,7 +766,7 @@
         <image name="splash_image" width="375" height="667"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pdV-4q-DF1"/>
         <segue reference="IwH-KW-BsE"/>
+        <segue reference="PBm-En-xVe"/>
     </inferredMetricsTieBreakers>
 </document>

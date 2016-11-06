@@ -21,11 +21,12 @@ class MergerAPI {
     /// - parameter lng:            lat(let String!)
     /// - parameter lang:           lang(let String!)
     /// - parameter place:          place(let String!)
+    /// - parameter img:            img(let String!)
     /// - parameter sync:           同期設定(true=同期,false=非同期)(let Bool!)
     /// - parameter success:        成功時コールバックメソッド(let Dictionary<String,AnyObject>) -> Void!)
     /// - parameter failed:         失敗時コールバックメソッド(let (Int?,String?) -> Void?)
     ///
-    static func requestTeacher(_ userId : String!, lat : String?, lng : String?, lang : String?, place : String?,time :String?, sync : Bool!, success:((Dictionary<String,AnyObject>) -> Void)!, failed:((Int?,String?) -> Void)?){
+    static func requestTeacher(_ userId : String!, lat : String?, lng : String?, lang : String?, place : String?,time :String?, img: String?, sync : Bool!, success:((Dictionary<String,AnyObject>) -> Void)!, failed:((Int?,String?) -> Void)?){
         
         //パラメータの設定
         var params : Dictionary<String,String?>= Dictionary<String,String?>()
@@ -35,9 +36,11 @@ class MergerAPI {
         params.updateValue(lang!,    forKey: "lang")
         params.updateValue(place!,    forKey: "place")
         params.updateValue(time!,    forKey: "time")
+        params.updateValue(img!, forKey: "img")
         
         //リクエストの送信
-        API.request("requestTeacher", methodName: APIHTTPMethod.GET, params: params, sync: sync, success: success, failed: failed)
+        //API.request("requestTeacher", methodName: APIHTTPMethod.GET, params: params, sync: sync, success: success, failed: failed)
+        API.request("requestTeacher", methodName: APIHTTPMethod.POST, params: params, sync: sync, success: success, failed: failed)
     }
     
     /// リクエスト検索API<br>
