@@ -32,7 +32,6 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
     var mcenter: CLLocationCoordinate2D!
     
     @IBOutlet weak var googleMap: GMSMapView!
-    @IBOutlet weak var WaitSeekView: UIView!
     
     @IBAction func waiting(_ sender: UIButton) {
         NSLog("---waiting");
@@ -228,8 +227,6 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
         //NSLog("Debug TeacherWatingView")
         
         self.view.addSubview(googleMap)
-        self.googleMap.addSubview(WaitSeekView)
-        
         self.googleMap.delegate = self;
     }
     

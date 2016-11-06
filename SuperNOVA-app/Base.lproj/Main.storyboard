@@ -359,20 +359,12 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x9Q-1M-1rY" userLabel="GoogleMap" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="78" width="375" height="407"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KwU-UC-dUd" userLabel="WaitSeekView">
-                                        <rect key="frame" x="124" y="139" width="127" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="WaitSeekView" destination="KwU-UC-dUd" id="X8i-Ni-xtq"/>
                         <outlet property="googleMap" destination="x9Q-1M-1rY" id="MF0-JA-dxA"/>
                         <outlet property="shopName" destination="t8X-Mk-2Wl" id="tdq-UT-y2x"/>
                         <segue destination="fK8-Bo-zSv" kind="show" identifier="toEncounterView" id="pdV-4q-DF1"/>

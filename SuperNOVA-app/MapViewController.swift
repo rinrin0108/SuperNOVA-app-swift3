@@ -115,6 +115,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     @IBOutlet weak var MarkerTitle: UILabel!
     @IBOutlet weak var MarkerImage: UIImageView!
 
+    var markerindex  = Array<String>()
+    var markerimgurl = Array<String>()
 
     //@IBOutlet weak var UserProf: UIImageView! = API.downloadImage(appDelegate._image)
     
@@ -413,7 +415,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             NSLog("searchAroundMe--------------------------------2-2")
             
             //検索URLの作成
-            let encodedStr = "cafes".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+            let encodedStr = "cafe".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
             let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(lon)&radius=\(radius)&sensor=true&key=\(appDelegate.googleMapsApiKey)&name=\(encodedStr!)&pagetoken=\(page_token)"
             let searchNSURL = URL(string: url)
 
@@ -421,6 +423,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             NSLog("url:\(searchNSURL)")
             
             let session = URLSession(configuration: URLSessionConfiguration.default)
+            
             //session.dataTask(with: searchNSURL!, completionHandler: { (data : Data?, response : URLResponse?, error : NSError?) in
             session.dataTask(with: searchNSURL!) {(data, response, error) -> Void in
                 
@@ -478,13 +481,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                         //"https://maps.googleapis.com/maps/api/place/photo?key=AIzaSyC3J5uA2FEqxAGTWAFsZ8J-RJ5eqmUnnRQ&photoreference=\(photosRefJson.firstObject)"
                                         
                                         //var err: NSError?
-                                        let imageData :Data = try! Data(contentsOf: URL(string: tmpurl! as! String)! );
+                                        //let imageData :Data = try! Data(contentsOf: URL(string: tmpurl! as! String)! );
                                         
                                         
                                         //marker.icon = UIImage(data:imageData);
                                         marker.icon = UIImage(named: "marker")
+                                        self.markerindex.append((result["name"] as? String)!)
+                                        self.markerimgurl.append((tmpurl! as? String)!)
                                         marker.map = self.googleMap
-
                                     });
                                 }
                             }
@@ -519,7 +523,24 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         help_text.isHidden = true
         
         MarkerTitle.text = marker.title
-        MarkerImage.image = marker.icon
+        //MarkerImage.image = markerimg
+        
+        //NSLog("imgurl:\(markerimgurl[markerindex.index(of: MarkerTitle.text!)!])")
+        //let idx = markerindex.index(of: "\(marker.title)")
+        //NSLog("index :\(idx)")
+        
+        
+        NSLog("Debug")
+        //NSLog(markerindex.description)
+        //NSLog(markerimgurl.description)
+        
+        let idx = markerindex.index(of: (marker.title)!)! as Int
+        let imgurl = markerimgurl[idx] as String
+        //NSLog("\(markerindex.index(of: (marker.title)!))")
+        
+        let imageData :Data = try! Data(contentsOf: URL(string: imgurl as! String)! );
+        MarkerImage.image = UIImage(data:imageData)
+        
         appDelegate._shoplat = marker.position.latitude
         appDelegate._shoplng = marker.position.longitude
         appDelegate._shoptitle = marker.title
