@@ -36,7 +36,6 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
     @IBAction func waiting(_ sender: UIButton) {
         NSLog("---waiting");
         
-        
         // 教師リクエストAPI
         MergerAPI.requestTeacher(appDelegate._userid, lat: appDelegate._lat, lng: appDelegate._lng, lang: appDelegate._lang, place: appDelegate._place ,time:appDelegate._time,sync: true,
                                  success:{

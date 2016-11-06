@@ -171,7 +171,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     func searchRequest() {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
         
-        appDelegate._place = "SHOP01";
+        //if( appDelegate._place == ""){
+            //appDelegate._place = "SHOP01";
+        //}
         
         if (appDelegate._lat == nil || appDelegate._lng == nil){
             appDelegate._lat = "35.698353";
@@ -514,6 +516,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         appDelegate._shoplat = marker.position.latitude
         appDelegate._shoplng = marker.position.longitude
         appDelegate._shoptitle = marker.title
+        appDelegate._place = marker.title?.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)
         
         segueButton.isUserInteractionEnabled = true
         
