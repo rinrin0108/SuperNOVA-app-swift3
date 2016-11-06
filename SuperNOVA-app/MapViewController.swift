@@ -16,6 +16,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     @IBOutlet weak var push_icon: UIImageView!
     @IBOutlet weak var push_text: UILabel!
+    @IBOutlet weak var help_text: UILabel!
     
     @IBOutlet weak var responseTeacher: UIButton!
     @IBAction func responseTeacher(_ sender: UIButton) {
@@ -132,6 +133,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.authorizedAlways {
             lm.requestAlwaysAuthorization()
         }
+        
+        // 最初は説明文を表示
+        MarkerImage.isHidden = true
+        MarkerTitle.isHidden = true
+        help_text.isHidden = false
 
         // 初期設定
         initLocationManager();
@@ -487,6 +493,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         //NSLog("marker:\(marker)")
         //NSLog("title:\(marker.title)")
         //NSLog("icon :\(marker.icon)")
+        
+        // 説明文を非表示
+        MarkerImage.isHidden = false
+        MarkerTitle.isHidden = false
+        help_text.isHidden = true
+        
         MarkerTitle.text = marker.title
         MarkerImage.image = marker.icon
         appDelegate._shoplat = marker.position.latitude
@@ -504,5 +516,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func backWithSegue( segue: UIStoryboardSegue) {
+        NSLog("back")
+    }
     
 }

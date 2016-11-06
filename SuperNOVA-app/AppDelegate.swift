@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var _userid   :String!
     var _image    :String!
     var _fullname :String!
+    var _firstname :String!
+    var _lastname :String!
     var _place     :String!
     var _id       :String!
     var _idpartner       :String!
@@ -79,6 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         pushLocationManager.startUpdatingLocation()
         
         _lang = ""
+        _time = ""
 
         //Facebook
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

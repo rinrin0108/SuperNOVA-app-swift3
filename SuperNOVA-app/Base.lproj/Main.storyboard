@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Pux-Hs-JEb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Pux-Hs-JEb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -198,6 +198,13 @@
                                         <rect key="frame" x="40" y="11" width="85" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="マップから集合場所を選択しましょう" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ol0-vb-79h">
+                                        <rect key="frame" x="8" y="0.0" width="359" height="96"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -235,6 +242,7 @@
                         <outlet property="MarkerTitle" destination="a57-Xf-1q4" id="U0c-3A-gNg"/>
                         <outlet property="RefreshSearchButton" destination="cAX-Bk-0A8" id="RX4-Ky-SP6"/>
                         <outlet property="googleMap" destination="5wX-hK-CXA" id="Mqb-tO-fbA"/>
+                        <outlet property="help_text" destination="ol0-vb-79h" id="kwV-Y3-tI4"/>
                         <outlet property="push_icon" destination="f2t-zr-8in" id="FQD-LU-6rx"/>
                         <outlet property="push_text" destination="h3A-mJ-Efs" id="kln-SJ-Lx2"/>
                         <outlet property="responseTeacher" destination="uaT-H0-PjE" id="G42-91-Nue"/>
@@ -699,11 +707,12 @@
                         <outlet property="photo_student" destination="YL0-Ve-ie9" id="hl4-SO-0Q1"/>
                         <outlet property="photo_teacher" destination="yfQ-Av-njo" id="7dQ-3o-DLp"/>
                         <segue destination="nQX-MV-Um7" kind="show" identifier="toConversationView" id="Xty-Wt-KeH"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="backToMap" id="PnS-F2-Sd7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N6n-Yf-iwV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1546" y="324"/>
+            <point key="canvasLocation" x="1545" y="323"/>
         </scene>
     </scenes>
     <resources>
@@ -728,6 +737,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="PBm-En-xVe"/>
-        <segue reference="IwH-KW-BsE"/>
+        <segue reference="PnS-F2-Sd7"/>
     </inferredMetricsTieBreakers>
 </document>

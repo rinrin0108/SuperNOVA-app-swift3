@@ -45,7 +45,7 @@ class EncounterViewController: UIViewController {
                                         if values.isEmpty == true {
                                             // 誰ともマッチしなかった場合
                                             print("no result-----------")
-                                            //self.dismiss(animated: true, completion: nil)
+                                            ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "backToMap")
                                             return
                                         }
                                         NSLog(values.debugDescription);
