@@ -32,6 +32,7 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
     var mcenter: CLLocationCoordinate2D!
     
     @IBOutlet weak var googleMap: GMSMapView!
+    @IBOutlet weak var WaitSeekView: UIView!
     
     @IBAction func waiting(_ sender: UIButton) {
         NSLog("---waiting");
@@ -113,6 +114,7 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
         var flg = false;
         
         SVProgressHUD.show(withStatus: "てすとてすと") //これを最前面に表示したい
+        //self.WaitSeekView = SVProgressHUD
         
         var flg4api = true;
         //ポーリング
@@ -226,6 +228,8 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
         //NSLog("Debug TeacherWatingView")
         
         self.view.addSubview(googleMap)
+        self.googleMap.addSubview(WaitSeekView)
+        
         self.googleMap.delegate = self;
     }
     

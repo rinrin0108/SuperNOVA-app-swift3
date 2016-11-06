@@ -467,13 +467,22 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                         marker = GMSMarker(position: mposition)
                                         marker.title = result["name"] as? String
                                         //let tmpurl = NSURL(string: result["icon"]);
-                                        let tmpurl = result["icon"]
+                                        //let tmpurl = result["icon"]
+                                        let photos = result["photos"]
+                                        let photo_reference = (photos as AnyObject).mutableArrayValue(forKeyPath: "photo_reference")
+                                        let tmpurl = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=80&photoreference=\((photo_reference.firstObject as! String))&key=\(self.appDelegate.googleMapsApiKey)" as? String
+                                        
+                                        //NSLog("tmpurl:\(tmpurl)")
+                                        //NSLog("photos:\(photos)")
+                                        //NSLog("photo_reference:\(photo_reference)")
+                                        //"https://maps.googleapis.com/maps/api/place/photo?key=AIzaSyC3J5uA2FEqxAGTWAFsZ8J-RJ5eqmUnnRQ&photoreference=\(photosRefJson.firstObject)"
                                         
                                         //var err: NSError?
                                         let imageData :Data = try! Data(contentsOf: URL(string: tmpurl! as! String)! );
                                         
                                         
-                                        marker.icon = UIImage(data:imageData);//UIImage//UIImage(named: "marker")
+                                        //marker.icon = UIImage(data:imageData);
+                                        marker.icon = UIImage(named: "marker")
                                         marker.map = self.googleMap
 
                                     });
