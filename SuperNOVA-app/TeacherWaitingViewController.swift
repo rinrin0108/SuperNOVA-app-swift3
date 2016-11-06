@@ -107,6 +107,71 @@ class TeacherWaitingMapViewController: UIViewController, CLLocationManagerDelega
     
     
     @IBAction func checkin(_ sender: UIButton) {
+        MergerAPI.responseTeacher(appDelegate._userid, _id: appDelegate._idpartner ,sync: true,
+                                  success:{
+                                    values in let closure = {
+                                        NSLog("---MapViewController MergerAPI.responseTeacher success");
+                                        // 通信は成功したが、エラーが返ってきた場合
+                                        if(API.isError(values)){
+                                            NSLog("---MapViewController MergerAPI.responseTeacher isError");
+                                            /**
+                                             * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
+                                             Indicator.windowClos()
+                                             
+                                             */
+                                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
+                                                                 message: values["errorMessage"] as! String)
+                                            return
+                                        }
+                                        
+                                        NSLog(values.debugDescription);
+                                        ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toEncounterView")
+                                        
+                                    }
+                                    // 通知の監視
+                                    if(!Thread.isMainThread){
+                                        NSLog("---MapViewController !NSThread.isMainThread() in success");
+                                        DispatchQueue.main.sync {
+                                            NSLog("---MapViewController dispatch_sync");
+                                            closure()
+                                        }
+                                    } else {
+                                        NSLog("---MapViewController dispatch_sync else");
+                                        // 恐らく実行されない
+                                        closure()
+                                    }
+        },
+                                  failed: {
+                                    id, message in let closure = {
+                                        NSLog("---MapViewController MergerAPI.responseTeacher failed");
+                                        /**
+                                         * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
+                                         Indicator.windowClose()
+                                         */
+                                        // 失敗した場合エラー情報を表示
+                                        if(id == -2) {
+                                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
+                                                                 message: NSLocalizedString("MAX_FILE_SIZE_OVER", comment: ""));
+                                        } else {
+                                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
+                                                                 message: NSLocalizedString("ALERT_MESSAGE_NETWORK_ERROR", comment: ""));
+                                        }
+                                    }
+                                    // 通知の監視
+                                    if(!Thread.isMainThread){
+                                        NSLog("---MapViewController !NSThread.isMainThread() in failed");
+                                        DispatchQueue.main.sync {
+                                            NSLog("---MapViewController dispatch_sync");
+                                            closure()
+                                        }
+                                    } else {
+                                        NSLog("---MapViewController dispatch_sync else");
+                                        //恐らく実行されない
+                                        closure()
+                                    }
+        }
+        )
+        
         ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toEncounterView")
     }
     

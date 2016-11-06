@@ -23,6 +23,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     @IBOutlet weak var responseTeacher: UIButton!
     @IBAction func responseTeacher(_ sender: UIButton) {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toTeacherWaitingView")
+        
+        /*
         MergerAPI.responseTeacher(appDelegate._userid, _id: appDelegate._idpartner ,sync: true,
                                    success:{
                                     values in let closure = {
@@ -87,6 +90,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                     }
             }
         )
+        */
     }
     
     
