@@ -271,6 +271,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                             self.push_text.isHidden = false
                                             self.push_button.isHidden = false
                                             
+                                            NSLog("---MapViewController shop lat lng")
+                                            let tmplocations:NSArray = values["location"] as! NSArray
+                                            NSLog("\(tmplocations[0])")
+                                            NSLog("\(tmplocations[1])")
+                                            
+                                            let tmpshoplat:CLLocationDegrees = atof("\(tmplocations[0])")
+                                            let tmpshoplng:CLLocationDegrees = atof("\(tmplocations[1])")
+                                            
+                                            appDelegate._shoplat = tmpshoplat
+                                            appDelegate._shoplng = tmpshoplng
+                                            
                                             //初回
                                             if(appDelegate._pushId != nil){
                                                 if(appDelegate._pushId == values["_id"] as! String){
@@ -440,7 +451,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                         
                         let json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
                         let results = json["results"] as? Array<NSDictionary>
-                    
+                        
                         //次のページがあるか確認する。
                         if json["next_page_token"] != nil {
                             page_token = json["next_page_token"] as! String
