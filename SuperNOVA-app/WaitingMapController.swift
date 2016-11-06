@@ -12,6 +12,7 @@ import GoogleMaps
 import Alamofire
 import ObjectMapper
 import MapKit
+import SVProgressHUD
 
 class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
@@ -34,6 +35,7 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
     
     @IBAction func waiting(_ sender: UIButton) {
         NSLog("---waiting");
+        
         
         // 教師リクエストAPI
         MergerAPI.requestTeacher(appDelegate._userid, lat: appDelegate._lat, lng: appDelegate._lng, lang: appDelegate._lang, place: appDelegate._place ,time:appDelegate._time,sync: true,
@@ -109,6 +111,9 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
         dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         NSLog(dateFormatter.string(from: now))
         var flg = false;
+        
+        //print("てすとてすと")
+        //SVProgressHUD.show(withStatus: "てすとてすと")
         
         var flg4api = true;
         //ポーリング
@@ -316,7 +321,5 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
         
         shopName.text = appDelegate._shoptitle
     }
-
-
     
 }

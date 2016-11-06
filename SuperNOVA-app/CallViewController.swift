@@ -16,6 +16,8 @@ class CallViewController: UIViewController {
         shopName.text = appDelegate._shoptitle
         
         //selectTimeBtn.isUserInteractionEnabled = false
+        change30mBtn.setBackgroundImage(UIImage(named: "btn_orange"), for: UIControlState.normal)
+        change60mBtn.setBackgroundImage(UIImage(named: "btn_gray"), for: UIControlState.normal)
     }
     
     @IBOutlet weak var selectTimeBtn: UIButton!
