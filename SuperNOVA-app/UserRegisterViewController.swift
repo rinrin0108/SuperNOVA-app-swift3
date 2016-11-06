@@ -26,12 +26,16 @@ class UserRegisterViewController: UIViewController {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
         appDelegate._lang = "Japanese"
         appDelegate._native = "English"
+        
+        registUserBtn.isUserInteractionEnabled = true
     }
 
     @IBAction func changeEnglish(_ sender: UIButton) {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
         appDelegate._lang = "English"
         appDelegate._native = "Japanese"
+        
+        registUserBtn.isUserInteractionEnabled = true
     }
     
     
@@ -213,7 +217,11 @@ class UserRegisterViewController: UIViewController {
                 }
         NSLog("isLoaded");
         isLoaded = true
+        
+        registUserBtn.isUserInteractionEnabled = false
     }
+    
+    @IBOutlet weak var registUserBtn: UIButton!
     
     fileprivate func encode(_ url:String) -> (String){
         return url.replacingOccurrences(of: "&", with: "%%%");
