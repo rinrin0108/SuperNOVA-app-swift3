@@ -233,7 +233,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
 
         //近辺の
-        MergerAPI.searchRequest(appDelegate._lat,lng: appDelegate._lng,lang: appDelegate._native ,sync: true,
+        MergerAPI.searchRequest(appDelegate._lat,lng: appDelegate._lng,lang: appDelegate._native,userid: appDelegate._userid ,sync: true,
                                    success:{
                                     values in let closure = {
                                         NSLog("---MapViewController MergerAPI.searchRequest success");
@@ -372,7 +372,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         googleMap.animateToLocation(CLLocationCoordinate2DMake(self.latitude, self.longitude))
     }
      */
- 
+
+    
+    @IBAction func RefreshSearch(_ sender: UIButton) {
+        searchAroudMe(self.googleMap, lat:latitude, lon:longitude);
+    }
+    /*
+    @IBAction func RefreshSearch(_ sender: UIButton) {
+        searchAroudMe(self.googleMap, lat:latitude, lon:longitude);
+    }
+    */
+    
     // 周辺施設呼び出しメソッド
     func searchAroudMe(_ mapView:GMSMapView,lat:CLLocationDegrees,lon:CLLocationDegrees) {
         
@@ -393,8 +403,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             let encodedStr = "cafes".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
             let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(lon)&radius=\(radius)&sensor=true&key=\(appDelegate.googleMapsApiKey)&name=\(encodedStr!)&pagetoken=\(page_token)"
             let searchNSURL = URL(string: url)
-            
+
             NSLog("searchAroundMe--------------------------------2-3")
+            NSLog("url:\(searchNSURL)")
             
             let session = URLSession(configuration: URLSessionConfiguration.default)
             //session.dataTask(with: searchNSURL!, completionHandler: { (data : Data?, response : URLResponse?, error : NSError?) in

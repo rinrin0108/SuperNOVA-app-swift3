@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //
     var zoom: Float = 17
     //
-    let distance_filter: CLLocationDistance = 50;
+    let distance_filter: CLLocationDistance = 200;
     
     //BackGroundGeoLocation
     var backgroundTaskID : UIBackgroundTaskIdentifier = 0
@@ -77,6 +77,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupBackGroundGeoLocation()
         //初回位置情報取得
         pushLocationManager.startUpdatingLocation()
+        
+        _lang = ""
 
         //Facebook
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

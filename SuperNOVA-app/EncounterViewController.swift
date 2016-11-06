@@ -41,6 +41,13 @@ class EncounterViewController: UIViewController {
                                             return
                                         }
                                         
+                                        
+                                        if values.isEmpty == true {
+                                            // 誰ともマッチしなかった場合
+                                            print("no result-----------")
+                                            //self.dismiss(animated: true, completion: nil)
+                                            return
+                                        }
                                         NSLog(values.debugDescription);
                                         appDelegate._partnerimage = values["image"] as! String
                                         appDelegate._partnerName = values["fullname"] as! String
