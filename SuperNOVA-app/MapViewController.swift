@@ -278,11 +278,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                             NSLog("\(tmplocations[0])")
                                             NSLog("\(tmplocations[1])")
                                             
-                                            let tmpshoplat:CLLocationDegrees = atof("\(tmplocations[0])")
-                                            let tmpshoplng:CLLocationDegrees = atof("\(tmplocations[1])")
+                                            let tmpshoplat:CLLocationDegrees = atof("\(tmplocations[1])")
+                                            let tmpshoplng:CLLocationDegrees = atof("\(tmplocations[0])")
                                             
                                             appDelegate._shoplat = tmpshoplat
                                             appDelegate._shoplng = tmpshoplng
+                                            appDelegate._shoptitle = values["place"] as! String!
                                             
                                             //初回
                                             if(appDelegate._pushId != nil){
@@ -527,6 +528,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         appDelegate._shoplat = marker.position.latitude
         appDelegate._shoplng = marker.position.longitude
         appDelegate._shoptitle = marker.title
+        appDelegate._lat = marker.position.latitude.description
+        appDelegate._lng = marker.position.longitude.description
         appDelegate._place = marker.title?.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)
         
         segueButton.isUserInteractionEnabled = true
