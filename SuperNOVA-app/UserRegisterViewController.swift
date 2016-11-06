@@ -21,13 +21,18 @@ class UserRegisterViewController: UIViewController {
     fileprivate var selectImage: UIImage?
     fileprivate var isLoaded :Bool = false
     
+    @IBOutlet weak var japaneseBtn: UIButton!
+    @IBOutlet weak var englishBtn: UIButton!
     
     @IBAction func changeJapanese(_ sender: UIButton) {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
         appDelegate._lang = "Japanese"
         appDelegate._native = "English"
         
-        registUserBtn.isUserInteractionEnabled = true
+        //registUserBtn.isUserInteractionEnabled = true
+        japaneseBtn.setBackgroundImage(UIImage(named: "btn_orange"), for: UIControlState.normal)
+        englishBtn.setBackgroundImage(UIImage(named: "btn_gray"), for: UIControlState.normal)
+        
     }
 
     @IBAction func changeEnglish(_ sender: UIButton) {
@@ -35,7 +40,9 @@ class UserRegisterViewController: UIViewController {
         appDelegate._lang = "English"
         appDelegate._native = "Japanese"
         
-        registUserBtn.isUserInteractionEnabled = true
+        //registUserBtn.isUserInteractionEnabled = true
+        japaneseBtn.setBackgroundImage(UIImage(named: "btn_gray"), for: UIControlState.normal)
+        englishBtn.setBackgroundImage(UIImage(named: "btn_orange"), for: UIControlState.normal)
     }
     
     
@@ -68,8 +75,8 @@ class UserRegisterViewController: UIViewController {
         */
         
         if(appDelegate._lang == ""){
-            appDelegate._lang      = "Japanese";
-            appDelegate._native      = "English";
+            appDelegate._lang      = "English";
+            appDelegate._native      = "Japanese";
         }
         
         // ユーザ登録API呼び出し
@@ -218,7 +225,7 @@ class UserRegisterViewController: UIViewController {
         NSLog("isLoaded");
         isLoaded = true
         
-        registUserBtn.isUserInteractionEnabled = false
+        //registUserBtn.isUserInteractionEnabled = false
     }
     
     @IBOutlet weak var registUserBtn: UIButton!

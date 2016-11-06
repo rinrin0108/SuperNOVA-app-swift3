@@ -116,9 +116,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
 
     //@IBOutlet weak var UserProf: UIImageView! = API.downloadImage(appDelegate._image)
     
+    
+    @IBOutlet weak var segueButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        segueButton.isUserInteractionEnabled = false
 
         //更新された位置情報を元にした検索
         Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(MapViewController.searchRequest), userInfo: nil, repeats: true)
@@ -469,6 +474,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
     }
     
+    // 周辺施設選択時に呼ばれる
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         //NSLog("marker:\(marker)")
         //NSLog("title:\(marker.title)")
@@ -478,6 +484,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         appDelegate._shoplat = marker.position.latitude
         appDelegate._shoplng = marker.position.longitude
         appDelegate._shoptitle = marker.title
+        
+        segueButton.isUserInteractionEnabled = true
         
         //self.view.addSubview(mapView)
         return false
