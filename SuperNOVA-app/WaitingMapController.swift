@@ -12,6 +12,7 @@ import GoogleMaps
 import Alamofire
 import ObjectMapper
 import MapKit
+import SVProgressHUD
 
 class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
@@ -109,6 +110,8 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
         dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         NSLog(dateFormatter.string(from: now))
         var flg = false;
+        
+        SVProgressHUD.show(withStatus: "てすとてすと")
         
         var flg4api = true;
         //ポーリング
@@ -316,7 +319,5 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
         
         shopName.text = appDelegate._shoptitle
     }
-
-
     
 }

@@ -13,6 +13,7 @@ target 'SuperNOVA-app' do
   pod 'Alamofire'
   #pod 'ObjectMapper', '~> 1.2'
   pod 'ObjectMapper', '~> 2.0.0'
+  pod 'SVProgressHUD'
 
   target 'SuperNOVA-appTests' do
     inherit! :search_paths

@@ -79,6 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         pushLocationManager.startUpdatingLocation()
         
         _lang = ""
+        _time = ""
 
         //Facebook
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
