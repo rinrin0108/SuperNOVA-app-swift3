@@ -162,7 +162,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5wX-hK-CXA" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="138" width="375" height="422"/>
+                                <rect key="frame" x="0.0" y="77" width="375" height="483"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAX-Bk-0A8">
@@ -173,6 +173,34 @@
                                             <action selector="RefreshSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uc3-KJ-ci0"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MgT-R7-3Gd">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaT-H0-PjE" userLabel="responseTeacher">
+                                                <rect key="frame" x="0.0" y="-6" width="375" height="63"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal">
+                                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="responseTeacher:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tGT-YV-uOI"/>
+                                                </connections>
+                                            </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="push_icon_check" translatesAutoresizingMaskIntoConstraints="NO" id="f2t-zr-8in">
+                                                <rect key="frame" x="304" y="6" width="45" height="45"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="リクエストを受信中です！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3A-mJ-Efs">
+                                                <rect key="frame" x="67" y="15" width="240" height="28"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -212,28 +240,6 @@
                                 <rect key="frame" x="145" y="30" width="85" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaT-H0-PjE" userLabel="responseTeacher">
-                                <rect key="frame" x="0.0" y="80" width="375" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="responseTeacher:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tGT-YV-uOI"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="push_icon_check" translatesAutoresizingMaskIntoConstraints="NO" id="f2t-zr-8in">
-                                <rect key="frame" x="310" y="85" width="45" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="生徒があなたを探しています" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3A-mJ-Efs">
-                                <rect key="frame" x="44" y="94" width="240" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -243,6 +249,7 @@
                         <outlet property="RefreshSearchButton" destination="cAX-Bk-0A8" id="RX4-Ky-SP6"/>
                         <outlet property="googleMap" destination="5wX-hK-CXA" id="Mqb-tO-fbA"/>
                         <outlet property="help_text" destination="ol0-vb-79h" id="kwV-Y3-tI4"/>
+                        <outlet property="pushView" destination="MgT-R7-3Gd" id="jd6-yC-uvY"/>
                         <outlet property="push_button" destination="uaT-H0-PjE" id="9vz-1G-SHI"/>
                         <outlet property="push_icon" destination="f2t-zr-8in" id="FQD-LU-6rx"/>
                         <outlet property="push_text" destination="h3A-mJ-Efs" id="kln-SJ-Lx2"/>
@@ -715,6 +722,23 @@
             </objects>
             <point key="canvasLocation" x="1545" y="323"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="E96-jF-sgm">
+            <objects>
+                <viewController id="1ib-wX-vNi" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M6C-LZ-vde"/>
+                        <viewControllerLayoutGuide type="bottom" id="Aoo-Fe-BOM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Soi-qp-cZ5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZPL-XL-pTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="bg_class" width="375" height="667"/>
@@ -738,6 +762,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="pdV-4q-DF1"/>
-        <segue reference="IwH-KW-BsE"/>
+        <segue reference="PnS-F2-Sd7"/>
     </inferredMetricsTieBreakers>
 </document>

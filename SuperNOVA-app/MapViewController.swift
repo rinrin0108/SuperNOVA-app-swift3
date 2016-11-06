@@ -19,6 +19,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     @IBOutlet weak var push_text: UILabel!
     @IBOutlet weak var help_text: UILabel!
     
+    @IBOutlet weak var pushView: UIView!
     @IBOutlet weak var responseTeacher: UIButton!
     @IBAction func responseTeacher(_ sender: UIButton) {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
@@ -163,6 +164,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
         self.view.addSubview(googleMap)
         self.googleMap.addSubview(RefreshSearchButton)
+        self.googleMap.addSubview(pushView)
         self.googleMap.delegate = self;
 
         
@@ -267,6 +269,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                             return
                                         }
                                         if(values["status"] as! String == "req"){
+                                            
+                                            let animation:CATransition = CATransition()
+                                            animation.type = kCATransitionFade
+                                            animation.duration = 0.4
+                                            self.push_icon.layer.add(animation, forKey: nil)
+                                            self.push_text.layer.add(animation, forKey: nil)
+                                            self.push_button.layer.add(animation, forKey: nil)
                                             
                                             NSLog("---MapViewController reqest!")
                                             self.push_icon.isHidden = false
