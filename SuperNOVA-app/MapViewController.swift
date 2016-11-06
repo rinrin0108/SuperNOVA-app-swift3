@@ -14,6 +14,7 @@ import MapKit
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
+    @IBOutlet weak var push_button: UIButton!
     @IBOutlet weak var push_icon: UIImageView!
     @IBOutlet weak var push_text: UILabel!
     @IBOutlet weak var help_text: UILabel!
@@ -123,6 +124,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.push_icon.isHidden = true
+        self.push_text.isHidden = true
+        self.push_button.isHidden = true
         
         segueButton.isUserInteractionEnabled = false
 
@@ -260,6 +265,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                             return
                                         }
                                         if(values["status"] as! String == "req"){
+                                            
+                                            NSLog("---MapViewController reqest!")
+                                            self.push_icon.isHidden = false
+                                            self.push_text.isHidden = false
+                                            self.push_button.isHidden = false
                                             
                                             //初回
                                             if(appDelegate._pushId != nil){
