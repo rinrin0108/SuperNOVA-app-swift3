@@ -162,7 +162,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
 //        searchAroudMe(self.googleMap, lat:latitude, lon:longitude);
         
         self.view.addSubview(googleMap)
+        self.googleMap.addSubview(RefreshSearchButton)
         self.googleMap.delegate = self;
+
         
     }
     
@@ -389,15 +391,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     }
      */
 
-    
+    @IBOutlet weak var RefreshSearchButton: UIButton!
     @IBAction func RefreshSearch(_ sender: UIButton) {
         searchAroudMe(self.googleMap, lat:latitude, lon:longitude);
     }
-    /*
-    @IBAction func RefreshSearch(_ sender: UIButton) {
-        searchAroudMe(self.googleMap, lat:latitude, lon:longitude);
-    }
-    */
     
     // 周辺施設呼び出しメソッド
     func searchAroudMe(_ mapView:GMSMapView,lat:CLLocationDegrees,lon:CLLocationDegrees) {
