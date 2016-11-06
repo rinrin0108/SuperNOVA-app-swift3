@@ -77,6 +77,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupBackGroundGeoLocation()
         //初回位置情報取得
         pushLocationManager.startUpdatingLocation()
+        
+        _lang = ""
 
         //Facebook
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

@@ -233,7 +233,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
 
         //近辺の
-        MergerAPI.searchRequest(appDelegate._lat,lng: appDelegate._lng,lang: appDelegate._native ,sync: true,
+        MergerAPI.searchRequest(appDelegate._lat,lng: appDelegate._lng,lang: appDelegate._native,userid: appDelegate._userid ,sync: true,
                                    success:{
                                     values in let closure = {
                                         NSLog("---MapViewController MergerAPI.searchRequest success");
