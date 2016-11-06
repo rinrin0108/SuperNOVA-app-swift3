@@ -6,6 +6,7 @@
 //  Copyright © 2016年 SuperNOVA. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 
@@ -94,5 +95,58 @@ final class AccountInfo {
             store.synchronize()
         }
     }
+    
+    //ログイン認可を行う。アプリに登録されている情報からからユーザー情報を取得する。（NSUserDefaults永続化）
+    static func searchLoginData() -> [String : Any]? {
+        NSLog("---LoginViewController searchLoginData")
+        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        
+        let defaults = UserDefaults.standard;
+        let user = defaults.dictionary(forKey: "User")
+        if(user != nil){
+            for (key, value) in user! {
+                NSLog("\(key)：\(value)")
+                if(key == "userid"){
+                    appDelegate._userid   = value as! String
+                }else if(key == "image"){
+                    appDelegate._image    = value as! String
+                }else if(key == "fullname"){
+                    appDelegate._fullname = value as! String
+                }else if(key == "firstname"){
+                    appDelegate._firstname = value as! String
+                }else if(key == "lastname"){
+                    appDelegate._lastname = value as! String
+                }else{
+                    NSLog("---LoginViewController what is this data ?")
+                }
+            }
+        }
+        return user;
+    }
+    
+    //ユーザー情報をアプリに登録（NSUserDefaults永続化）
+    static func registLoginData()->Bool {
+        NSLog("---AccountInfo registLoginData")
+        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        let user = [
+            "userid": appDelegate._userid,
+            "image":appDelegate._image,
+            "fullname":appDelegate._fullname,
+            "firstname":appDelegate._firstname,
+            "lastname":appDelegate._lastname,
+            ]
+        
+        let defaults = UserDefaults.standard
+        defaults.set(user, forKey: "User")
+        
+        if defaults.synchronize() {
+            NSLog("---AccountInfo registLoginData success")
+            return true;
+        } else {
+            NSLog("---AccountInfo registLoginData failed")
+            return false;
+        }
+    }
+    
     
 }

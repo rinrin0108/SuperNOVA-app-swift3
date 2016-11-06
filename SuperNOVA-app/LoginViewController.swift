@@ -26,30 +26,6 @@ class LoginViewController: UIViewController {
         appDelegate._id = "";
     }
     
-    //ログイン認可を行う。アプリに登録されている情報からからユーザー情報を取得する。（NSUserDefaults永続化）
-    func searchLoginData() -> [String : Any]? {
-        NSLog("---LoginViewController searchLoginData")
-        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
-        
-        let defaults = UserDefaults.standard;
-        let user = defaults.dictionary(forKey: "User")
-        if(user != nil){
-            for (key, value) in user! {
-                NSLog("\(key)：\(value)")
-                if(key == "userid"){
-                    appDelegate._userid   = value as! String
-                }else if(key == "image"){
-                    appDelegate._image    = value as! String
-                }else if(key == "fullname"){
-                    appDelegate._fullname = value as! String
-                }else{
-                    NSLog("---LoginViewController what is this data ?")
-                }
-            }
-        }
-        return user;
-    }
-    
     /**
      * ログインボタン押下時
      **/
@@ -57,10 +33,10 @@ class LoginViewController: UIViewController {
         NSLog("---LoginViewController pushLogin");
         
         //ログイン認可を行う。アプリに登録されている情報からからユーザー情報を取得する。（NSUserDefaults永続化）
-        if(self.searchLoginData() != nil){
-            NSLog("---LoginViewController Login with AppData");
+        if(AccountInfo.searchLoginData() != nil){
+            NSLog("---LoginViewController Login success with AppData");
             //ログインが成功
-            ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toMapView")
+            ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toUserRegisterView")
         }else{
             NSLog("---LoginViewController Login with Facebook");
             //ログイン認証を行う
@@ -78,7 +54,7 @@ class LoginViewController: UIViewController {
                                     AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
                                                          message: NSLocalizedString("ALERT_LOGIN_FAILED_ERROR", comment: ""));
                                 } else if !(result?.isCancelled)! {
-                                    NSLog("---LoginViewController success");
+                                    NSLog("---LoginViewController Login success with Facebook");
                                     //ログインが成功
                                     ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toUserRegisterView")
                                 }

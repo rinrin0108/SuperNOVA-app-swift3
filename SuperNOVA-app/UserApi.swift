@@ -121,7 +121,6 @@ class UserAPI {
         API.request("updateUserRate", methodName: APIHTTPMethod.GET, params: params, sync: sync, success: success, failed: failed)
     }
     
-    
 }
 
 

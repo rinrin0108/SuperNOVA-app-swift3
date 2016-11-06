@@ -76,6 +76,8 @@ class UserRegisterViewController: UIViewController {
                             appDelegate._userid    = self.email.text
                             appDelegate._image     = self.profileImageURL
                             appDelegate._fullname  = self.first_name.text! + self.last_name.text!
+                            appDelegate._firstname = self.first_name.text!
+                            appDelegate._lastname  = self.last_name.text!
                             //FIXME
                             if(appDelegate._lang == ""){
                                 appDelegate._lang      = "Japanese";
@@ -83,7 +85,7 @@ class UserRegisterViewController: UIViewController {
                             }
                             
                             //ユーザー情報をアプリに登録（NSUserDefaults永続化）
-                            self.registLoginData();
+                            AccountInfo.registLoginData();
                             
                             // MapViewに画面遷移
                             ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toMapView")
@@ -135,87 +137,96 @@ class UserRegisterViewController: UIViewController {
         
     }
     
-    //ユーザー情報をアプリに登録（NSUserDefaults永続化）
-    func registLoginData()->Bool {
-        NSLog("---UserRegisterViewController registLoginData")
-        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
-        let user = [
-            "userid": appDelegate._userid,
-            "image":appDelegate._image,
-            "fullname":appDelegate._fullname,
-            ]
-        
-        let defaults = UserDefaults.standard
-        defaults.set(user, forKey: "User")
-        
-        if defaults.synchronize() {
-            NSLog("---UserRegisterViewController registUserInApp success")
-            return true;
-        } else {
-            NSLog("---UserRegisterViewController registUserInApp failed")
-            return false;
-        }
-    }
-    
     
     override
     func viewDidLoad() {
         super.viewDidLoad()
         NSLog("---UserRegisterViewController viewDidLoad");
-                //Facebookがログイン済みの場合その情報を反映させる。
-                if (FBSDKAccessToken.current() != nil) {
-                    NSLog("---UserRegisterViewController FBSDKAccessToken.currentAccessToken()");
-                    let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me",
-                        parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"])
-                    graphRequest.start(completionHandler: {
-                        connection, result, error in
+        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
         
-                        if error != nil
-                        {
-                            // エラー処理
-                            NSLog("Error: \(error)")
+        //アプリが保持するログイン情報を反映
+        let userLoginInfo = AccountInfo.searchLoginData();
+        if(userLoginInfo != nil){
+            //ユーザID,メールアドレス,氏,名を設定
+            self.first_name.text = appDelegate._firstname as String
+            NSLog("self.first_name.text!");
+            NSLog(self.first_name.text!);
+            self.last_name.text = appDelegate._lastname as String
+            NSLog("self.last_name.text!");
+            NSLog(self.last_name.text!);
+            self.email.text  = appDelegate._userid as String
+            NSLog("self.email.text!");
+            NSLog(self.email.text!);
+            self.profileImageURL = appDelegate._image as String
+            NSLog("self.profileImageURL");
+            NSLog(self.profileImageURL);
+            let profileImageURL : String = appDelegate._image as String
+            if profileImageURL != "" {
+                NSLog("---UserRegisterViewController profileImageURL is not null");
+                let profileImage : UIImage? = API.downloadImage(profileImageURL)
+                self.profile.image = profileImage
+                self.selectImage = profileImage
+                self.profile.layer.cornerRadius = self.profile.frame.size.width / 2
+                self.profile.clipsToBounds = true
+            }
+            
+        }else{
+            
+            //Facebookがログイン済みの場合その情報を反映させる。
+            if (FBSDKAccessToken.current() != nil) {
+                NSLog("---UserRegisterViewController FBSDKAccessToken.currentAccessToken()");
+                let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me",
+                                                                         parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"])
+                graphRequest.start(completionHandler: {
+                    connection, result, error in
+                    
+                    if error != nil
+                    {
+                        // エラー処理
+                        NSLog("Error: \(error)")
+                    }
+                    else
+                    {
+                        NSLog("---UserRegisterViewController graphRequest.startWithCompletionHandler success");
+                        // プロフィール情報をディクショナリに入れる
+                        let userProfile : NSDictionary! = result as! NSDictionary
+                        
+                        // プロフィール画像の取得
+                        let profileImageURL : String = ((userProfile.object(forKey: "picture") as AnyObject).object(forKey: "data") as AnyObject).object(forKey: "url") as! String
+                        
+                        NSLog((userProfile.object(forKey: "id") as? String)!);
+                        NSLog((userProfile.object(forKey: "name") as? String)!);
+                        NSLog((userProfile.object(forKey: "first_name") as? String)!);
+                        NSLog((userProfile.object(forKey: "last_name") as? String)!);
+                        NSLog(profileImageURL);
+                        NSLog((userProfile.object(forKey: "email") as? String)!);
+                        
+                        if profileImageURL != "" {
+                            NSLog("---UserRegisterViewController profileImageURL is not null");
+                            let profileImage : UIImage? = API.downloadImage(profileImageURL)
+                            self.profile.image = profileImage
+                            self.selectImage = profileImage
+                            self.profile.layer.cornerRadius = self.profile.frame.size.width / 2
+                            self.profile.clipsToBounds = true
                         }
-                        else
-                        {
-                            NSLog("---UserRegisterViewController graphRequest.startWithCompletionHandler success");
-                            // プロフィール情報をディクショナリに入れる
-                            let userProfile : NSDictionary! = result as! NSDictionary
-        
-                            // プロフィール画像の取得
-                            let profileImageURL : String = ((userProfile.object(forKey: "picture") as AnyObject).object(forKey: "data") as AnyObject).object(forKey: "url") as! String
-                            
-                            NSLog((userProfile.object(forKey: "id") as? String)!);
-                            NSLog((userProfile.object(forKey: "name") as? String)!);
-                            NSLog((userProfile.object(forKey: "first_name") as? String)!);
-                            NSLog((userProfile.object(forKey: "last_name") as? String)!);
-                            NSLog(profileImageURL);
-                            NSLog((userProfile.object(forKey: "email") as? String)!);
-        
-                            if profileImageURL != "" {
-                                NSLog("---UserRegisterViewController profileImageURL is not null");
-                                let profileImage : UIImage? = API.downloadImage(profileImageURL)
-                                self.profile.image = profileImage
-                                self.selectImage = profileImage
-                                self.profile.layer.cornerRadius = self.profile.frame.size.width / 2
-                                self.profile.clipsToBounds = true
-                            }
-        
-                            //ユーザID,メールアドレス,氏,名を設定
-                            self.first_name.text = userProfile.object(forKey: "first_name") as? String
-                            NSLog("self.first_name.text!");
-                            NSLog(self.first_name.text!);
-                            self.last_name.text = userProfile.object(forKey: "last_name") as? String
-                            NSLog("self.last_name.text!");
-                            NSLog(self.last_name.text!);
-                            self.email.text  = userProfile.object(forKey: "email") as? String
-                            NSLog("self.email.text!");
-                            NSLog(self.email.text!);
-                            self.profileImageURL = profileImageURL
-                            NSLog("self.profileImageURL");
-                            NSLog(self.profileImageURL);
-                        }
-                    })
-                }
+                        
+                        //ユーザID,メールアドレス,氏,名を設定
+                        self.first_name.text = userProfile.object(forKey: "first_name") as? String
+                        NSLog("self.first_name.text!");
+                        NSLog(self.first_name.text!);
+                        self.last_name.text = userProfile.object(forKey: "last_name") as? String
+                        NSLog("self.last_name.text!");
+                        NSLog(self.last_name.text!);
+                        self.email.text  = userProfile.object(forKey: "email") as? String
+                        NSLog("self.email.text!");
+                        NSLog(self.email.text!);
+                        self.profileImageURL = profileImageURL
+                        NSLog("self.profileImageURL");
+                        NSLog(self.profileImageURL);
+                    }
+                })
+            }
+        }
         NSLog("isLoaded");
         isLoaded = true
         
