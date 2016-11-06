@@ -109,8 +109,7 @@ class TeacherWaitingMapViewController: UIViewController, CLLocationManagerDelega
     }
     
     func callWebService(){
-        //let url = NSURL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(18.5235),\(73.7184)&destination=\(18.7603),\(73.8630)&key=AIzaSyDxSgGQX6jrn4iq6dyIWAKEOTneZ3Z8PtU")
-        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(latitude),\(longitude)&destination=\(appDelegate._shoplat),\(appDelegate._shoplng)&mode=walking&key=\(appDelegate.googleMapsApiKey)")
+        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(latitude!),\(longitude!)&destination=\(appDelegate._shoplat!),\(appDelegate._shoplng!)&mode=walking&key=\(appDelegate.googleMapsApiKey)")
         let request = URLRequest(url: url!)
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
@@ -129,6 +128,8 @@ class TeacherWaitingMapViewController: UIViewController, CLLocationManagerDelega
                     let routes = jsonResult.mutableArrayValue(forKeyPath: "routes")
                     let overview_polyline = routes.mutableArrayValue(forKeyPath: "overview_polyline")
                     let points = overview_polyline.mutableArrayValue(forKeyPath: "points")
+                    //let pointString = points.firstObject as! String
+                    print(points)
                     let pointString = points.firstObject as! String
                     
                     

@@ -277,6 +277,8 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
                     let routes = jsonResult.mutableArrayValue(forKeyPath: "routes")
                     let overview_polyline = routes.mutableArrayValue(forKeyPath: "overview_polyline")
                     let points = overview_polyline.mutableArrayValue(forKeyPath: "points")
+                    print("pointspointspoints")
+                    print(points)
                     let pointString = points.firstObject as! String
                     
                     if pointString != ""{
