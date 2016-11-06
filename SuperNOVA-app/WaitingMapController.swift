@@ -123,7 +123,7 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
         
         var flg4api = true;
         //ポーリング
-        for i in 0 ..< 10 {
+        for i in 0 ..< 90 {
             NSLog(dateFormatter.string(from: now))
             Thread.sleep(forTimeInterval: 1)
             
