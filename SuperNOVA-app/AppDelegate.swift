@@ -82,6 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         _lang = ""
         _time = ""
+        _place = ""
 
         //Facebook
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

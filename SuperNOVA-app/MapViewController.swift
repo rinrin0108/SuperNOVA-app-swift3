@@ -19,6 +19,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     @IBOutlet weak var push_text: UILabel!
     @IBOutlet weak var help_text: UILabel!
     
+    @IBOutlet weak var pushView: UIView!
     @IBOutlet weak var responseTeacher: UIButton!
     @IBAction func responseTeacher(_ sender: UIButton) {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
@@ -165,6 +166,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
         self.view.addSubview(googleMap)
         self.googleMap.addSubview(RefreshSearchButton)
+        self.googleMap.addSubview(pushView)
         self.googleMap.delegate = self;
 
         
@@ -173,7 +175,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     func searchRequest() {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
         
-        appDelegate._place = "SHOP01";
+        //if( appDelegate._place == ""){
+            //appDelegate._place = "SHOP01";
+        //}
         
         if (appDelegate._lat == nil || appDelegate._lng == nil){
             appDelegate._lat = "35.698353";
@@ -268,10 +272,29 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                         }
                                         if(values["status"] as! String == "req"){
                                             
+                                            let animation:CATransition = CATransition()
+                                            animation.type = kCATransitionFade
+                                            animation.duration = 0.4
+                                            self.push_icon.layer.add(animation, forKey: nil)
+                                            self.push_text.layer.add(animation, forKey: nil)
+                                            self.push_button.layer.add(animation, forKey: nil)
+                                            
                                             NSLog("---MapViewController reqest!")
                                             self.push_icon.isHidden = false
                                             self.push_text.isHidden = false
                                             self.push_button.isHidden = false
+                                            
+                                            NSLog("---MapViewController shop lat lng")
+                                            let tmplocations:NSArray = values["location"] as! NSArray
+                                            NSLog("\(tmplocations[0])")
+                                            NSLog("\(tmplocations[1])")
+                                            
+                                            let tmpshoplat:CLLocationDegrees = atof("\(tmplocations[1])")
+                                            let tmpshoplng:CLLocationDegrees = atof("\(tmplocations[0])")
+                                            
+                                            appDelegate._shoplat = tmpshoplat
+                                            appDelegate._shoplng = tmpshoplng
+                                            appDelegate._shoptitle = values["place"] as! String!
                                             
                                             //初回
                                             if(appDelegate._pushId != nil){
@@ -443,7 +466,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                         
                         let json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
                         let results = json["results"] as? Array<NSDictionary>
-                    
+                        
                         //次のページがあるか確認する。
                         if json["next_page_token"] != nil {
                             page_token = json["next_page_token"] as! String
@@ -544,6 +567,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         appDelegate._shoplat = marker.position.latitude
         appDelegate._shoplng = marker.position.longitude
         appDelegate._shoptitle = marker.title
+        appDelegate._lat = marker.position.latitude.description
+        appDelegate._lng = marker.position.longitude.description
+        appDelegate._place = marker.title?.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)
         
         segueButton.isUserInteractionEnabled = true
         
