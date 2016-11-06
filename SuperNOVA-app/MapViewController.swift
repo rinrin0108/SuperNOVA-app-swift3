@@ -107,7 +107,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     var latitude:   CLLocationDegrees!
     var longitude:  CLLocationDegrees!
     var center: CLLocationCoordinate2D!
-    var radius = 250;
+    var radius = 200;
     
     @IBOutlet weak var googleMap: GMSMapView!
     @IBOutlet weak var MarkerTitle: UILabel!
@@ -151,7 +151,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
 //        searchAroudMe(self.googleMap, lat:latitude, lon:longitude);
         
         self.view.addSubview(googleMap)
+        self.googleMap.addSubview(RefreshSearchButton)
         self.googleMap.delegate = self;
+
         
     }
     
@@ -373,8 +375,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     }
      */
 
-    
-    @IBOutlet weak var ButtonOnGMV: GMSMapView!
+    @IBOutlet weak var RefreshSearchButton: UIButton!
     @IBAction func RefreshSearch(_ sender: UIButton) {
         searchAroudMe(self.googleMap, lat:latitude, lon:longitude);
     }
