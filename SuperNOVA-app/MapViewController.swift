@@ -165,7 +165,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
 //        searchAroudMe(self.googleMap, lat:latitude, lon:longitude);
         
         self.view.addSubview(googleMap)
-        self.googleMap.addSubview(RefreshSearchButton)
+        //self.googleMap.addSubview(RefreshSearchButton)
         self.googleMap.addSubview(pushView)
         self.googleMap.delegate = self;
 
