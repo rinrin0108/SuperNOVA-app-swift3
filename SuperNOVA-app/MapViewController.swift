@@ -107,7 +107,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     var latitude:   CLLocationDegrees!
     var longitude:  CLLocationDegrees!
     var center: CLLocationCoordinate2D!
-    var radius = 150;
+    var radius = 250;
     
     @IBOutlet weak var googleMap: GMSMapView!
     @IBOutlet weak var MarkerTitle: UILabel!
@@ -374,14 +374,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
      */
 
     
+    @IBOutlet weak var ButtonOnGMV: GMSMapView!
     @IBAction func RefreshSearch(_ sender: UIButton) {
         searchAroudMe(self.googleMap, lat:latitude, lon:longitude);
     }
-    /*
-    @IBAction func RefreshSearch(_ sender: UIButton) {
-        searchAroudMe(self.googleMap, lat:latitude, lon:longitude);
-    }
-    */
     
     // 周辺施設呼び出しメソッド
     func searchAroudMe(_ mapView:GMSMapView,lat:CLLocationDegrees,lon:CLLocationDegrees) {

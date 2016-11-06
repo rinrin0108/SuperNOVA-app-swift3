@@ -217,7 +217,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kuu-gP-kGi">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kuu-gP-kGi" userLabel="ButtonOnGMV" customClass="GMSMapView">
                                 <rect key="frame" x="16" y="476" width="77" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -227,7 +227,6 @@
                                         <state key="normal" title="Search"/>
                                         <connections>
                                             <action selector="RefreshSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XdG-5V-n6j"/>
-                                            <action selector="RefreshSearchAroundMe:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9aP-FK-lWF"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -237,6 +236,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="ButtonOnGMV" destination="Kuu-gP-kGi" id="9hM-pE-b8Y"/>
                         <outlet property="MarkerImage" destination="TdH-TP-93a" id="1ku-uo-Ax8"/>
                         <outlet property="MarkerTitle" destination="a57-Xf-1q4" id="U0c-3A-gNg"/>
                         <outlet property="googleMap" destination="5wX-hK-CXA" id="Mqb-tO-fbA"/>
