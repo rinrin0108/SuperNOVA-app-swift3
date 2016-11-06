@@ -112,8 +112,7 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
         NSLog(dateFormatter.string(from: now))
         var flg = false;
         
-        //print("てすとてすと")
-        //SVProgressHUD.show(withStatus: "てすとてすと")
+        SVProgressHUD.show(withStatus: "てすとてすと") //これを最前面に表示したい
         
         var flg4api = true;
         //ポーリング
