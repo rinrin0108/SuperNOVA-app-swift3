@@ -49,31 +49,6 @@ class UserRegisterViewController: UIViewController {
     @IBAction func registUser(_ sender: UIButton) {
         NSLog("---UserRegisterViewController registUser");
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
-        /**
-         *  画像ではなく画像URLを使用
-        var data : NSData? = nil
-        // プロファイル画像が選択されていた場合
-        if(selectImage != nil){
-            NSLog("---UserRegisterViewController selectImage");
-            // PNG形式の画像フォーマットとしてNSDataに変換
-            if let jpg = UIImageJPEGRepresentation(profile.image!, 0.2) {
-                data = jpg
-                NSLog("---UserRegisterViewController jpg");
-            }else if let png = UIImagePNGRepresentation(profile.image!) {
-                data = png
-                NSLog("---UserRegisterViewController png");
-            }
-        } else {
-            data = UIImagePNGRepresentation(UIImage(named: "user_no_image")!)
-            NSLog("---UserRegisterViewController user_no_image");
-        }
-        */
-        
-        /**
-         * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
-        Indicator.windowSet()
-        */
-        
         if(appDelegate._lang == ""){
             appDelegate._lang      = "English";
             appDelegate._native      = "Japanese";
@@ -107,10 +82,8 @@ class UserRegisterViewController: UIViewController {
                                 appDelegate._native      = "English";
                             }
                             
-                            /**
-                            * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
-                            Indicator.windowClose()
-                            */
+                            //ユーザー情報をアプリに登録（NSUserDefaults永続化）
+                            self.registLoginData();
                             
                             // MapViewに画面遷移
                             ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toMapView")
@@ -160,7 +133,28 @@ class UserRegisterViewController: UIViewController {
             }
         )
         
+    }
+    
+    //ユーザー情報をアプリに登録（NSUserDefaults永続化）
+    func registLoginData()->Bool {
+        NSLog("---UserRegisterViewController registLoginData")
+        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        let user = [
+            "userid": appDelegate._userid,
+            "image":appDelegate._image,
+            "fullname":appDelegate._fullname,
+            ]
         
+        let defaults = UserDefaults.standard
+        defaults.set(user, forKey: "User")
+        
+        if defaults.synchronize() {
+            NSLog("---UserRegisterViewController registUserInApp success")
+            return true;
+        } else {
+            NSLog("---UserRegisterViewController registUserInApp failed")
+            return false;
+        }
     }
     
     
