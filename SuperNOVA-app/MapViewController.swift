@@ -372,7 +372,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         googleMap.animateToLocation(CLLocationCoordinate2DMake(self.latitude, self.longitude))
     }
      */
- 
+
+    
+    @IBAction func RefreshSearch(_ sender: UIButton) {
+        searchAroudMe(self.googleMap, lat:latitude, lon:longitude);
+    }
+    
+    
     // 周辺施設呼び出しメソッド
     func searchAroudMe(_ mapView:GMSMapView,lat:CLLocationDegrees,lon:CLLocationDegrees) {
         

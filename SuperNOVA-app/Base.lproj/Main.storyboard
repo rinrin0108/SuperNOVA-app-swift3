@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Pux-Hs-JEb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Pux-Hs-JEb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -102,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sP4-2h-c5s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-209.5" y="334.5"/>
+            <point key="canvasLocation" x="-540" y="334"/>
         </scene>
         <!--LoginViewController-->
         <scene sceneID="qzt-Q8-v9J">
@@ -143,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKB-of-Q97" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-811.5" y="334.5"/>
+            <point key="canvasLocation" x="-1233" y="333"/>
         </scene>
         <!--MapViewController-->
         <scene sceneID="tne-QT-ifu">
@@ -164,6 +164,19 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5wX-hK-CXA" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="138" width="375" height="422"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moa-Kq-M11" userLabel="Search">
+                                        <rect key="frame" x="40" y="344" width="65" height="54"/>
+                                        <accessibility key="accessibilityConfiguration" label="Search"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="65" id="qcZ-LC-X1H"/>
+                                        </constraints>
+                                        <state key="normal" title="Search"/>
+                                        <connections>
+                                            <action selector="RefreshSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GHK-0A-1Md"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pjD-rH-ksa">
@@ -223,6 +236,7 @@
                     <connections>
                         <outlet property="MarkerImage" destination="TdH-TP-93a" id="1ku-uo-Ax8"/>
                         <outlet property="MarkerTitle" destination="a57-Xf-1q4" id="U0c-3A-gNg"/>
+                        <outlet property="RefreshSearch" destination="moa-Kq-M11" id="evC-z7-Frt"/>
                         <outlet property="googleMap" destination="5wX-hK-CXA" id="Mqb-tO-fbA"/>
                         <outlet property="push_icon" destination="f2t-zr-8in" id="FQD-LU-6rx"/>
                         <outlet property="push_text" destination="h3A-mJ-Efs" id="kln-SJ-Lx2"/>
@@ -234,7 +248,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="274.5" y="324.5"/>
+            <point key="canvasLocation" x="157.59999999999999" y="323.38830584707648"/>
         </scene>
         <!--TeacherWaitingViewController-->
         <scene sceneID="iWU-FQ-gTf">
@@ -293,7 +307,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbX-Oz-OvB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="274.5" y="1266.5"/>
+            <point key="canvasLocation" x="158" y="1085"/>
         </scene>
         <!--WaitingMapViewController-->
         <scene sceneID="vcs-3r-uAC">
@@ -353,7 +367,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fyy-uW-5Cf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="794.5" y="1266.5"/>
+            <point key="canvasLocation" x="1545" y="1085"/>
         </scene>
         <!--ConversationViewController-->
         <scene sceneID="ig4-Nm-mbQ">
@@ -432,7 +446,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xoN-6y-KFU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1869.5" y="324.5"/>
+            <point key="canvasLocation" x="2222" y="324"/>
         </scene>
         <!--EvaluateViewController-->
         <scene sceneID="HnA-RV-2im">
@@ -531,7 +545,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="etW-tA-f8S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2377.5" y="324.5"/>
+            <point key="canvasLocation" x="2900" y="332"/>
         </scene>
         <!--CallViewController-->
         <scene sceneID="qaF-sl-tbW">
@@ -612,7 +626,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ix-Ai-HOt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="794.5" y="324.5"/>
+            <point key="canvasLocation" x="860" y="324"/>
         </scene>
         <!--EncounterViewController-->
         <scene sceneID="tNR-J1-VVA">
@@ -692,7 +706,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N6n-Yf-iwV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1336.5" y="324.5"/>
+            <point key="canvasLocation" x="1546" y="324"/>
         </scene>
     </scenes>
     <resources>
@@ -717,6 +731,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="d4W-dF-geV"/>
-        <segue reference="pdV-4q-DF1"/>
+        <segue reference="PBm-En-xVe"/>
     </inferredMetricsTieBreakers>
 </document>
