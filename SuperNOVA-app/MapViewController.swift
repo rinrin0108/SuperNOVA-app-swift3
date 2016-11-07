@@ -115,7 +115,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     var latitude:   CLLocationDegrees!
     var longitude:  CLLocationDegrees!
     var center: CLLocationCoordinate2D!
-    var radius = 1000;
+    var radius = 250;
     
     @IBOutlet weak var googleMap: GMSMapView!
     @IBOutlet weak var MarkerTitle: UILabel!
