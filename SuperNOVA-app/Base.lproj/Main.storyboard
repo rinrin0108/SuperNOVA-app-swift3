@@ -238,6 +238,7 @@
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="atttention_icon" translatesAutoresizingMaskIntoConstraints="NO" id="PiV-30-N03">
                                                 <rect key="frame" x="15" y="40" width="45" height="45"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.90103441476821899" green="0.43196964263916016" blue="0.26624256372451782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -744,7 +745,7 @@
                                         <integer key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
-                                        <color key="value" red="0.83328413963317871" green="0.41620010137557983" blue="0.26588207483291626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.83137254901960778" green="0.41568627450980389" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
@@ -841,6 +842,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="PBm-En-xVe"/>
-        <segue reference="CBP-oz-Lc4"/>
+        <segue reference="PnS-F2-Sd7"/>
     </inferredMetricsTieBreakers>
 </document>

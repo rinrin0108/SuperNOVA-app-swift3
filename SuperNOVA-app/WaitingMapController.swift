@@ -313,8 +313,9 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
         
         let path = GMSMutablePath(fromEncodedPath: encodedString)
         let polyLine = GMSPolyline(path: path)
-        polyLine.strokeWidth = 5
-        polyLine.strokeColor = UIColor.blue
+        polyLine.strokeWidth = 6
+        //polyLine.strokeColor = UIColor.blue
+        polyLine.strokeColor = UIColor.origin_orangeColor()
         polyLine.map = self.googleMap
         
         let smarker = GMSMarker()
