@@ -117,11 +117,6 @@ class TeacherWaitingMapViewController: UIViewController, CLLocationManagerDelega
                                         // 通信は成功したが、エラーが返ってきた場合
                                         if(API.isError(values)){
                                             NSLog("---MapViewController MergerAPI.responseTeacher isError");
-                                            /**
-                                             * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
-                                             Indicator.windowClos()
-                                             
-                                             */
                                             AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
                                                                  message: values["errorMessage"] as! String)
                                             return
@@ -172,10 +167,7 @@ class TeacherWaitingMapViewController: UIViewController, CLLocationManagerDelega
                                         //恐らく実行されない
                                         closure()
                                     }
-        }
-        )
-        
-        ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toEncounterView")
+        })
     }
     
     func callWebService(){
