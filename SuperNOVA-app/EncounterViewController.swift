@@ -23,6 +23,7 @@ class EncounterViewController: UIViewController {
         //生徒
         self.name_student.text = appDelegate._fullname
         self.photo_student.image =  API.downloadImage(appDelegate._image)
+        self.photo_student.layer.cornerRadius = self.photo_student.frame.size.width / 2
         
         //教師
         UserAPI.getUser(appDelegate._partner,sync: true,
@@ -52,6 +53,7 @@ class EncounterViewController: UIViewController {
                                         appDelegate._partnerimage = values["image"] as! String
                                         appDelegate._partnerName = values["fullname"] as! String
                                         self.photo_teacher.image =  API.downloadImage(appDelegate._partnerimage)
+                                        self.photo_teacher.layer.cornerRadius = self.photo_teacher.frame.size.width / 2
                                         self.name_teacher.text = appDelegate._partnerName
                                         
                                     }

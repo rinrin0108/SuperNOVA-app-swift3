@@ -55,6 +55,7 @@ class EvaluateViewController: UIViewController {
         //教師
         self.name_teacher.text = appDelegate._partnerName
         self.photo_teacher.image =  API.downloadImage(appDelegate._partnerimage)
+        self.photo_teacher.layer.cornerRadius = self.photo_teacher.frame.size.width / 2
     }
     
     
