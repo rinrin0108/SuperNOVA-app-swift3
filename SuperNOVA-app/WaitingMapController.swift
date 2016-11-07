@@ -265,8 +265,8 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
         let mcenter = CLLocationCoordinate2DMake(appDelegate._shoplat,appDelegate._shoplng);
         marker = GMSMarker(position: mcenter)
         //marker.icon = UIImage(named: "marker");
-        marker.icon = UIImage(named: "icon_shop_spot_orange")
-        marker.map = self.googleMap
+        //marker.icon = UIImage(named: "icon_shop_spot_orange")
+        //marker.map = self.googleMap
         
     }
     func callWebService(){
@@ -324,7 +324,15 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
         let dmarker = GMSMarker()
         dmarker.position = CLLocationCoordinate2D(latitude: appDelegate._shoplat, longitude: appDelegate._shoplng)
         dmarker.title = appDelegate._shoptitle
-        dmarker.icon = UIImage(named: "icon_shop_spot_orange")
+        //dmarker.icon = UIImage(named: "icon_shop_spot_orange")
+        
+        let tmpImage = UIImage(named:"icon_shop_spot_orange");
+        let size = CGSize(width: self.appDelegate._mw, height: self.appDelegate._mh)
+        UIGraphicsBeginImageContext(size)
+        tmpImage?.draw(in: CGRect(x: 0,y: 0,width: size.width,height: size.height))
+        var resizeImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        dmarker.icon = resizeImage
         //dmarker.snippet = appDelegate._shopsnippet
         dmarker.map = self.googleMap
         

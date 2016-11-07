@@ -115,7 +115,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     var latitude:   CLLocationDegrees!
     var longitude:  CLLocationDegrees!
     var center: CLLocationCoordinate2D!
-    var radius = 200;
+    var radius = 1000;
     
     @IBOutlet weak var googleMap: GMSMapView!
     @IBOutlet weak var MarkerTitle: UILabel!
@@ -525,7 +525,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                             self.markerimgurl.append((tmpurl! as? String)!)
                                         }
                                         
-                                        marker.icon = UIImage(named:"icon_shop_spot_orange");
+                                        //marker.icon = UIImage(named:"icon_shop_spot_orange");
+                                        let tmpImage = UIImage(named:"icon_shop_spot_orange");
+                                        //let size = CGSize(width: 20, height: 30)
+                                        let size = CGSize(width: self.appDelegate._mw, height: self.appDelegate._mh)
+                                        UIGraphicsBeginImageContext(size)
+                                        tmpImage?.draw(in: CGRect(x: 0,y: 0,width: size.width,height: size.height))
+                                        var resizeImage = UIGraphicsGetImageFromCurrentImageContext()
+                                        UIGraphicsEndImageContext()
+                                        marker.icon = resizeImage
                                         
                                         //marker.icon = UIImage(named:"marker");
                                         //marker.icon = UIImage(named: "usagi_icon")

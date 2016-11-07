@@ -41,6 +41,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var _pushId :String!
     var _shopimage :String!
     
+    var _mw = 20
+    var _mh = 30
+    
     // 
     //var initializedLocation: Bool = false;
     //
