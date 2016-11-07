@@ -51,17 +51,20 @@ class EvaluateViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
         //教師
         self.name_teacher.text = appDelegate._partnerName
         self.photo_teacher.image =  API.downloadImage(appDelegate._partnerimage)
         self.photo_teacher.layer.cornerRadius = self.photo_teacher.frame.size.width / 2
+        self.photo_teacher.clipsToBounds = true
+        self.photo_teacher.layer.borderColor = UIColor.orange.cgColor
+        
     }
     
     
     @IBAction func rate(_ sender: UIButton) {
         
-        var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
         
         //ピッチング終了リクエスト
         UserAPI.updateUserRate(appDelegate._partner,rate: rating ,sync: true,

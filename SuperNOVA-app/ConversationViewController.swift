@@ -18,15 +18,20 @@ class ConversationViewController: UIViewController {
     @IBOutlet weak var name_student: UILabel!
     
     override func viewDidLoad() {
-        var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
         //生徒
         self.name_student.text = appDelegate._fullname
         self.photo_student.image =  API.downloadImage(appDelegate._image)
         self.photo_student.layer.cornerRadius = self.photo_student.frame.size.width / 2
+        self.photo_student.clipsToBounds = true
+        self.photo_student.layer.borderColor = UIColor.green.cgColor
+
         //教師
         self.name_teacher.text = appDelegate._partnerName
         self.photo_teacher.image =  API.downloadImage(appDelegate._partnerimage)
         self.photo_teacher.layer.cornerRadius = self.photo_teacher.frame.size.width / 2
+        self.photo_teacher.clipsToBounds = true
+        self.photo_teacher.layer.borderColor = UIColor.orange.cgColor
 
     }
     
