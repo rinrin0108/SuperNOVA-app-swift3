@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //var networkErrorChecked = false;
     
     //
-    var zoom: Float = 17
+    var zoom: Float = 15
     //
     let distance_filter: CLLocationDistance = 50;
     
