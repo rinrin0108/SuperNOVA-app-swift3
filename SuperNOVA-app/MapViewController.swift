@@ -502,9 +502,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                         marker.title = result["name"] as? String
                                         //let tmpurl = NSURL(string: result["icon"]);
                                         //let tmpurl = result["icon"]
-                                        let photos = result["photos"]
-                                        let photo_reference = (photos as AnyObject).mutableArrayValue(forKeyPath: "photo_reference")
-                                        let tmpurl = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=80&photoreference=\((photo_reference.firstObject as! String))&key=\(self.appDelegate.googleMapsApiKey)" as? String
+                                        var photos = result["photos"]
+                                        if(photos == nil){
+                                            print("no photos")
+                                            //photos = result["icon"]
+                                            let tmpurl = "https://s3-ap-northeast-1.amazonaws.com/supernova-hack/noimage.png"
+                                            self.markerimgurl.append((tmpurl as? String)!)
+                                        }else{
+                                            let photo_reference = (photos as AnyObject).mutableArrayValue(forKeyPath: "photo_reference")
+                                            let tmpurl = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=80&photoreference=\((photo_reference.firstObject as! String))&key=\(self.appDelegate.googleMapsApiKey)" as? String
                                         
                                         //NSLog("tmpurl:\(tmpurl)")
                                         //NSLog("photos:\(photos)")
@@ -513,12 +519,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                         
                                         //var err: NSError?
                                         //let imageData :Data = try! Data(contentsOf: URL(string: tmpurl! as! String)! );
-                                        
+                                            self.markerimgurl.append((tmpurl! as? String)!)
+                                        }
                                         
                                         //marker.icon = UIImage(data:imageData);
                                         marker.icon = UIImage(named: "marker")
                                         self.markerindex.append((result["name"] as? String)!)
-                                        self.markerimgurl.append((tmpurl! as? String)!)
+                                        
                                         marker.map = self.googleMap
                                     });
                                 }
