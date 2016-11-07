@@ -416,6 +416,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         let center = CLLocationCoordinate2DMake(latitude,longitude);
         self.googleMap.animate(to: camera)
 
+        googleMap.clear()
+        
         searchAroudMe(self.googleMap, lat:latitude, lon:longitude);
         
     }

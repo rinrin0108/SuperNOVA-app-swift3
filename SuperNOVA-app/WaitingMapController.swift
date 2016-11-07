@@ -258,6 +258,8 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
         let center = CLLocationCoordinate2DMake(latitude,longitude);
         self.googleMap.animate(to: camera)
         
+        googleMap.clear()
+        
         callWebService()
         
         let mcenter = CLLocationCoordinate2DMake(appDelegate._shoplat,appDelegate._shoplng);

@@ -95,6 +95,8 @@ class TeacherWaitingMapViewController: UIViewController, CLLocationManagerDelega
         let center = CLLocationCoordinate2DMake(latitude,longitude);
         self.googleMap.animate(to: camera)
 
+        googleMap.clear()
+        
         callWebService()
         
     
