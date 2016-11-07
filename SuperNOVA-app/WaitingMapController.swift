@@ -262,7 +262,8 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
         
         let mcenter = CLLocationCoordinate2DMake(appDelegate._shoplat,appDelegate._shoplng);
         marker = GMSMarker(position: mcenter)
-        marker.icon = UIImage(named: "marker");
+        //marker.icon = UIImage(named: "marker");
+        marker.icon = UIImage(named: "icon_shop_spot_orange")
         marker.map = self.googleMap
         
     }
@@ -320,6 +321,7 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
         let dmarker = GMSMarker()
         dmarker.position = CLLocationCoordinate2D(latitude: appDelegate._shoplat, longitude: appDelegate._shoplng)
         dmarker.title = appDelegate._shoptitle
+        dmarker.icon = UIImage(named: "icon_shop_spot_orange")
         //dmarker.snippet = appDelegate._shopsnippet
         dmarker.map = self.googleMap
         

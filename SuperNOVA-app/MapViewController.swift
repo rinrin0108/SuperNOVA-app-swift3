@@ -18,6 +18,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     @IBOutlet weak var push_icon: UIImageView!
     @IBOutlet weak var push_text: UILabel!
     @IBOutlet weak var help_text: UILabel!
+    @IBOutlet weak var helpView: UIView!
     
     @IBOutlet weak var pushView: UIView!
     @IBOutlet weak var responseTeacher: UIButton!
@@ -149,7 +150,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         // 最初は説明文を表示
         MarkerImage.isHidden = true
         MarkerTitle.isHidden = true
-        help_text.isHidden = false
+        helpView.isHidden = false
 
         // 初期設定
         initLocationManager();
@@ -522,8 +523,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                             self.markerimgurl.append((tmpurl! as? String)!)
                                         }
                                         
-                                        //marker.icon = UIImage(data:imageData);
-                                        marker.icon = UIImage(named: "marker")
+                                        marker.icon = UIImage(named:"icon_shop_spot_orange");
+                                        
+                                        //marker.icon = UIImage(named:"marker");
+                                        //marker.icon = UIImage(named: "usagi_icon")
                                         self.markerindex.append((result["name"] as? String)!)
                                         
                                         marker.map = self.googleMap
@@ -558,7 +561,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         // 説明文を非表示
         MarkerImage.isHidden = false
         MarkerTitle.isHidden = false
-        help_text.isHidden = true
+        helpView.isHidden = true
         
         MarkerTitle.text = marker.title
         //MarkerImage.image = markerimg
