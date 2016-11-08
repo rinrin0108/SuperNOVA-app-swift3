@@ -631,8 +631,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         helpView.isHidden = true
         
         // ヘルプ画像を点滅
-        self.startAnimation()
-        
+        if !_animating {
+            self.startAnimation()
+            _animating = true
+        }
         
         MarkerTitle.text = marker.title
         //MarkerImage.image = markerimg
@@ -675,12 +677,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         NSLog("back")
     }
     
+    private var _animating = false
     private var _stopAnimation = false
     private func startAnimation() {
         if _stopAnimation {
             return
         }
-        
         UIView.animate(withDuration: 0.5,
                        delay: 0.0,
                        animations: { _ in
