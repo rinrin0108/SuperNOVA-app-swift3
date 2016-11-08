@@ -133,6 +133,31 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     @IBOutlet weak var segueButton: UIButton!
     
+    override
+    func viewDidAppear(_ animated: Bool) {
+//        if(appDelegate._notification == "noteacher"){
+//            
+//            let animation:CATransition = CATransition()
+//            animation.type = kCATransitionFade
+//            animation.duration = 0.4
+//            
+//            self.push_icon.layer.add(animation, forKey: nil)
+//            self.push_text.layer.add(animation, forKey: nil)
+//            self.push_button.layer.add(animation, forKey: nil)
+//            
+//            self.push_icon.isHidden = false
+//            self.push_text.isHidden = false
+//            self.push_text.text = "先生が見つかりませんでした"
+//            self.push_button.isHidden = false
+//            self.push_button.isUserInteractionEnabled = false
+//            
+//            self.push_icon.fadeOut()
+//            self.push_text.fadeOut()
+//            self.push_button.fadeOut()
+//        }
+//        appDelegate._notification = ""
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -270,10 +295,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                         // 通信は成功したが、エラーが返ってきた場合
                                         if(API.isError(values)){
                                             NSLog("---MapViewController MergerAPI.searchRequest isError");
-                                            /**
-                                             * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
-                                             Indicator.windowClose()
-                                             */
                                             AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
                                                 message: values["errorMessage"] as! String)
                                             return

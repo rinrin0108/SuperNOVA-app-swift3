@@ -41,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var _application: UIApplication!
     var _pushId :String!
     var _shopimage :String!
+    var _notification : String!
     
     // marker size
     var _mw = 20

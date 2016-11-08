@@ -24,6 +24,7 @@ class LoginViewController: UIViewController {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
 
         appDelegate._id = "";
+        appDelegate._notification = ""
     }
     
     /**
