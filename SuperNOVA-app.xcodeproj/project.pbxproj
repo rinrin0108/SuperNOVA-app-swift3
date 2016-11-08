@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		09AA4650772C39CFA2492420 /* Pods_SuperNOVA_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D927C576FA07B75C460D67D2 /* Pods_SuperNOVA_appTests.framework */; };
 		0DC0B3ED1DD0822500F5E1F2 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC0B3EC1DD0822500F5E1F2 /* UIColorExtension.swift */; };
+		51C2D6951DD207FF009E91DD /* Fade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C2D6941DD207FF009E91DD /* Fade.swift */; };
 		51E684411D964BBC0040C2AD /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E684401D964BBC0040C2AD /* API.swift */; };
 		51E684431D964BF00040C2AD /* APIContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E684421D964BF00040C2AD /* APIContentType.swift */; };
 		51E684451D964C110040C2AD /* APIHttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E684441D964C110040C2AD /* APIHttpMethod.swift */; };
@@ -64,6 +65,7 @@
 		0AEE594A125CDF39B9E88EA9 /* Pods_SuperNOVA_appUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SuperNOVA_appUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DC0B3EC1DD0822500F5E1F2 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		2B91B2231A7128635D6BE9BC /* Pods-SuperNOVA-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperNOVA-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperNOVA-app/Pods-SuperNOVA-app.debug.xcconfig"; sourceTree = "<group>"; };
+		51C2D6941DD207FF009E91DD /* Fade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fade.swift; sourceTree = "<group>"; };
 		51E684401D964BBC0040C2AD /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		51E684421D964BF00040C2AD /* APIContentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIContentType.swift; sourceTree = "<group>"; };
 		51E684441D964C110040C2AD /* APIHttpMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHttpMethod.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				51F90C571D96845F00CBFB88 /* IndicatorUtil.swift */,
 				51F90C591D96853800CBFB88 /* AccountInfo.swift */,
 				0DC0B3EC1DD0822500F5E1F2 /* UIColorExtension.swift */,
+				51C2D6941DD207FF009E91DD /* Fade.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -353,7 +356,7 @@
 				TargetAttributes = {
 					C0909CED1D96384E00E3093A = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = ZLR4QC928R;
+						DevelopmentTeam = R259FA7KPA;
 						LastSwiftMigration = 0810;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -579,6 +582,7 @@
 				51E6844A1D964D880040C2AD /* UserRegisterViewController.swift in Sources */,
 				51F90C621D96F0CC00CBFB88 /* EvaluateViewController.swift in Sources */,
 				51E684511D9654300040C2AD /* LoginViewController.swift in Sources */,
+				51C2D6951DD207FF009E91DD /* Fade.swift in Sources */,
 				51E684431D964BF00040C2AD /* APIContentType.swift in Sources */,
 				51E684451D964C110040C2AD /* APIHttpMethod.swift in Sources */,
 				51F90C601D96EECC00CBFB88 /* ConversationViewController.swift in Sources */,
@@ -733,7 +737,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = ZLR4QC928R;
+				DEVELOPMENT_TEAM = R259FA7KPA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SuperNOVA-app",
@@ -754,7 +758,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = ZLR4QC928R;
+				DEVELOPMENT_TEAM = R259FA7KPA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SuperNOVA-app",

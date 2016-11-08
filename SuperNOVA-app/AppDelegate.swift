@@ -41,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var _application: UIApplication!
     var _pushId :String!
     var _shopimage :String!
+    var _notification : String!
     
     var _mw = 20
     var _mh = 30

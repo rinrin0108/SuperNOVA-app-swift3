@@ -37,6 +37,8 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
     @IBAction func waiting(_ sender: UIButton) {
         NSLog("---waiting");
         
+        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        
         //let shopimage_encoded = appDelegate._shopimage?.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)
         
         let shopimage_encoded = appDelegate._shopimage.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.alphanumerics)
@@ -207,6 +209,7 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
         }
         if(flg){
         } else {
+            appDelegate._notification = "noteacher"
             ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toMapView")
         }
         
