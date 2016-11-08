@@ -16,10 +16,15 @@ class EncounterViewController: UIViewController {
     @IBOutlet weak var photo_teacher: UIImageView!
     @IBOutlet weak var name_student: UILabel!
     @IBOutlet weak var name_teacher: UILabel!
+    @IBOutlet weak var time_label: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        
+        //時間
+        //self.time_label.text = appDelegate._time + ":00"
+        
         //生徒
         self.name_student.text = appDelegate._fullname
         self.photo_student.image =  API.downloadImage(appDelegate._image)

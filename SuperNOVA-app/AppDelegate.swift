@@ -14,7 +14,8 @@ import FBSDKCoreKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let googleMapsApiKey = "AIzaSyC3J5uA2FEqxAGTWAFsZ8J-RJ5eqmUnnRQ"
+    //let googleMapsApiKey = "AIzaSyC3J5uA2FEqxAGTWAFsZ8J-RJ5eqmUnnRQ"
+    let googleMapsApiKey = "AIzaSyCCzVo0V3wCuQYetuSKCD97PVQOlHlUCjA" //rinrin key
     //let API_ROOT = ""
     var _userid   :String!
     var _image    :String!

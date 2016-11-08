@@ -478,6 +478,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                         let json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
                         let results = json["results"] as? Array<NSDictionary>
                         
+                        //print(results?.description)
+                        
                         //次のページがあるか確認する。
                         if json["next_page_token"] != nil {
                             page_token = json["next_page_token"] as! String
