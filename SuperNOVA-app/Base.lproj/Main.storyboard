@@ -131,9 +131,57 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_splash-1" translatesAutoresizingMaskIntoConstraints="NO" id="nNj-a8-X8p">
-                                <rect key="frame" x="16" y="97" width="343" height="102"/>
+                                <rect key="frame" x="16" y="64" width="343" height="102"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1GG-uz-qIb" userLabel="Announce">
+                                <rect key="frame" x="16" y="164" width="343" height="163"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="いつでも、どこでも、">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="22" name="HiraginoSans-W6"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="16" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="22" name="Helvetica-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="16" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="外国の方と異文化交流できる">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="22" name="HiraginoSans-W6"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="16" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="22" name="Helvetica-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="16" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="シェアリングエコノミーサービス">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="22" name="HiraginoSans-W6"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="31" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -224,6 +272,10 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="finger_tap" translatesAutoresizingMaskIntoConstraints="NO" id="JJ9-rN-4ec">
+                                        <rect key="frame" x="291" y="8" width="84" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="49f-87-fxH">
                                         <rect key="frame" x="0.0" y="-10" width="375" height="118"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -257,6 +309,7 @@
                         <outlet property="MarkerImage" destination="TdH-TP-93a" id="1ku-uo-Ax8"/>
                         <outlet property="MarkerTitle" destination="a57-Xf-1q4" id="U0c-3A-gNg"/>
                         <outlet property="googleMap" destination="5wX-hK-CXA" id="Mqb-tO-fbA"/>
+                        <outlet property="helpImage" destination="JJ9-rN-4ec" id="6Cv-VO-nfP"/>
                         <outlet property="helpView" destination="49f-87-fxH" id="a4G-NA-R7Y"/>
                         <outlet property="help_text" destination="ol0-vb-79h" id="kwV-Y3-tI4"/>
                         <outlet property="pushView" destination="MgT-R7-3Gd" id="jd6-yC-uvY"/>
@@ -830,6 +883,7 @@
         <image name="btn_green" width="600" height="100"/>
         <image name="btn_login" width="300" height="50"/>
         <image name="comfirm_bg" width="375" height="667"/>
+        <image name="finger_tap" width="255" height="279"/>
         <image name="logo_header_black" width="171" height="59"/>
         <image name="logo_header_white" width="171" height="59"/>
         <image name="logo_splash-1" width="750" height="216"/>
@@ -842,7 +896,7 @@
         <image name="splash_image" width="375" height="667"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d4W-dF-geV"/>
+        <segue reference="IwH-KW-BsE"/>
         <segue reference="PBm-En-xVe"/>
     </inferredMetricsTieBreakers>
 </document>

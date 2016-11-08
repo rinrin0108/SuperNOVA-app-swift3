@@ -19,6 +19,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     @IBOutlet weak var push_text: UILabel!
     @IBOutlet weak var help_text: UILabel!
     @IBOutlet weak var helpView: UIView!
+    @IBOutlet weak var helpImage: UIImageView!
     
     @IBOutlet weak var pushView: UIView!
     @IBOutlet weak var responseTeacher: UIButton!
@@ -150,7 +151,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         // 最初は説明文を表示
         MarkerImage.isHidden = true
         MarkerTitle.isHidden = true
+        helpImage.isHidden = true
         helpView.isHidden = false
+        
 
         // 初期設定
         initLocationManager();
@@ -573,7 +576,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         // 説明文を非表示
         MarkerImage.isHidden = false
         MarkerTitle.isHidden = false
+        helpImage.isHidden = false
         helpView.isHidden = true
+        
+        // ヘルプ画像を点滅
+        self.startAnimation()
+        
         
         MarkerTitle.text = marker.title
         //MarkerImage.image = markerimg
@@ -614,6 +622,23 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     @IBAction func backWithSegue( segue: UIStoryboardSegue) {
         NSLog("back")
+    }
+    
+    private var _stopAnimation = false
+    private func startAnimation() {
+        if _stopAnimation {
+            return
+        }
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: 0.0,
+                       animations: { _ in
+                        self.helpImage.alpha = 0.0
+        }, completion: { _ in UIView.animate(withDuration: 0.5,
+                                             delay: 0.0,
+                                             animations: { _ in
+                                                self.helpImage.alpha = 0.5
+        }, completion: { _ in self.startAnimation() })})
     }
     
 }
