@@ -122,9 +122,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     @IBOutlet weak var MarkerTitle: UILabel!
     @IBOutlet weak var MarkerImage: UIImageView!
 
+    var markerArray = Array<GMSMarker>()
     var markerindex  = Array<String>()
     var markerimgurl = Array<String>()
-
+    var markerId: Int!
+    var selectedId: Int! = 0
+    
     //@IBOutlet weak var UserProf: UIImageView! = API.downloadImage(appDelegate._image)
     
     
@@ -442,6 +445,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         var marker = GMSMarker()
         var page_token:String = ""
         
+        let tmpImage = UIImage(named:"icon_shop_spot_orange");
+        //let size = CGSize(width: 20, height: 30)
+        let size = CGSize(width: self.appDelegate._mw, height: self.appDelegate._mh)
+        UIGraphicsBeginImageContext(size)
+        tmpImage?.draw(in: CGRect(x: 0,y: 0,width: size.width,height: size.height))
+        let resizeImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
         NSLog("searchAroundMe--------------------------------1")
         
         repeat {
@@ -490,6 +501,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                             page_token = ""
                         }
                         
+                        self.markerId = 0
                         for result in results! {
                             NSLog("searchAroundMe--------------------------------5")
                             
@@ -531,18 +543,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                         }
                                         
                                         //marker.icon = UIImage(named:"icon_shop_spot_orange");
-                                        let tmpImage = UIImage(named:"icon_shop_spot_orange");
-                                        //let size = CGSize(width: 20, height: 30)
-                                        let size = CGSize(width: self.appDelegate._mw, height: self.appDelegate._mh)
-                                        UIGraphicsBeginImageContext(size)
-                                        tmpImage?.draw(in: CGRect(x: 0,y: 0,width: size.width,height: size.height))
-                                        var resizeImage = UIGraphicsGetImageFromCurrentImageContext()
-                                        UIGraphicsEndImageContext()
+                                        
                                         marker.icon = resizeImage
+                                        marker.userData = self.markerId
+                                        self.markerId = self.markerId + 1
                                         
                                         //marker.icon = UIImage(named:"marker");
                                         //marker.icon = UIImage(named: "usagi_icon")
                                         self.markerindex.append((result["name"] as? String)!)
+                                        
+                                        self.markerArray.append(marker)
                                         
                                         marker.map = self.googleMap
                                     });
@@ -572,6 +582,26 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         //NSLog("marker:\(marker)")
         //NSLog("title:\(marker.title)")
         //NSLog("icon :\(marker.icon)")
+
+        var tmpImage = UIImage(named:"icon_shop_spot_orange");
+        //let size = CGSize(width: 20, height: 30)
+        var size = CGSize(width: self.appDelegate._mw, height: self.appDelegate._mh)
+        UIGraphicsBeginImageContext(size)
+        tmpImage?.draw(in: CGRect(x: 0,y: 0,width: size.width,height: size.height))
+        var resizeImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        markerArray[self.selectedId].icon = resizeImage
+        
+        tmpImage = UIImage(named:"usagi_icon");//UIImage(named:"icon_shop_spot_orange");
+        size = CGSize(width: self.appDelegate._uiw, height: self.appDelegate._uih)
+        UIGraphicsBeginImageContext(size)
+        tmpImage?.draw(in: CGRect(x: 0,y: 0,width: size.width,height: size.height))
+        resizeImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        marker.icon = resizeImage
+        
+        self.selectedId = marker.userData as! Int!
+        NSLog("selectedId : ");print(self.selectedId)
         
         // 説明文を非表示
         MarkerImage.isHidden = false

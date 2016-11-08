@@ -235,8 +235,8 @@ class TeacherWaitingMapViewController: UIViewController, CLLocationManagerDelega
         dmarker.position = CLLocationCoordinate2D(latitude: appDelegate._shoplat, longitude: appDelegate._shoplng)
         dmarker.title = appDelegate._shoptitle
         //dmarker.icon = UIImage(named: "icon_shop_spot_green")
-        let tmpImage = UIImage(named:"icon_shop_spot_orange");
-        let size = CGSize(width: self.appDelegate._mw, height: self.appDelegate._mh)
+        let tmpImage = UIImage(named:"usagi_icon");//UIImage(named:"icon_shop_spot_orange");
+        let size = CGSize(width: self.appDelegate._uiw, height: self.appDelegate._uih)
         UIGraphicsBeginImageContext(size)
         tmpImage?.draw(in: CGRect(x: 0,y: 0,width: size.width,height: size.height))
         var resizeImage = UIGraphicsGetImageFromCurrentImageContext()
