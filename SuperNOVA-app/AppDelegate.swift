@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var _native     :String!
     var _lat      :String!
     var _lng      :String!
-    var _time      :String!
+    var _time      :Int!
     var _partner  :String!
     var _partnerName :String!
     var _partnerimage :String!
@@ -91,7 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         pushLocationManager.startUpdatingLocation()
         
         _lang = ""
-        _time = ""
+        _time = 0
         _place = ""
         _shopimage = ""
 

@@ -33,7 +33,7 @@ class CallViewController: UIViewController {
     
     @IBAction func change30m(_ sender: UIButton) {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
-        appDelegate._time = "30"
+        appDelegate._time = 30
         
         //selectTimeBtn.isUserInteractionEnabled = true
         change30mBtn.setBackgroundImage(UIImage(named: "btn_orange"), for: UIControlState.normal)
@@ -42,7 +42,7 @@ class CallViewController: UIViewController {
     
     @IBAction func change60m(_ sender: UIButton) {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
-        appDelegate._time = "60"
+        appDelegate._time = 60
         
         //selectTimeBtn.isUserInteractionEnabled = true
         change30mBtn.setBackgroundImage(UIImage(named: "btn_gray"), for: UIControlState.normal)
@@ -52,8 +52,8 @@ class CallViewController: UIViewController {
     @IBAction func call(_ sender: UIButton) {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
         
-        if(appDelegate._time == ""){
-            appDelegate._time = "30"
+        if(appDelegate._time == 0){
+            appDelegate._time = 30
         }
         
         // 画面遷移

@@ -18,12 +18,16 @@ class EncounterViewController: UIViewController {
     @IBOutlet weak var name_teacher: UILabel!
     @IBOutlet weak var time_label: UILabel!
     
+    @IBOutlet weak var start_btn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
         
         //時間
         //self.time_label.text = appDelegate._time + ":00"
+        countNum = appDelegate._time * 6000
+        self.time_label.text = timeFormat(num: countNum)
         
         //生徒
         self.name_student.text = appDelegate._fullname
@@ -110,6 +114,10 @@ class EncounterViewController: UIViewController {
     }
     
     
+    var timerOn = false
+    var nsTimer = Timer()
+    var countNum :Int = 0
+    
     @IBAction func start(_ sender: UIButton) {
         
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
@@ -185,7 +193,40 @@ class EncounterViewController: UIViewController {
             }
         )
         
-        ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toConversationView")
+        if timerOn == false {
+            nsTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(EncounterViewController.update), userInfo: nil, repeats: true)
+            timerOn = true
+            start_btn.setTitle("Enjoy NOVA!", for: UIControlState.normal)
+            start_btn.isUserInteractionEnabled = false
+            start_btn.setBackgroundImage(UIImage(named: "btn_gray"), for: UIControlState.normal)
+            NSLog("Tap to start")
+        }else{
+            nsTimer.invalidate()
+            timerOn = false
+            start_btn.setTitle("START", for: UIControlState.normal)
+            NSLog("Tap to stop")
+        }
         
+    }
+    
+    func update() {
+        countNum -= 1
+        self.time_label.text = timeFormat(num: countNum)
+        if(countNum <= 0){
+            //start_btn.setTitle("END", for: UIControlState.normal)
+            //start_btn.setBackgroundImage(UIImage(named: "btn_green"), for: UIControlState.normal)
+            
+            ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toConversationView")
+        }
+    }
+    
+    func timeFormat(num :Int)-> String {
+        //        if num < 0 { num = 0 }
+        let num = num
+        let ms = num % 100
+        let s = (num - ms) / 100 % 60
+        let m = (num - s - ms) / 6000 % 3600
+        //return String(format: "%02d:%02d.%02d", arguments: [m,s,ms])
+        return String(format: "%02d:%02d", arguments: [m,s])
     }
 }

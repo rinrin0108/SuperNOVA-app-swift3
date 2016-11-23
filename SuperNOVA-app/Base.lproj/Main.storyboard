@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11535.1" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Pux-Hs-JEb">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Pux-Hs-JEb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11523"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -526,7 +526,7 @@ Cg
                                     <action selector="start:" destination="nQX-MV-Um7" eventType="touchUpInside" id="yl3-aZ-FpK"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnR-hC-3zf">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Finished" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnR-hC-3zf">
                                 <rect key="frame" x="40" y="360" width="315" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
@@ -847,6 +847,7 @@ Cg
                         <outlet property="name_teacher" destination="OZn-yd-DO2" id="pcn-da-eHL"/>
                         <outlet property="photo_student" destination="YL0-Ve-ie9" id="hl4-SO-0Q1"/>
                         <outlet property="photo_teacher" destination="yfQ-Av-njo" id="7dQ-3o-DLp"/>
+                        <outlet property="start_btn" destination="dzH-11-GAW" id="iLo-77-ccK"/>
                         <outlet property="time_label" destination="O0k-Gz-pVj" id="5Oh-Ff-oe8"/>
                         <segue destination="nQX-MV-Um7" kind="show" identifier="toConversationView" id="Xty-Wt-KeH"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="backToMap" id="PnS-F2-Sd7"/>
@@ -896,7 +897,7 @@ Cg
         <image name="splash_image" width="375" height="667"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IwH-KW-BsE"/>
+        <segue reference="PnS-F2-Sd7"/>
         <segue reference="PBm-En-xVe"/>
     </inferredMetricsTieBreakers>
 </document>
