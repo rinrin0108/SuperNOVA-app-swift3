@@ -533,11 +533,11 @@ Cg
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_header_black" translatesAutoresizingMaskIntoConstraints="NO" id="DGV-CJ-X4i">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_header" translatesAutoresizingMaskIntoConstraints="NO" id="DGV-CJ-X4i">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_header_white" translatesAutoresizingMaskIntoConstraints="NO" id="e9p-ak-vw0">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_header_black" translatesAutoresizingMaskIntoConstraints="NO" id="e9p-ak-vw0">
                                 <rect key="frame" x="145" y="30" width="85" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -857,23 +857,6 @@ Cg
             </objects>
             <point key="canvasLocation" x="1545" y="323"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="E96-jF-sgm">
-            <objects>
-                <viewController id="1ib-wX-vNi" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="M6C-LZ-vde"/>
-                        <viewControllerLayoutGuide type="bottom" id="Aoo-Fe-BOM"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Soi-qp-cZ5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZPL-XL-pTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="atttention_icon" width="76" height="76"/>
@@ -897,7 +880,7 @@ Cg
         <image name="splash_image" width="375" height="667"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PnS-F2-Sd7"/>
-        <segue reference="PBm-En-xVe"/>
+        <segue reference="IwH-KW-BsE"/>
+        <segue reference="pdV-4q-DF1"/>
     </inferredMetricsTieBreakers>
 </document>

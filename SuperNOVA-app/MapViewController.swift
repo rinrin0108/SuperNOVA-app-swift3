@@ -328,6 +328,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                             appDelegate._shoplng = tmpshoplng
                                             appDelegate._shoptitle = values["place"] as! String!
                                             appDelegate._shopimage = values["placeimg"] as! String!
+                                            appDelegate._time = values["time"] as! Int!
                                             
                                             print("shopimage URL is:")
                                             print(appDelegate._shopimage)

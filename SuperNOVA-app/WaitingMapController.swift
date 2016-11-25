@@ -47,7 +47,7 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
         print(shopimage_encoded)
         
         // 教師リクエストAPI
-        MergerAPI.requestTeacher(appDelegate._userid, lat: appDelegate._lat, lng: appDelegate._lng, lang: appDelegate._lang, place: appDelegate._place ,time:String(appDelegate._time), img:shopimage_encoded, sync: true,
+        MergerAPI.requestTeacher(appDelegate._userid, lat: appDelegate._lat, lng: appDelegate._lng, lang: appDelegate._lang, place: appDelegate._place ,time:appDelegate._time, img:shopimage_encoded, sync: true,
                                  success:{
                                     values in let closure = {
                                         NSLog("---CallViewController MergerAPI.requestTeacher success");
