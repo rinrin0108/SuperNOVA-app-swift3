@@ -56,87 +56,84 @@ class UserRegisterViewController: UIViewController {
         
         // ユーザ登録API呼び出し
         UserAPI.registUser(email.text, first_name: first_name.text, last_name: last_name.text , lang: appDelegate._lang , native: appDelegate._native, profileImageURL: profileImageURL ,sync: true,
-                        success:{
-                        values in let closure = {
-                            NSLog("---UserRegisterViewController UserAPI.registUser success");
-                            // 通信は成功したが、エラーが返ってきた場合
-                            if(API.isError(values)){
-                                NSLog("---UserRegisterViewController UserAPI.registUser isError");
-                                /**
-                                 * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
-                                Indicator.windowClose()
-                                */
-                                AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
+            success:{
+                values in let closure = {
+                    NSLog("---UserRegisterViewController UserAPI.registUser success");
+                    // 通信は成功したが、エラーが返ってきた場合
+                    if(API.isError(values)){
+                        NSLog("---UserRegisterViewController UserAPI.registUser isError");
+                        /**
+                         *  ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
+                            Indicator.windowClose()
+                         */
+                        AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
                                     message: values["errorMessage"] as! String)
-                                return
-                            }
+                        return
+                    }
                             
-                            // API返却値と、画面入力値を端末に保存
-                            let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
-                            appDelegate._userid    = self.email.text
-                            appDelegate._image     = self.profileImageURL
-                            appDelegate._fullname  = self.first_name.text! + self.last_name.text!
-                            appDelegate._firstname = self.first_name.text!
-                            appDelegate._lastname  = self.last_name.text!
-                            //FIXME
-                            if(appDelegate._lang == ""){
-                                appDelegate._lang      = "Japanese";
-                                appDelegate._native      = "English";
-                            }
+                    // API返却値と、画面入力値を端末に保存
+                    let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
+                    appDelegate._userid    = self.email.text
+                    appDelegate._image     = self.profileImageURL
+                    appDelegate._fullname  = self.first_name.text! + self.last_name.text!
+                    appDelegate._firstname = self.first_name.text!
+                    appDelegate._lastname  = self.last_name.text!
+                    //FIXME
+                    if(appDelegate._lang == ""){
+                        appDelegate._lang      = "Japanese";
+                        appDelegate._native      = "English";
+                    }
                             
-                            //ユーザー情報をアプリに登録（NSUserDefaults永続化）
-                            AccountInfo.registLoginData();
+                    //ユーザー情報をアプリに登録（NSUserDefaults永続化）
+                    AccountInfo.registLoginData();
                             
-                            // MapViewに画面遷移
-                            ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toMapView")
-                        }
-                        // 通知の監視
-                        if(!Thread.isMainThread){
-                            NSLog("---UserRegisterViewController !NSThread.isMainThread() in success");
-                            DispatchQueue.main.sync {
-                                NSLog("---UserRegisterViewController dispatch_sync");
-                                closure()
-                            }
-                        } else {
-                            NSLog("---UserRegisterViewController dispatch_sync else");
-                            // 恐らく実行されない
-                            closure()
-                        }
+                    // MapViewに画面遷移
+                    ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toMapView")
+                }
+                
+                // 通知の監視
+                if(!Thread.isMainThread){
+                    NSLog("---UserRegisterViewController !NSThread.isMainThread() in success");
+                    DispatchQueue.main.sync {
+                        NSLog("---UserRegisterViewController dispatch_sync");
+                        closure()
+                    }
+                } else {
+                        NSLog("---UserRegisterViewController dispatch_sync else");
+                        closure()   // 恐らく実行されない
+                }
                         
             },
-                       failed: {
-                        id, message in let closure = {
-                            NSLog("---UserRegisterViewController UserAPI.registUser failed");
-                            /**
-                            * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
-                            Indicator.windowClose()
-                            */
-                            // 失敗した場合エラー情報を表示
-                            if(id == -2) {
-                                AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
+            failed: {
+                id, message in let closure = {
+                    NSLog("---UserRegisterViewController UserAPI.registUser failed");
+                    /**
+                     *  ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
+                        Indicator.windowClose()
+                     */
+                    // 失敗した場合エラー情報を表示
+                    if(id == -2) {
+                        AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
                                     message: NSLocalizedString("MAX_FILE_SIZE_OVER", comment: ""));
-                            } else {
-                                AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
+                    } else {
+                        AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
                                     message: NSLocalizedString("ALERT_MESSAGE_NETWORK_ERROR", comment: ""));
-                            }
-                        }
-                        // 通知の監視
-                        if(!Thread.isMainThread){
-                            NSLog("---UserRegisterViewController !NSThread.isMainThread() in failed");
-                            DispatchQueue.main.sync {
-                                NSLog("---UserRegisterViewController dispatch_sync");
-                                closure()
-                            }
-                        } else {
-                            NSLog("---UserRegisterViewController dispatch_sync else");
-                            //恐らく実行されない
-                            closure()
-                        }
+                    }
+                }
+                // 通知の監視
+                if(!Thread.isMainThread){
+                    NSLog("---UserRegisterViewController !NSThread.isMainThread() in failed");
+                    DispatchQueue.main.sync {
+                        NSLog("---UserRegisterViewController dispatch_sync");
+                        closure()
+                    }
+                } else {
+                        NSLog("---UserRegisterViewController dispatch_sync else");
+                        closure()   //恐らく実行されない
+                }
             }
         )
-        
     }
-    
     
     override
     func viewDidLoad() {
