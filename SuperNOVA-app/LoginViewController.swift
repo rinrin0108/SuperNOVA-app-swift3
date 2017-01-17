@@ -12,8 +12,6 @@ import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
     
-    
-    
     override
     func viewDidLoad() {
         super.viewDidLoad()
@@ -44,38 +42,36 @@ class LoginViewController: UIViewController {
             NSLog("---FacebookSDK version \(FBSDKSettings .sdkVersion())")
             let login : FBSDKLoginManager = FBSDKLoginManager.init()
             login.logIn(withReadPermissions: ["public_profile", "email"], from: self,
-                        handler: {
-                            result, error in
-                            let closure = {
-                                if ((error) != nil)
-                                {
-                                    NSLog("---LoginViewController pushLogin error");
-                                    NSLog(error.debugDescription);
-                                    // 失敗した場合エラー情報を表示
-                                    AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
+                handler: {
+                    result, error in
+                    let closure = {
+                        if ((error) != nil)
+                        {
+                            NSLog("---LoginViewController pushLogin error");
+                            NSLog(error.debugDescription);
+                            // 失敗した場合エラー情報を表示
+                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
                                                          message: NSLocalizedString("ALERT_LOGIN_FAILED_ERROR", comment: ""));
-                                } else if !(result?.isCancelled)! {
-                                    NSLog("---LoginViewController Login success with Facebook");
-                                    //ログインが成功
-                                    ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toUserRegisterView")
-                                }
-                            }
+                        } else if !(result?.isCancelled)! {
+                            NSLog("---LoginViewController Login success with Facebook");
+                            //ログインが成功
+                            ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toUserRegisterView")
+                        }
+                    }
                             
-                            // 通知の監視
-                            if(!Thread.isMainThread){
-                                NSLog("---LoginViewController !NSThread.isMainThread()");
-                                DispatchQueue.main.sync {
-                                    NSLog("---LoginViewController dispatch_sync");
-                                    closure()
-                                }
-                            } else {
-                                NSLog("---LoginViewController dispatch_sync else");
-                                // 恐らく実行されない
-                                closure()
-                            }
-            })
+                    // 通知の監視
+                    if(!Thread.isMainThread){
+                        NSLog("---LoginViewController !NSThread.isMainThread()");
+                        DispatchQueue.main.sync {
+                            NSLog("---LoginViewController dispatch_sync");
+                            closure()
+                        }
+                    } else {
+                            NSLog("---LoginViewController dispatch_sync else");
+                            closure()   // 恐らく実行されない
+                    }
+                }
+            )
         }
-        
     }
-    
 }
