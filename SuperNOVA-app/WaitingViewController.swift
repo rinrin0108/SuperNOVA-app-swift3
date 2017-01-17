@@ -23,67 +23,60 @@ class WaitingViewController: UIViewController, CLLocationManagerDelegate, GMSMap
         
         //FIXME
         UserAPI.updateUserLocation(appDelegate._userid, lat: appDelegate._lat, lng: appDelegate._lng ,sync: true,
-                                   success:{
-                                    values in let closure = {
-                                        NSLog("MapViewController success");
-                                        // 通信は成功したが、エラーが返ってきた場合
-                                        if(API.isError(values)){
-                                            NSLog("MapViewController isError");
-                                            /**
-                                             * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
-                                             Indicator.windowClose()
-                                             */
-                                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
-                                                message: values["errorMessage"] as! String)
-                                            return
-                                        }
-                                        
-                                        NSLog(values.debugDescription);
-                                    }
-                                    // 通知の監視
-                                    if(!Thread.isMainThread){
-                                        NSLog("MapViewController !NSThread.isMainThread()");
-                                        DispatchQueue.main.sync {
-                                            closure()
-                                        }
-                                    } else {
-                                        NSLog("MapViewController closure");
-                                        // 恐らく実行されない
-                                        closure()
-                                    }
-                                    
+            success:{
+                values in let closure = {
+                    NSLog("MapViewController success");
+                    // 通信は成功したが、エラーが返ってきた場合
+                    if(API.isError(values)){
+                        NSLog("MapViewController isError");
+                        /**
+                         *  ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
+                            Indicator.windowClose()
+                         */
+                        AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),                            message: values["errorMessage"] as! String)
+                        return
+                    }
+                    
+                    NSLog(values.debugDescription);
+                }
+                // 通知の監視
+                if(!Thread.isMainThread){
+                    NSLog("MapViewController !NSThread.isMainThread()");
+                    DispatchQueue.main.sync {
+                        closure()
+                    }
+                } else {
+                    NSLog("MapViewController closure");
+                    closure()   // 恐らく実行されない
+                }
             },
-                                   failed: {
-                                    id, message in let closure = {
-                                        NSLog("MapViewController failed");
-                                        /**
-                                         * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
-                                         Indicator.windowClose()
-                                         */
-                                        // 失敗した場合エラー情報を表示
-                                        if(id == -2) {
-                                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
-                                                message: NSLocalizedString("MAX_FILE_SIZE_OVER", comment: ""));
-                                        } else {
-                                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
-                                                message: NSLocalizedString("ALERT_MESSAGE_NETWORK_ERROR", comment: ""));
-                                        }
-                                    }
-                                    // 通知の監視
-                                    if(!Thread.isMainThread){
-                                        NSLog("MapViewController !NSThread.isMainThread() 2");
-                                        DispatchQueue.main.sync {
-                                            NSLog("MapViewController closure 2");
-                                            closure()
-                                        }
-                                    } else {
-                                        NSLog("MapViewController closure 3");
-                                        //恐らく実行されない
-                                        closure()
-                                    }
+            failed: {
+                id, message in let closure = {
+                    NSLog("MapViewController failed");
+                    /**
+                     *  ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
+                        Indicator.windowClose()
+                     */
+                    // 失敗した場合エラー情報を表示
+                    if(id == -2) {
+                        AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),                                message: NSLocalizedString("MAX_FILE_SIZE_OVER", comment: ""));
+                    } else {
+                        AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),                                                message: NSLocalizedString("ALERT_MESSAGE_NETWORK_ERROR", comment: ""));
+                    }
+                }
+                // 通知の監視
+                if(!Thread.isMainThread){
+                    NSLog("MapViewController !NSThread.isMainThread() 2");
+                    DispatchQueue.main.sync {
+                        NSLog("MapViewController closure 2");
+                        closure()
+                    }
+                } else {
+                    NSLog("MapViewController closure 3");
+                    closure()   //恐らく実行されない
+                }
             }
         )
-        
         
         ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toCallView")
     }
@@ -128,7 +121,6 @@ class WaitingViewController: UIViewController, CLLocationManagerDelegate, GMSMap
         //searchAroudMe(self.googleMap, lat:latitude, lon:longitude);
         
         self.view.addSubview(googleMap)
-        //self.googleMap.delegate = self;
         
     }
     
@@ -177,12 +169,6 @@ class WaitingViewController: UIViewController, CLLocationManagerDelegate, GMSMap
         
         var mposition = CLLocationCoordinate2DMake(lat,lon)
         var marker = GMSMarker()
-        //marker.title = "test"
-        //marker.icon = UIImage(named: "marker")
-        //marker.map = self.googleMap
-        
-        
-        //NSLog("marker:\(marker)")
         
         var page_token:String = ""
         
@@ -238,91 +224,11 @@ class WaitingViewController: UIViewController, CLLocationManagerDelegate, GMSMap
             semaphore.wait(timeout: DispatchTime.distantFuture)
         } while (page_token != "")
         
-        
-        /*
-         var annotationList = [MKPointAnnotation]()
-         var page_token:String = ""
-         
-         repeat {
-         //
-         let semaphore = dispatch_semaphore_create(0)
-         
-         //検索URLの作成
-         let encodedStr = "cafe".stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
-         let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(center.latitude),\(center.longitude)&radius=2000&sensor=true&key=\(appDelegate.googleMapsApiKey)&name=\(encodedStr!)&pagetoken=\(page_token)"
-         let searchNSURL = NSURL(string: url)
-         
-         //検索を実行する。
-         let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
-         session.dataTaskWithURL(searchNSURL!, completionHandler: { (data : NSData?, response : NSURLResponse?, error : NSError?) in
-         
-         if error != nil {
-         print("エラーが発生しました。\(error)")
-         } else {
-         if let statusCode = response as? NSHTTPURLResponse {
-         if statusCode.statusCode != 200 {
-         print("サーバーから期待するレスポインスが来ませんでした。\(response)")
-         }
-         }
-         
-         do {
-         //レスポンスデータ（JSON）から辞書を作成する。
-         let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
-         let results = json["results"] as? Array<NSDictionary>
-         
-         //次のページがあるか確認する。
-         if json["next_page_token"] != nil {
-         page_token = json["next_page_token"] as! String
-         } else {
-         page_token = ""
-         }
-         
-         //検索結果の件数ぶんループ
-         for result in results! {
-         
-         let annotation = MKPointAnnotation()
-         
-         //ピンのタイトルに店名、住所を設定する。
-         annotation.title = result["name"] as? String
-         annotation.subtitle = result["vicinity"] as? String
-         
-         if let geometry = result["geometry"] as? NSDictionary {
-         if let location = geometry["location"] as? NSDictionary {
-         
-         //ビンの座標を設定する。
-         annotation.coordinate = CLLocationCoordinate2DMake(location["lat"] as! CLLocationDegrees, location["lng"] as! CLLocationDegrees)
-         annotationList.append(annotation)
-         
-         }
-         }
-         }
-         } catch {
-         print("エラー")
-         }
-         }
-         //連続で要求をすると結果が返ってこないので一瞬スリープする。
-         sleep(1)
-         
-         //処理終了をセマフォに知らせる。
-         dispatch_semaphore_signal(semaphore)
-         
-         }).resume()
-         
-         //検索が終わるのを待つ。
-         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
-         } while (page_token != "")
-         
-         
-         //ピンをマップに追加する。
-         googleMap.addAnnotations(annotationList)
-         */
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
 }
