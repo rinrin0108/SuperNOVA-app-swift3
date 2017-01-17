@@ -26,82 +26,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     @IBAction func responseTeacher(_ sender: UIButton) {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
         ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toTeacherWaitingView")
-        
-        /*
-        MergerAPI.responseTeacher(appDelegate._userid, _id: appDelegate._idpartner ,sync: true,
-                                   success:{
-                                    values in let closure = {
-                                        NSLog("---MapViewController MergerAPI.responseTeacher success");
-                                        // 通信は成功したが、エラーが返ってきた場合
-                                        if(API.isError(values)){
-                                            NSLog("---MapViewController MergerAPI.responseTeacher isError");
-                                            /**
-                                             * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
-                                             Indicator.windowClos()
-                                             
-                                             */
-                                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
-                                                message: values["errorMessage"] as! String)
-                                            return
-                                        }
-                                        
-                                        NSLog(values.debugDescription);
-                                        ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toTeacherWaitingView")
-                                        
-                                    }
-                                    // 通知の監視
-                                    if(!Thread.isMainThread){
-                                        NSLog("---MapViewController !NSThread.isMainThread() in success");
-                                        DispatchQueue.main.sync {
-                                            NSLog("---MapViewController dispatch_sync");
-                                            closure()
-                                        }
-                                    } else {
-                                        NSLog("---MapViewController dispatch_sync else");
-                                        // 恐らく実行されない
-                                        closure()
-                                    }
-            },
-                                   failed: {
-                                    id, message in let closure = {
-                                        NSLog("---MapViewController MergerAPI.responseTeacher failed");
-                                        /**
-                                         * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
-                                         Indicator.windowClose()
-                                         */
-                                        // 失敗した場合エラー情報を表示
-                                        if(id == -2) {
-                                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
-                                                message: NSLocalizedString("MAX_FILE_SIZE_OVER", comment: ""));
-                                        } else {
-                                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
-                                                message: NSLocalizedString("ALERT_MESSAGE_NETWORK_ERROR", comment: ""));
-                                        }
-                                    }
-                                    // 通知の監視
-                                    if(!Thread.isMainThread){
-                                        NSLog("---MapViewController !NSThread.isMainThread() in failed");
-                                        DispatchQueue.main.sync {
-                                            NSLog("---MapViewController dispatch_sync");
-                                            closure()
-                                        }
-                                    } else {
-                                        NSLog("---MapViewController dispatch_sync else");
-                                        //恐らく実行されない
-                                        closure()
-                                    }
-            }
-        )
-        */
     }
-    
     
     @IBAction func goAppoint(_ sender: UIButton) {
         ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toCallView")
     }
     //
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
     //
     var userDefaults = UserDefaults.standard
     
@@ -109,10 +40,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     var lm = CLLocationManager()
     //
     var currentDisplayedPosition: GMSCameraPosition?
-    //
-    //var latitude:   CLLocationDegrees! =  35.698353
-    //var longitude:  CLLocationDegrees! = 139.773114
-    //var center = CLLocationCoordinate2DMake(35.698353,139.773114)
     var latitude:   CLLocationDegrees!
     var longitude:  CLLocationDegrees!
     var center: CLLocationCoordinate2D!
@@ -128,34 +55,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     var markerId: Int!
     var selectedId: Int! = 0
     
-    //@IBOutlet weak var UserProf: UIImageView! = API.downloadImage(appDelegate._image)
-    
-    
     @IBOutlet weak var segueButton: UIButton!
     
     override
     func viewDidAppear(_ animated: Bool) {
-//        if(appDelegate._notification == "noteacher"){
-//            
-//            let animation:CATransition = CATransition()
-//            animation.type = kCATransitionFade
-//            animation.duration = 0.4
-//            
-//            self.push_icon.layer.add(animation, forKey: nil)
-//            self.push_text.layer.add(animation, forKey: nil)
-//            self.push_button.layer.add(animation, forKey: nil)
-//            
-//            self.push_icon.isHidden = false
-//            self.push_text.isHidden = false
-//            self.push_text.text = "先生が見つかりませんでした"
-//            self.push_button.isHidden = false
-//            self.push_button.isUserInteractionEnabled = false
-//            
-//            self.push_icon.fadeOut()
-//            self.push_text.fadeOut()
-//            self.push_button.fadeOut()
-//        }
-//        appDelegate._notification = ""
+
     }
     
     override func viewDidLoad() {
@@ -181,7 +85,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         MarkerTitle.isHidden = true
         helpImage.isHidden = true
         helpView.isHidden = false
-        
 
         // 初期設定
         initLocationManager();
@@ -211,10 +114,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     func searchRequest() {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
         
-        //if( appDelegate._place == ""){
-            //appDelegate._place = "SHOP01";
-        //}
-        
         if (appDelegate._lat == nil || appDelegate._lng == nil){
             appDelegate._lat = "35.698353";
             appDelegate._lng = "139.773114";
@@ -223,194 +122,177 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         NSLog("---MapViewController searchRequest lat:" + appDelegate._lat + " lng:" + appDelegate._lng);
         
         UserAPI.updateUserLocation(appDelegate._userid, lat: appDelegate._lat, lng: appDelegate._lng ,sync: true,
-                                   success:{
-                                    values in let closure = {
-                                        NSLog("---MapViewController UserAPI.updateUserLocation success");
-                                        // 通信は成功したが、エラーが返ってきた場合
-                                        if(API.isError(values)){
-                                            NSLog("---MapViewController UserAPI.updateUserLocation isError");
-                                            /**
-                                             * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
-                                             Indicator.windowClose()
-                                             */
-                                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
-                                                message: values["errorMessage"] as! String)
-                                            return
-                                        }
+            success:{
+                values in let closure = {
+                    NSLog("---MapViewController UserAPI.updateUserLocation success");
+                    // 通信は成功したが、エラーが返ってきた場合
+                    if(API.isError(values)){
+                        NSLog("---MapViewController UserAPI.updateUserLocation isError");
+                        /**
+                         *  ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
+                            Indicator.windowClose()
+                         */
+                        AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),message: values["errorMessage"] as! String)
+                        return
+                    }
                                         
-                                        NSLog(values.debugDescription);
-                                    }
-                                    // 通知の監視
-                                    if(!Thread.isMainThread){
-                                        NSLog("---MapViewController !NSThread.isMainThread() in success");
-                                        DispatchQueue.main.sync {
-                                            NSLog("---MapViewController dispatch_sync");
-                                            closure()
-                                        }
-                                    } else {
-                                        NSLog("---MapViewController dispatch_sync else");
-                                        // 恐らく実行されない
-                                        closure()
-                                    }
-                                    
+                    NSLog(values.debugDescription);
+                }
+                // 通知の監視
+                if(!Thread.isMainThread){
+                    NSLog("---MapViewController !NSThread.isMainThread() in success");
+                    DispatchQueue.main.sync {
+                        NSLog("---MapViewController dispatch_sync");
+                        closure()
+                    }
+                } else {
+                        NSLog("---MapViewController dispatch_sync else");
+                        closure()   // 恐らく実行されない
+                }
             },
-                                   failed: {
-                                    id, message in let closure = {
-                                        NSLog("---MapViewController UserAPI.updateUserLocation failed");
-                                        /**
-                                         * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
-                                         Indicator.windowClose()
-                                         */
-                                        // 失敗した場合エラー情報を表示
-                                        if(id == -2) {
-                                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
-                                                message: NSLocalizedString("MAX_FILE_SIZE_OVER", comment: ""));
-                                        } else {
-                                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
-                                                message: NSLocalizedString("ALERT_MESSAGE_NETWORK_ERROR", comment: ""));
-                                        }
-                                    }
-                                    // 通知の監視
-                                    if(!Thread.isMainThread){
-                                        NSLog("---MapViewController !NSThread.isMainThread() in failed");
-                                        DispatchQueue.main.sync {
-                                            NSLog("---MapViewController dispatch_sync");
-                                            closure()
-                                        }
-                                    } else {
-                                        NSLog("---MapViewController dispatch_sync else");
-                                        //恐らく実行されない
-                                        closure()
-                                    }
+            failed: {
+                id, message in let closure = {
+                    NSLog("---MapViewController UserAPI.updateUserLocation failed");
+                    /**
+                     *  ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
+                        Indicator.windowClose()
+                     */
+                    // 失敗した場合エラー情報を表示
+                    if(id == -2) {
+                        AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),message: NSLocalizedString("MAX_FILE_SIZE_OVER", comment: ""));
+                    } else {
+                        AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),                                                message: NSLocalizedString("ALERT_MESSAGE_NETWORK_ERROR", comment: ""));
+                    }
+                }
+                // 通知の監視
+                if(!Thread.isMainThread){
+                    NSLog("---MapViewController !NSThread.isMainThread() in failed");
+                    DispatchQueue.main.sync {
+                        NSLog("---MapViewController dispatch_sync");
+                        closure()
+                    }
+                } else {
+                        NSLog("---MapViewController dispatch_sync else");
+                        closure()   //恐らく実行されない
+                }
             }
         )
         
-        
-
-        //近辺の
+        //近辺を探す
         MergerAPI.searchRequest(appDelegate._lat,lng: appDelegate._lng,lang: appDelegate._native,userid: appDelegate._userid ,sync: true,
-                                   success:{
-                                    values in let closure = {
-                                        NSLog("---MapViewController MergerAPI.searchRequest success");
-                                        // 通信は成功したが、エラーが返ってきた場合
-                                        if(API.isError(values)){
-                                            NSLog("---MapViewController MergerAPI.searchRequest isError");
-                                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
-                                                message: values["errorMessage"] as! String)
-                                            return
-                                        }
-                                        if(values.isEmpty){
-                                            return
-                                        }
-                                        if(values["status"] as! String == "req"){
+                success:{
+                    values in let closure = {
+                        NSLog("---MapViewController MergerAPI.searchRequest success");
+                        // 通信は成功したが、エラーが返ってきた場合
+                        if(API.isError(values)){
+                            NSLog("---MapViewController MergerAPI.searchRequest isError");
+                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),                                message: values["errorMessage"] as! String)
+                            return
+                        }
+                        if(values.isEmpty){
+                            return
+                        }
+                        if(values["status"] as! String == "req"){
+                            let animation:CATransition = CATransition()
+                            animation.type = kCATransitionFade
+                            animation.duration = 0.4
+                            self.push_icon.layer.add(animation, forKey: nil)
+                            self.push_text.layer.add(animation, forKey: nil)
+                            self.push_button.layer.add(animation, forKey: nil)
+                            
+                            NSLog("---MapViewController reqest!")
+                            self.push_icon.isHidden = false
+                            self.push_text.isHidden = false
+                            self.push_button.isHidden = false
+                            
+                            NSLog("---MapViewController shop lat lng")
+                            let tmplocations:NSArray = values["location"] as! NSArray
+                            NSLog("\(tmplocations[0])")
+                            NSLog("\(tmplocations[1])")
                                             
-                                            let animation:CATransition = CATransition()
-                                            animation.type = kCATransitionFade
-                                            animation.duration = 0.4
-                                            self.push_icon.layer.add(animation, forKey: nil)
-                                            self.push_text.layer.add(animation, forKey: nil)
-                                            self.push_button.layer.add(animation, forKey: nil)
+                            let tmpshoplat:CLLocationDegrees = atof("\(tmplocations[1])")
+                            let tmpshoplng:CLLocationDegrees = atof("\(tmplocations[0])")
                                             
-                                            NSLog("---MapViewController reqest!")
-                                            self.push_icon.isHidden = false
-                                            self.push_text.isHidden = false
-                                            self.push_button.isHidden = false
+                            appDelegate._shoplat = tmpshoplat
+                            appDelegate._shoplng = tmpshoplng
+                            appDelegate._shoptitle = values["place"] as! String!
+                            appDelegate._shopimage = values["placeimg"] as! String!
+                            appDelegate._time = values["time"] as! Int!
+                            
+                            print("shopimage URL is:")
+                            print(appDelegate._shopimage)
+                            
+                            //初回
+                            if(appDelegate._pushId != nil){
+                                if(appDelegate._pushId == values["_id"] as! String){
+                                    return
+                                }
+                            }
                                             
-                                            NSLog("---MapViewController shop lat lng")
-                                            let tmplocations:NSArray = values["location"] as! NSArray
-                                            NSLog("\(tmplocations[0])")
-                                            NSLog("\(tmplocations[1])")
+                            appDelegate._pushId = values["_id"] as! String
                                             
-                                            let tmpshoplat:CLLocationDegrees = atof("\(tmplocations[1])")
-                                            let tmpshoplng:CLLocationDegrees = atof("\(tmplocations[0])")
-                                            
-                                            appDelegate._shoplat = tmpshoplat
-                                            appDelegate._shoplng = tmpshoplng
-                                            appDelegate._shoptitle = values["place"] as! String!
-                                            appDelegate._shopimage = values["placeimg"] as! String!
-                                            appDelegate._time = values["time"] as! Int!
-                                            
-                                            print("shopimage URL is:")
-                                            print(appDelegate._shopimage)
-                                            
-                                            //初回
-                                            if(appDelegate._pushId != nil){
-                                                if(appDelegate._pushId == values["_id"] as! String){
-                                                    return
-                                                }
-                                            }
-                                            
-                                            appDelegate._pushId = values["_id"] as! String
-                                            
-                                            //ローカル通知
-                                            let notification = UILocalNotification()
-                                            //ロック中にスライドで〜〜のところの文字
-                                            notification.alertAction = "アプリを開く"
-                                            //通知の本文
-                                            notification.alertBody = "リクエストを受信中です！"
-                                            //通知される時間（とりあえず5秒後に設定）
-                                            notification.fireDate = Date(timeIntervalSinceNow:1)
-                                            //通知音
-                                            notification.soundName = UILocalNotificationDefaultSoundName
-                                            //アインコンバッジの数字
-                                            //notification.applicationIconBadgeNumber = 1
-                                            //通知を識別するID
-                                            notification.userInfo = ["notifyID":"SuperNova"]
-                                            //通知をスケジューリング
-                                            appDelegate._application.scheduleLocalNotification(notification)
-                                        }
-                                        
-                                        
-                                        NSLog(values.debugDescription);
-                                        appDelegate._partner = values["student"] as! String;
-                                        appDelegate._idpartner = values["_id"] as! String;
-                                        
-                                    }
-                                    // 通知の監視
-                                    if(!Thread.isMainThread){
-                                        NSLog("---MapViewController !NSThread.isMainThread()");
-                                        DispatchQueue.main.sync {
-                                            closure()
-                                        }
-                                    } else {
-                                        NSLog("---MapViewController closure");
-                                        // 恐らく実行されない
-                                        closure()
-                                    }
-                                    
-            },
-                                   failed: {
-                                    id, message in let closure = {
-                                        NSLog("---MapViewController MergerAPI.searchRequest failed");
-                                        /**
-                                         * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
-                                         Indicator.windowClose()
-                                         */
-                                        // 失敗した場合エラー情報を表示
-                                        if(id == -2) {
-                                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
-                                                message: NSLocalizedString("MAX_FILE_SIZE_OVER", comment: ""));
-                                        } else {
-                                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
-                                                message: NSLocalizedString("ALERT_MESSAGE_NETWORK_ERROR", comment: ""));
-                                        }
-                                        ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toMapView")
-                                    }
-                                    // 通知の監視
-                                    if(!Thread.isMainThread){
-                                        NSLog("---MapViewController !NSThread.isMainThread() 2");
-                                        DispatchQueue.main.sync {
-                                            NSLog("---MapViewController closure 2");
-                                            closure()
-                                        }
-                                    } else {
-                                        NSLog("---MapViewController closure 3");
-                                        //恐らく実行されない
-                                        closure()
-                                    }
-            }
+                            //ローカル通知
+                            let notification = UILocalNotification()
+                            //ロック中にスライドで〜〜のところの文字
+                            notification.alertAction = "アプリを開く"
+                            //通知の本文
+                            notification.alertBody = "リクエストを受信中です！"
+                            //通知される時間（とりあえず5秒後に設定）
+                            notification.fireDate = Date(timeIntervalSinceNow:1)
+                            //通知音
+                            notification.soundName = UILocalNotificationDefaultSoundName
+                            //アインコンバッジの数字
+                            //notification.applicationIconBadgeNumber = 1
+                            //通知を識別するID
+                            notification.userInfo = ["notifyID":"SuperNova"]
+                            //通知をスケジューリング
+                            appDelegate._application.scheduleLocalNotification(notification)
+                        }
+                        
+                        NSLog(values.debugDescription);
+                        appDelegate._partner = values["student"] as! String;
+                        appDelegate._idpartner = values["_id"] as! String;
+                        
+                    }
+                    // 通知の監視
+                    if(!Thread.isMainThread){
+                        NSLog("---MapViewController !NSThread.isMainThread()");
+                        DispatchQueue.main.sync {
+                            closure()
+                        }
+                    } else {
+                            NSLog("---MapViewController closure");
+                            closure()   // 恐らく実行されない
+                    }
+                },
+                failed: {
+                    id, message in let closure = {
+                        NSLog("---MapViewController MergerAPI.searchRequest failed");
+                        /**
+                         *  ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
+                            Indicator.windowClose()
+                         */
+                        // 失敗した場合エラー情報を表示
+                        if(id == -2) {
+                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),                                    message: NSLocalizedString("MAX_FILE_SIZE_OVER", comment: ""));
+                        } else {
+                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),                                            message: NSLocalizedString("ALERT_MESSAGE_NETWORK_ERROR", comment: ""));
+                        }
+                        ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toMapView")
+                    }
+                    // 通知の監視
+                    if(!Thread.isMainThread){
+                        NSLog("---MapViewController !NSThread.isMainThread() 2");
+                        DispatchQueue.main.sync {
+                            NSLog("---MapViewController closure 2");
+                            closure()
+                        }
+                    } else {
+                            NSLog("---MapViewController closure 3");
+                            closure()   //恐らく実行されない
+                    }
+                }
         )
-        
         
     }
     
@@ -449,11 +331,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         searchAroudMe(self.googleMap, lat:latitude, lon:longitude);
         
     }
-    /*
-    internal func onClickLocationButton(sender: UIButton){
-        googleMap.animateToLocation(CLLocationCoordinate2DMake(self.latitude, self.longitude))
-    }
-     */
 
     @IBOutlet weak var RefreshSearchButton: UIButton!
     @IBAction func RefreshSearch(_ sender: UIButton) {
@@ -468,7 +345,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         var page_token:String = ""
         
         let tmpImage = UIImage(named:"icon_shop_spot_orange");
-        //let size = CGSize(width: 20, height: 30)
         let size = CGSize(width: self.appDelegate._mw, height: self.appDelegate._mh)
         UIGraphicsBeginImageContext(size)
         tmpImage?.draw(in: CGRect(x: 0,y: 0,width: size.width,height: size.height))
@@ -553,27 +429,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                         }else{
                                             let photo_reference = (photos as AnyObject).mutableArrayValue(forKeyPath: "photo_reference")
                                             let tmpurl = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=80&photoreference=\((photo_reference.firstObject as! String))&key=\(self.appDelegate.googleMapsApiKey)" as? String
-                                        
-                                        //NSLog("tmpurl:\(tmpurl)")
-                                        //NSLog("photos:\(photos)")
-                                        //NSLog("photo_reference:\(photo_reference)")
-                                        //"https://maps.googleapis.com/maps/api/place/photo?key=AIzaSyC3J5uA2FEqxAGTWAFsZ8J-RJ5eqmUnnRQ&photoreference=\(photosRefJson.firstObject)"
-                                        
-                                        //var err: NSError?
-                                        //let imageData :Data = try! Data(contentsOf: URL(string: tmpurl! as! String)! );
                                             self.markerimgurl.append((tmpurl! as? String)!)
                                         }
-                                        
-                                        //marker.icon = UIImage(named:"icon_shop_spot_orange");
                                         
                                         marker.icon = resizeImage
                                         marker.userData = self.markerId
                                         self.markerId = self.markerId + 1
                                         
-                                        //marker.icon = UIImage(named:"marker");
-                                        //marker.icon = UIImage(named: "usagi_icon")
                                         self.markerindex.append((result["name"] as? String)!)
-                                        
                                         self.markerArray.append(marker)
                                         
                                         marker.map = self.googleMap
@@ -601,9 +464,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     // 周辺施設選択時に呼ばれる
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        //NSLog("marker:\(marker)")
-        //NSLog("title:\(marker.title)")
-        //NSLog("icon :\(marker.icon)")
 
         var tmpImage = UIImage(named:"icon_shop_spot_orange");
         //let size = CGSize(width: 20, height: 30)
@@ -638,16 +498,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         }
         
         MarkerTitle.text = marker.title
-        //MarkerImage.image = markerimg
-        
-        //NSLog("imgurl:\(markerimgurl[markerindex.index(of: MarkerTitle.text!)!])")
-        //let idx = markerindex.index(of: "\(marker.title)")
-        //NSLog("index :\(idx)")
-        
-        
-        NSLog("Debug")
-        //NSLog(markerindex.description)
-        //NSLog(markerimgurl.description)
         
         let idx = markerindex.index(of: (marker.title)!)! as Int
         appDelegate._shopimage = markerimgurl[idx] as String
