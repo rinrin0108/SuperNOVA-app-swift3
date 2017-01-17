@@ -56,10 +56,6 @@ class TeacherWaitingMapViewController: UIViewController, CLLocationManagerDelega
         googleMap.setMinZoom(15, maxZoom: 19)
         googleMap.isMyLocationEnabled = true
         googleMap.settings.myLocationButton = true
-
-        //NSLog("Debug TeacherWatingView test")
-        //callWebService()
-        //NSLog("Debug TeacherWatingView")
         
         self.view.addSubview(googleMap)
         self.googleMap.delegate = self;
@@ -102,72 +98,61 @@ class TeacherWaitingMapViewController: UIViewController, CLLocationManagerDelega
     
         let mcenter = CLLocationCoordinate2DMake(appDelegate._shoplat,appDelegate._shoplng);
         marker = GMSMarker(position: mcenter)
-        //marker.icon = UIImage(named: "marker");
-        //marker.icon = UIImage(named: "icon_shop_spot_green")
-        //marker.map = self.googleMap
     }
 
-    
-    
     @IBAction func checkin(_ sender: UIButton) {
         MergerAPI.responseTeacher(appDelegate._userid, _id: appDelegate._idpartner ,sync: true,
-                                  success:{
-                                    values in let closure = {
-                                        NSLog("---MapViewController MergerAPI.responseTeacher success");
-                                        // 通信は成功したが、エラーが返ってきた場合
-                                        if(API.isError(values)){
-                                            NSLog("---MapViewController MergerAPI.responseTeacher isError");
-                                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
-                                                                 message: values["errorMessage"] as! String)
-                                            return
-                                        }
-                                        
-                                        NSLog(values.debugDescription);
-                                        ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toEncounterView")
-                                        
-                                    }
-                                    // 通知の監視
-                                    if(!Thread.isMainThread){
-                                        NSLog("---MapViewController !NSThread.isMainThread() in success");
-                                        DispatchQueue.main.sync {
-                                            NSLog("---MapViewController dispatch_sync");
-                                            closure()
-                                        }
-                                    } else {
-                                        NSLog("---MapViewController dispatch_sync else");
-                                        // 恐らく実行されない
-                                        closure()
-                                    }
-        },
-                                  failed: {
-                                    id, message in let closure = {
-                                        NSLog("---MapViewController MergerAPI.responseTeacher failed");
-                                        /**
-                                         * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
-                                         Indicator.windowClose()
-                                         */
-                                        // 失敗した場合エラー情報を表示
-                                        if(id == -2) {
-                                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
-                                                                 message: NSLocalizedString("MAX_FILE_SIZE_OVER", comment: ""));
-                                        } else {
-                                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
-                                                                 message: NSLocalizedString("ALERT_MESSAGE_NETWORK_ERROR", comment: ""));
-                                        }
-                                    }
-                                    // 通知の監視
-                                    if(!Thread.isMainThread){
-                                        NSLog("---MapViewController !NSThread.isMainThread() in failed");
-                                        DispatchQueue.main.sync {
-                                            NSLog("---MapViewController dispatch_sync");
-                                            closure()
-                                        }
-                                    } else {
-                                        NSLog("---MapViewController dispatch_sync else");
-                                        //恐らく実行されない
-                                        closure()
-                                    }
-        })
+            success:{
+                values in let closure = {
+                    NSLog("---MapViewController MergerAPI.responseTeacher success");
+                    // 通信は成功したが、エラーが返ってきた場合
+                    if(API.isError(values)){
+                        NSLog("---MapViewController MergerAPI.responseTeacher isError");
+                        AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),message: values["errorMessage"] as! String)
+                        return
+                    }
+                    NSLog(values.debugDescription);
+                    ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toEncounterView")
+                }
+                // 通知の監視
+                if(!Thread.isMainThread){
+                    NSLog("---MapViewController !NSThread.isMainThread() in success");
+                    DispatchQueue.main.sync {
+                        NSLog("---MapViewController dispatch_sync");
+                        closure()
+                    }
+                } else {
+                        NSLog("---MapViewController dispatch_sync else");
+                        closure()   // 恐らく実行されない
+                }
+            },
+            failed: {
+                id, message in let closure = {
+                    NSLog("---MapViewController MergerAPI.responseTeacher failed");
+                    /**
+                     *  ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
+                        Indicator.windowClose()
+                     */
+                    // 失敗した場合エラー情報を表示
+                    if(id == -2) {
+                        AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),message: NSLocalizedString("MAX_FILE_SIZE_OVER", comment: ""));
+                    } else {
+                        AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),message: NSLocalizedString("ALERT_MESSAGE_NETWORK_ERROR", comment: ""));
+                    }
+                }
+                // 通知の監視
+                if(!Thread.isMainThread){
+                    NSLog("---MapViewController !NSThread.isMainThread() in failed");
+                    DispatchQueue.main.sync {
+                        NSLog("---MapViewController dispatch_sync");
+                        closure()
+                    }
+                } else {
+                        NSLog("---MapViewController dispatch_sync else");
+                        closure()   //恐らく実行されない
+                }
+            }
+        )
     }
     
     func callWebService(){
@@ -196,21 +181,12 @@ class TeacherWaitingMapViewController: UIViewController, CLLocationManagerDelega
                     print(pointString)
                     
                     
-                    //let overViewPolyLine = routes![0]["overview_polyline"]!!["points"] as! String
-//                    let overViewPolyLine = (((routes as! NSDictionary)[0] as! NSDictionary)["overview_polyline"] as! NSDictionary)["points"] as! String
-                    //print(overViewPolyLine)
-                    
                     if pointString != ""{
-                        
                         //Call on Main Thread
                         DispatchQueue.main.async {
-                            
                             self.addPolyLineWithEncodedStringInMap(pointString)
                         }
-                        
-                        
                     }
-                    
                     
                 }
             }
@@ -234,7 +210,6 @@ class TeacherWaitingMapViewController: UIViewController, CLLocationManagerDelega
         let dmarker = GMSMarker()
         dmarker.position = CLLocationCoordinate2D(latitude: appDelegate._shoplat, longitude: appDelegate._shoplng)
         dmarker.title = appDelegate._shoptitle
-        //dmarker.icon = UIImage(named: "icon_shop_spot_green")
         let tmpImage = UIImage(named:"usagi_icon");//UIImage(named:"icon_shop_spot_orange");
         let size = CGSize(width: self.appDelegate._uiw, height: self.appDelegate._uih)
         UIGraphicsBeginImageContext(size)
@@ -242,7 +217,6 @@ class TeacherWaitingMapViewController: UIViewController, CLLocationManagerDelega
         var resizeImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         dmarker.icon = resizeImage
-        //dmarker.snippet = appDelegate._shopsnippet
         dmarker.map = self.googleMap
         
         shopName.text = appDelegate._shoptitle
