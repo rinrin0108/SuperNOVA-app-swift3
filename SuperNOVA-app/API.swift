@@ -54,7 +54,7 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
         fileprivate static let domain_protocol  : String            = "https://"
         //        private static let domain_protocol  : String            = "http://"
         /// デフォルトドメイン
-        fileprivate static let domain           : String            = "www.supernova-hack.com";
+        fileprivate static let domain           : String            = "yizwzmodg9.execute-api.ap-northeast-1.amazonaws.com/prod/";
         //        private static let domain           : String            = "localhost";
         //POST用URL
         fileprivate static let post_domain      : String            = "\(domain_protocol)\(domain)/"
