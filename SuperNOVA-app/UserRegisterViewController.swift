@@ -139,8 +139,13 @@ class UserRegisterViewController: UIViewController {
     func viewDidLoad() {
         super.viewDidLoad()
         NSLog("---UserRegisterViewController viewDidLoad");
+        self.setUserData()
+//        registUserBtn.isUserInteractionEnabled = false
+    }
+    
+    private func setUserData(){
+        NSLog("---UserRegisterViewController registUser");
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
-        
         //アプリが保持するログイン情報を反映
         let userLoginInfo = AccountInfo.searchLoginData();
         if(userLoginInfo != nil){
@@ -174,18 +179,17 @@ class UserRegisterViewController: UIViewController {
             //Facebookがログイン済みの場合その情報を反映させる。
             if (FBSDKAccessToken.current() != nil) {
                 NSLog("---UserRegisterViewController FBSDKAccessToken.currentAccessToken()");
+
                 let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me",
                                                                          parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"])
                 graphRequest.start(completionHandler: {
                     connection, result, error in
+                    let closure = {
                     
-                    if error != nil
-                    {
+                    if error != nil{
                         // エラー処理
                         NSLog("Error: \(error)")
-                    }
-                    else
-                    {
+                    }else{
                         NSLog("---UserRegisterViewController graphRequest.startWithCompletionHandler success");
                         // プロフィール情報をディクショナリに入れる
                         let userProfile : NSDictionary! = result as! NSDictionary
@@ -225,11 +229,21 @@ class UserRegisterViewController: UIViewController {
                         NSLog("isLoaded in fb");
                         self.isLoaded = true
                     }
+                    }
+                    if(!Thread.isMainThread){
+                        NSLog("---UserRegisterViewController !NSThread.isMainThread()");
+                        DispatchQueue.main.sync {
+                            NSLog("---UserRegisterViewController dispatch_sync");
+                            closure()
+                        }
+                    } else {
+                        NSLog("---UserRegisterViewController Thread.isMainThread");
+                        closure()
+                    }
                 })
             }
+            
         }
-        
-        registUserBtn.isUserInteractionEnabled = false
     }
     
     @IBOutlet weak var registUserBtn: UIButton!

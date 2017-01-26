@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     override
     func viewDidLoad() {
         super.viewDidLoad()
+        NSLog("---LoginViewController viewDidLoad");
         //キャッシュを消す
         URLCache.shared.removeAllCachedResponses()
         URLCache.shared.diskCapacity = 0
@@ -54,8 +55,6 @@ class LoginViewController: UIViewController {
                                                          message: NSLocalizedString("ALERT_LOGIN_FAILED_ERROR", comment: ""));
                         } else if !(result?.isCancelled)! {
                             NSLog("---LoginViewController Login success with Facebook");
-                            //ログインが成功
-                            ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toUserRegisterView")
                         }
                     }
                             
@@ -72,6 +71,14 @@ class LoginViewController: UIViewController {
                     }
                 }
             )
+        }
+    }
+    
+    override func viewDidAppear(_ animated:Bool){
+        NSLog("---LoginViewController viewDidAppear");
+        if (FBSDKAccessToken.current() != nil) {
+            NSLog("---LoginViewController FBSDKAccessToken.current()");
+            ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toUserRegisterView")
         }
     }
 }
