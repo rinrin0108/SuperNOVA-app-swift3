@@ -98,7 +98,7 @@ final class AccountInfo {
     
     //ログイン認可を行う。アプリに登録されている情報からからユーザー情報を取得する。（NSUserDefaults永続化）
     static func searchLoginData() -> [String : Any]? {
-        NSLog("---LoginViewController searchLoginData")
+        NSLog("---AccountInfo searchLoginData")
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
         
         let defaults = UserDefaults.standard;
@@ -117,7 +117,7 @@ final class AccountInfo {
                 }else if(key == "lastname"){
                     appDelegate._lastname = value as! String
                 }else{
-                    NSLog("---LoginViewController what is this data ?")
+                    NSLog("---AccountInfo what is this data ?")
                 }
             }
         }

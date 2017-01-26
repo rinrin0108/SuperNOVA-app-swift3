@@ -67,8 +67,8 @@ class LoginViewController: UIViewController {
                             closure()
                         }
                     } else {
-                            NSLog("---LoginViewController dispatch_sync else");
-                            closure()   // 恐らく実行されない
+                        NSLog("---LoginViewController Thread.isMainThread");
+                        closure()   // 恐らく実行されない
                     }
                 }
             )

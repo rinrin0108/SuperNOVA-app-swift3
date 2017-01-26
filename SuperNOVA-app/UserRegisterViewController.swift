@@ -159,13 +159,15 @@ class UserRegisterViewController: UIViewController {
             NSLog(self.profileImageURL);
             let profileImageURL : String = appDelegate._image as String
             if profileImageURL != "" {
-                NSLog("---UserRegisterViewController profileImageURL is not null");
+                NSLog("---UserRegisterViewController profileImageURL is not null in memory");
                 let profileImage : UIImage? = API.downloadImage(profileImageURL)
                 self.profile.image = profileImage
                 self.selectImage = profileImage
                 self.profile.layer.cornerRadius = self.profile.frame.size.width / 2
                 self.profile.clipsToBounds = true
             }
+            NSLog("isLoaded");
+            isLoaded = true
             
         }else{
             
@@ -220,14 +222,14 @@ class UserRegisterViewController: UIViewController {
                         self.profileImageURL = profileImageURL
                         NSLog("self.profileImageURL");
                         NSLog(self.profileImageURL);
+                        NSLog("isLoaded in fb");
+                        self.isLoaded = true
                     }
                 })
             }
         }
-        NSLog("isLoaded");
-        isLoaded = true
         
-        //registUserBtn.isUserInteractionEnabled = false
+        registUserBtn.isUserInteractionEnabled = false
     }
     
     @IBOutlet weak var registUserBtn: UIButton!
@@ -237,7 +239,10 @@ class UserRegisterViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        NSLog("---UserRegisterViewController viewDidAppear");
+        
         if isLoaded{
+            NSLog("---UserRegisterViewController isLoaded");
             for subview in self.view.subviews{
                 subview.isHidden = false
             }
