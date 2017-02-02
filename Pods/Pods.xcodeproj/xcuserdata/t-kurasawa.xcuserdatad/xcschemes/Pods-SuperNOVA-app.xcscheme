@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0810"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E8E376EBFE0EB2C519CDE8C6039083FE"
+               BlueprintIdentifier = "08998B237BFB8BD89AA5A08214ED65E4"
                BuildableName = "Pods_SuperNOVA_app.framework"
                BlueprintName = "Pods-SuperNOVA-app"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E8E376EBFE0EB2C519CDE8C6039083FE"
+            BlueprintIdentifier = "08998B237BFB8BD89AA5A08214ED65E4"
             BuildableName = "Pods_SuperNOVA_app.framework"
             BlueprintName = "Pods-SuperNOVA-app"
             ReferencedContainer = "container:Pods.xcodeproj">
@@ -60,15 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E8E376EBFE0EB2C519CDE8C6039083FE"
-            BuildableName = "Pods_SuperNOVA_app.framework"
-            BlueprintName = "Pods-SuperNOVA-app"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -15,7 +15,7 @@ class CallViewController: UIViewController {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         shopName.text = appDelegate._shoptitle
         
-        let imageData :Data = try! Data(contentsOf: URL(string: appDelegate._shopimage as! String)! );
+        let imageData :Data = try! Data(contentsOf: URL(string: appDelegate._shopimage as String)! );
         shopImage.image = UIImage(data:imageData)
         
         //selectTimeBtn.isUserInteractionEnabled = false

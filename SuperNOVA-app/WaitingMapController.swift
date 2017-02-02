@@ -39,7 +39,7 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
         
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
        
-        let shopimage_encoded = appDelegate._shopimage.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.alphanumerics)
+        let shopimage_encoded = appDelegate._shopimage.addingPercentEncoding(withAllowedCharacters: CharacterSet.alphanumerics)
         
         NSLog(appDelegate._shopimage.description)
         print(shopimage_encoded)
@@ -315,14 +315,14 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
         let size = CGSize(width: self.appDelegate._uiw, height: self.appDelegate._uih)
         UIGraphicsBeginImageContext(size)
         tmpImage?.draw(in: CGRect(x: 0,y: 0,width: size.width,height: size.height))
-        var resizeImage = UIGraphicsGetImageFromCurrentImageContext()
+        let resizeImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         dmarker.icon = resizeImage
         dmarker.map = self.googleMap
         
         shopName.text = appDelegate._shoptitle
         
-        let imageData :Data = try! Data(contentsOf: URL(string: appDelegate._shopimage as! String)! );
+        let imageData :Data = try! Data(contentsOf: URL(string: appDelegate._shopimage as String)! );
         shopImage.image = UIImage(data:imageData)
         
     }

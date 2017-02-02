@@ -63,7 +63,7 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
         fileprivate static let get_domain       : String            = using_basic ? "\(domain_protocol)\(basic_user):\(basic_password)@\(domain)/" : "\(domain_protocol)\(domain)/";
         
         
-        fileprivate static let base64EncodedCredential              = "\(basic_user):\(basic_password)".data(using: String.Encoding.utf8)!.base64EncodedString(options: NSData.Base64EncodingOptions.lineLength64Characters)
+        fileprivate static let base64EncodedCredential              = "\(basic_user):\(basic_password)".data(using: String.Encoding.utf8)!.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters)
         fileprivate static let basic_auth_word                      = "Basic \(base64EncodedCredential)"
         
         
@@ -163,7 +163,7 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
                 //キャッシュ制御
                 if !isCached {
                     NSLog("API !isCached");
-                    request.cachePolicy     = NSURLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData
+                    request.cachePolicy     = URLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData
                 }
                 
             }else{
@@ -191,7 +191,7 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
                 //キャッシュ制御
                 if !isCached {
                     NSLog("API !isCached 2");
-                    request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData
+                    request.cachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData
                 }
             }
             
@@ -362,7 +362,7 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
             //キャッシュ制御
             if !isCached {
                 NSLog("API !isCached");
-                request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData
+                request.cachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData
             }
             
             
@@ -659,7 +659,7 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
                 
                 //キャッシュ制御
                 if !isCached {
-                    request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData
+                    request.cachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData
                 }
                 
                 let task = session.dataTask(with: request as URLRequest, completionHandler: {
@@ -711,7 +711,7 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
                 
                 //キャッシュ制御
                 if !isCached {
-                    request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData
+                    request.cachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData
                 }
                 
                 let task = session.dataTask(with: request as URLRequest, completionHandler: {

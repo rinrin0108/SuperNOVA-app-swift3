@@ -26,7 +26,7 @@ class EncounterViewController: UIViewController {
         //時間
         //self.time_label.text = appDelegate._time + ":00"
         countNum = appDelegate._time * 6000
-        self.time_label.text = timeFormat(num: countNum)
+        self.time_label.text = timeFormat(countNum)
         
         //生徒
         self.name_student.text = appDelegate._fullname
@@ -198,7 +198,7 @@ class EncounterViewController: UIViewController {
     
     func update() {
         countNum -= 1
-        self.time_label.text = timeFormat(num: countNum)
+        self.time_label.text = timeFormat(countNum)
         if(countNum <= 0){
             //start_btn.setTitle("END", for: UIControlState.normal)
             //start_btn.setBackgroundImage(UIImage(named: "btn_green"), for: UIControlState.normal)
@@ -207,7 +207,7 @@ class EncounterViewController: UIViewController {
         }
     }
     
-    func timeFormat(num :Int)-> String {
+    func timeFormat(_ num :Int)-> String {
         //        if num < 0 { num = 0 }
         let num = num
         let ms = num % 100

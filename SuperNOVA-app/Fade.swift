@@ -15,7 +15,7 @@ public extension UIView {
      
      - parameter duration: custom animation duration
      */
-    func fadeIn(duration duration: TimeInterval = 1.0) {
+    func fadeIn(duration: TimeInterval = 1.0) {
         UIView.animate(withDuration: duration, delay:1.0, animations: {
             self.alpha = 1.0
         })
@@ -26,7 +26,7 @@ public extension UIView {
      
      - parameter duration: custom animation duration
      */
-    func fadeOut(duration duration: TimeInterval = 1.0) {
+    func fadeOut(duration: TimeInterval = 1.0) {
         UIView.animate(withDuration: duration, delay:1.0, animations: {
             self.alpha = 0.0
         })

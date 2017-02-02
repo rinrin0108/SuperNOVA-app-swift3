@@ -5,21 +5,38 @@ PODS:
   - GoogleMaps/Base (2.1.0)
   - GoogleMaps/Maps (2.1.0):
     - GoogleMaps/Base (= 2.1.0)
+  - Mockingjay (2.0.0):
+    - Mockingjay/Core (= 2.0.0)
+    - Mockingjay/XCTest (= 2.0.0)
+  - Mockingjay/Core (2.0.0):
+    - URITemplate (~> 2.0)
+  - Mockingjay/XCTest (2.0.0):
+    - Mockingjay/Core
+  - Nimble (5.0.0)
   - ObjectMapper (2.0.0)
+  - Quick (1.0.0)
   - SVProgressHUD (2.0.3)
+  - URITemplate (2.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - GoogleMaps
+  - Mockingjay
+  - Nimble (~> 5.0.0)
   - ObjectMapper (~> 2.0.0)
+  - Quick (~> 1.0.0)
   - SVProgressHUD
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   GoogleMaps: 06589b9a38097bce0cd6e90f0fd9b5e4b4a9344c
+  Mockingjay: 7122a3fc0597aa63438e4cd9b71b7bc8aac05b87
+  Nimble: 56fc9f5020effa2206de22c3dd910f4fb011b92f
   ObjectMapper: aed2570edabbd3c9b26c939e1cabdb6558f933e0
+  Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  URITemplate: a5acb3f76c6a2338116fde88b658d83f91bbac45
 
-PODFILE CHECKSUM: b0d46cdca759fdd2ef9d849a671f97540fb28295
+PODFILE CHECKSUM: 5ac61a290e86dcae89990bb548193ea8b4a198d0
 
-COCOAPODS: 1.2.0.beta.1
+COCOAPODS: 1.0.1

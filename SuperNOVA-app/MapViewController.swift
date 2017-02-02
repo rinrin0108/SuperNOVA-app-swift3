@@ -420,7 +420,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                         marker.title = result["name"] as? String
                                         //let tmpurl = NSURL(string: result["icon"]);
                                         //let tmpurl = result["icon"]
-                                        var photos = result["photos"]
+                                        let photos = result["photos"]
                                         if(photos == nil){
                                             print("no photos")
                                             //photos = result["icon"]
@@ -503,7 +503,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         appDelegate._shopimage = markerimgurl[idx] as String
         //NSLog("\(markerindex.index(of: (marker.title)!))")
         
-        let imageData :Data = try! Data(contentsOf: URL(string: appDelegate._shopimage as! String)! );
+        let imageData :Data = try! Data(contentsOf: URL(string: appDelegate._shopimage as String)! );
         MarkerImage.image = UIImage(data:imageData)
         
         appDelegate._shoplat = marker.position.latitude
@@ -524,13 +524,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func backWithSegue( segue: UIStoryboardSegue) {
+    @IBAction func backWithSegue( _ segue: UIStoryboardSegue) {
         NSLog("back")
     }
     
-    private var _animating = false
-    private var _stopAnimation = false
-    private func startAnimation() {
+    fileprivate var _animating = false
+    fileprivate var _stopAnimation = false
+    fileprivate func startAnimation() {
         if _stopAnimation {
             return
         }

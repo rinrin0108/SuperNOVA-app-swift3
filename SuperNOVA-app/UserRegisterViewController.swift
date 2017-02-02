@@ -143,7 +143,7 @@ class UserRegisterViewController: UIViewController {
 //        registUserBtn.isUserInteractionEnabled = false
     }
     
-    private func setUserData(){
+    fileprivate func setUserData(){
         NSLog("---UserRegisterViewController registUser");
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得
         //アプリが保持するログイン情報を反映
