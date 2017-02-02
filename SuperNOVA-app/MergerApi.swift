@@ -26,17 +26,27 @@ class MergerAPI {
     /// - parameter success:        成功時コールバックメソッド(let Dictionary<String,AnyObject>) -> Void!)
     /// - parameter failed:         失敗時コールバックメソッド(let (Int?,String?) -> Void?)
     ///
-    static func requestTeacher(_ userId : String!, lat : String?, lng : String?, lang : String?, place : String?, time : Int?, img: String?, sync : Bool!, success:((Dictionary<String,AnyObject>) -> Void)!, failed:((Int?,String?) -> Void)?){
+    static func requestTeacher(_ userId : String?, lat : String?, lng : String?, lang : String?, place : String?, time : Int?, img: String?, sync : Bool!, success:((Dictionary<String,AnyObject>) -> Void)!, failed:((Int?,String?) -> Void)?){
+
+        //バリデーションチェック
+        guard userId != nil else {return}
+        guard lat != nil else {return}
+        guard lng != nil else {return}
+        guard lang != nil else {return}
+        guard place != nil else {return}
+        guard time != nil else {return}
+        guard img != nil else {return}
         
+
         //パラメータの設定
         var params : Dictionary<String,String?>= Dictionary<String,String?>()
         params.updateValue(userId,  forKey: "userid")
-        params.updateValue(lat!,    forKey: "lat")
-        params.updateValue(lng!,    forKey: "lng")
-        params.updateValue(lang!,    forKey: "lang")
-        params.updateValue(place!,    forKey: "place")
-        params.updateValue(String(time!),    forKey: "time")
-        params.updateValue(img!, forKey: "img")
+        params.updateValue(lat,    forKey: "lat")
+        params.updateValue(lng,    forKey: "lng")
+        params.updateValue(lang,    forKey: "lang")
+        params.updateValue(place,    forKey: "place")
+        params.updateValue(String(describing: time),    forKey: "time")
+        params.updateValue(img, forKey: "img")
         
         //リクエストの送信
         //API.request("requestTeacher", methodName: APIHTTPMethod.GET, params: params, sync: sync, success: success, failed: failed)
