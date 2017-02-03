@@ -64,7 +64,7 @@ class MapVCTest: XCTestCase {
         mainVC.markerimgurl.append("https://s3-ap-northeast-1.amazonaws.com/supernova-hack/noimage.png")
         
         //条件設定
-//        mainVC._animating = true
+        mainVC._animating = true
         
         
         let result =  mainVC.mapView(mainVC.googleMap, didTap: marker)
@@ -86,7 +86,7 @@ class MapVCTest: XCTestCase {
         mainVC.markerimgurl.append("https://s3-ap-northeast-1.amazonaws.com/supernova-hack/noimage.png")
         
         //条件設定
-//        mainVC._animating = false
+        mainVC._animating = false
         
         
         let result =  mainVC.mapView(mainVC.googleMap, didTap: marker)

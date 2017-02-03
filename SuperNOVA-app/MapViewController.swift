@@ -528,7 +528,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         NSLog("back")
     }
     
-    fileprivate var _animating = false
+    var _animating = false
     fileprivate var _stopAnimation = false
     fileprivate func startAnimation() {
         if _stopAnimation {

@@ -28,16 +28,6 @@ class MergerAPI {
     ///
     static func requestTeacher(_ userId : String?, lat : String?, lng : String?, lang : String?, place : String?, time : Int?, img: String?, sync : Bool!, success:((Dictionary<String,AnyObject>) -> Void)!, failed:((Int?,String?) -> Void)?){
 
-        //バリデーションチェック
-        guard userId != nil else {return}
-        guard lat != nil else {return}
-        guard lng != nil else {return}
-        guard lang != nil else {return}
-        guard place != nil else {return}
-        guard time != nil else {return}
-        guard img != nil else {return}
-        
-
         //パラメータの設定
         var params : Dictionary<String,String?>= Dictionary<String,String?>()
         params.updateValue(userId,  forKey: "userid")
