@@ -317,6 +317,7 @@ class RequestTeacherTest: QuickSpec {
                         errorCode = id
                         errorMessage = message
                     })
+                    
                     expect(errorCode).toNotEventually(beNil())
                     expect(errorMessage).toNotEventually(beNil())
                     expect(id).toEventually(beNil())
